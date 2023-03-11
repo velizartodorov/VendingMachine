@@ -20,7 +20,7 @@ object VendingMachine {
         val tea = Order.Builder()
             .drink(TEA)
             .withMilk(NONE)
-            .withSize(MEDIUM)
+            .withStrength(MEDIUM)
             .withSugar(NONE)
             .withPrice(20)
             .order()
