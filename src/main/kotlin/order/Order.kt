@@ -2,10 +2,9 @@ package order
 
 import com.google.gson.Gson
 import order.Amount.MEDIUM
-import order.Drink.COFFEE
 
 class Order {
-    var drink: Drink = COFFEE
+    var drink: Drink? = null;
     var milk: Amount = MEDIUM
     var sugar: Amount = MEDIUM
     var strength: Amount = MEDIUM
