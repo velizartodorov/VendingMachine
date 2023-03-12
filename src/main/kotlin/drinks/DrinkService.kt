@@ -2,6 +2,9 @@ package drinks
 
 import drinks.DrinkEnum.CAPPUCCINO
 import drinks.DrinkEnum.LATTE
+import drinks.impl.Cappuccino
+import drinks.impl.Drink
+import drinks.impl.Latte
 import order.Order
 
 object DrinkService {
