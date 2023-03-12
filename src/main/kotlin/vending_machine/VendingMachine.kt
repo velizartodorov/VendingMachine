@@ -27,22 +27,14 @@ object VendingMachine {
     fun testRun() {
         val drinks = Drink::class.sealedSubclasses
         for (drinkClass: KClass<out Drink> in drinks) {
-            val order = drinkClass.createInstance().testOrder()
-            prepare(order)
+            val drink = drinkClass.createInstance()
+            drink.prepareTestOrder()
         }
     }
 
     private fun prepare(order: Order) {
-        val drink = getDrink(order.drink)
-        if (order.coins!! >= drink.price()) drink.prepare() else {
-            throw IllegalArgumentException(getErrorMessage(drink, order))
-        }
+        getDrink(order.drink).prepare(order)
     }
-
-    private fun getErrorMessage(drink: Drink, order: Order) =
-        "Amount insufficient for ${drink.name()}! " +
-                "Needed amount: ${drink.price()} " +
-                "Current amount: ${order.coins}"
 
     private fun getDrink(drinkType: DrinkType?): Drink {
         val drinks = Drink::class.sealedSubclasses
