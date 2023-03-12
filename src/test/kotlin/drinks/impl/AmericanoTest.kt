@@ -3,8 +3,9 @@ package drinks.impl
 import drinks.DrinkType.AMERICANO
 import order.Amount.NONE
 import order.Order
-import order.Strength
+import order.Strength.MEDIUM
 import org.junit.jupiter.api.Test
+import kotlin.test.assertEquals
 
 internal class AmericanoTest {
     @Test
@@ -12,14 +13,14 @@ internal class AmericanoTest {
         val americano = Order.Builder()
             .drink(AMERICANO)
             .withMilk(NONE)
-            .withStrength(Strength.MEDIUM)
+            .withStrength(MEDIUM)
             .withSugar(NONE)
             .withCoins(30)
             .build()
-        kotlin.test.assertEquals(americano.drink, AMERICANO)
-        kotlin.test.assertEquals(americano.milk, NONE)
-        kotlin.test.assertEquals(americano.strength, Strength.MEDIUM)
-        kotlin.test.assertEquals(americano.sugar, NONE)
-        kotlin.test.assertEquals(americano.coins, 30)
+        assertEquals(americano.drink, AMERICANO)
+        assertEquals(americano.milk, NONE)
+        assertEquals(americano.strength, MEDIUM)
+        assertEquals(americano.sugar, NONE)
+        assertEquals(americano.coins, 30)
     }
 }
