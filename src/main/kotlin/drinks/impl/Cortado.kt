@@ -6,7 +6,7 @@ import order.Amount.NONE
 import order.Order
 import order.Strength.MEDIUM
 
-class Cortado : Drink() {
+class Cortado : Drink {
     override fun name() = CORTADO
     override fun price() = 50
     override fun test() {
