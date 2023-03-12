@@ -23,6 +23,6 @@ object DrinkService {
             val drinkInstance: Drink = kClass.createInstance()
             if (drinkInstance.name() == drink) return drinkInstance
         }
-        throw NotImplementedException("Drink doesn't exist!")
+        throw NotImplementedException("Drink doesn't exist: $drink")
     }
 }
