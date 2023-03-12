@@ -1,24 +1,41 @@
-package drinks
+package vending_machine
 
+import drinks.DrinkType
 import drinks.impl.Drink
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Order
+import vending_machine.Power.OFF
+import vending_machine.Power.ON
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
 
-object DrinkService {
-    fun order(order: Order) {
-        val drink = getDrink(order.drink)
-        if (order.coins!! >= drink.price()) drink.prepare() else {
-            throw IllegalArgumentException(getErrorMessage(drink, order))
-        }
+object VendingMachine {
+    private var power: Power = OFF
+
+    fun start() {
+        println("Starting vending machine ...")
+        println("Vending machine is ON.")
+        power = ON
+    }
+
+    fun stop() {
+        println("Stopping vending machine ...")
+        println("Vending machine is OFF.")
+        power = OFF
     }
 
     fun testRun() {
         val drinks = Drink::class.sealedSubclasses
         for (drinkClass: KClass<out Drink> in drinks) {
-            val drink: Drink = drinkClass.createInstance()
-            drink.test()
+            val order = drinkClass.createInstance().testOrder()
+            prepare(order)
+        }
+    }
+
+    private fun prepare(order: Order) {
+        val drink = getDrink(order.drink)
+        if (order.coins!! >= drink.price()) drink.prepare() else {
+            throw IllegalArgumentException(getErrorMessage(drink, order))
         }
     }
 
