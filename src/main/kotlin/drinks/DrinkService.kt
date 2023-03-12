@@ -15,7 +15,9 @@ object DrinkService {
     }
 
     private fun getErrorMessage(drink: Drink, order: Order) =
-        "Amount insufficient! Needed amount: ${drink.price()} Current amount: ${order.coins}"
+        "Amount insufficient for ${drink.name()}! " +
+                "Needed amount: ${drink.price()} " +
+                "Current amount: ${order.coins}"
 
     private fun getDrink(drink: DrinkType?): Drink {
         val drinks = Drink::class.sealedSubclasses
