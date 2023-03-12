@@ -1,6 +1,6 @@
 package drinks
 
-import order.DrinkEnum.LATTE
+import drinks.DrinkEnum.LATTE
 
 class Latte : Drink() {
     override fun name() = LATTE
