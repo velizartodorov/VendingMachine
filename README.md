@@ -6,4 +6,4 @@ Building a vending machine in Kotlin because ... why not? 🙂
 
 1. Make sure you have [azul-13-sdk](https://www.azul.com/downloads/?package=jdk) installed for
    Kotlin.
-2. Go to `src/main/kotlin/VendingMachine.kt` and run the `main()` function.
+2. Go to `src/main/kotlin/Main.kt` and run the `main()` function.
