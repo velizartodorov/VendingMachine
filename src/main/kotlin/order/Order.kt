@@ -1,6 +1,7 @@
 package order
 
 import com.google.gson.Gson
+import drinks.DrinkEnum
 
 class Order private constructor(
     val drink: DrinkEnum?,

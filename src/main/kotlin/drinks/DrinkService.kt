@@ -1,7 +1,7 @@
 package drinks
 
-import order.DrinkEnum
-import order.DrinkEnum.LATTE
+import drinks.DrinkEnum.CAPPUCCINO
+import drinks.DrinkEnum.LATTE
 import order.Order
 
 object DrinkService {
@@ -13,8 +13,9 @@ object DrinkService {
     }
 
     private fun getDrink(drink: DrinkEnum?): Drink {
-        when (drink) {
-            LATTE -> return Latte()
+        return when (drink) {
+            LATTE -> Latte()
+            CAPPUCCINO -> Cappuccino()
             else -> throw IllegalArgumentException("Drink doesn't exist or not specified!")
         }
     }

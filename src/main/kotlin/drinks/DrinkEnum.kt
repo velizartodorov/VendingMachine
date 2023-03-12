@@ -1,4 +1,4 @@
-package order
+package drinks
 
 enum class DrinkEnum {
     LATTE,
