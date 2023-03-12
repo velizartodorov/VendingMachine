@@ -1,10 +1,10 @@
 package vending_machine
 
-import drinks.DrinkEnum.*
 import drinks.DrinkService
-import order.Amount.MEDIUM
+import drinks.DrinkType.*
 import order.Amount.NONE
 import order.Order
+import order.Strength
 import vending_machine.Power.OFF
 import vending_machine.Power.ON
 
@@ -21,7 +21,7 @@ object VendingMachine {
         val latte = Order.Builder()
             .drink(LATTE)
             .withMilk(NONE)
-            .withStrength(MEDIUM)
+            .withStrength(Strength.MEDIUM)
             .withSugar(NONE)
             .withCoins(30)
             .build()
@@ -32,7 +32,7 @@ object VendingMachine {
         val cappuccino = Order.Builder()
             .drink(CAPPUCCINO)
             .withMilk(NONE)
-            .withStrength(MEDIUM)
+            .withStrength(Strength.MEDIUM)
             .withSugar(NONE)
             .withCoins(30)
             .build()
@@ -43,7 +43,7 @@ object VendingMachine {
         val tea = Order.Builder()
             .drink(TEA)
             .withMilk(NONE)
-            .withStrength(MEDIUM)
+            .withStrength(Strength.MEDIUM)
             .withSugar(NONE)
             .withCoins(20)
             .build()

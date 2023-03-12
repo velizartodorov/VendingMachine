@@ -1,7 +1,7 @@
 package drinks
 
 abstract class Drink {
-    abstract fun name(): DrinkEnum
+    abstract fun name(): DrinkType
     abstract fun price(): Int
     fun prepare() {
         println("${name()} ordered successfully! Preparing ...")
