@@ -83,6 +83,17 @@ object VendingMachine {
         DrinkService.order(mocha)
     }
 
+    fun orderMacchiato() {
+        val macchiato = Order.Builder()
+            .drink(MACCHIATO)
+            .withMilk(NONE)
+            .withStrength(Strength.MEDIUM)
+            .withSugar(NONE)
+            .withCoins(80)
+            .build()
+        DrinkService.order(macchiato)
+    }
+
     fun stop() {
         println("Stopping vending machine ...")
         println("Vending machine is OFF.")
