@@ -105,6 +105,17 @@ object VendingMachine {
         DrinkService.order(flatWhite)
     }
 
+    fun orderDecaf() {
+        val decaf = Order.Builder()
+            .drink(DECAF)
+            .withMilk(NONE)
+            .withStrength(Strength.MEDIUM)
+            .withSugar(NONE)
+            .withCoins(80)
+            .build()
+        DrinkService.order(decaf)
+    }
+
     fun stop() {
         println("Stopping vending machine ...")
         println("Vending machine is OFF.")
