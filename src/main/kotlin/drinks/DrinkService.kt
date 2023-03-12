@@ -14,17 +14,25 @@ object DrinkService {
         }
     }
 
+    fun testRun() {
+        val drinks = Drink::class.sealedSubclasses
+        for (drinkClass: KClass<out Drink> in drinks) {
+            val drink: Drink = drinkClass.createInstance()
+            drink.test()
+        }
+    }
+
     private fun getErrorMessage(drink: Drink, order: Order) =
         "Amount insufficient for ${drink.name()}! " +
                 "Needed amount: ${drink.price()} " +
                 "Current amount: ${order.coins}"
 
-    private fun getDrink(drink: DrinkType?): Drink {
+    private fun getDrink(drinkType: DrinkType?): Drink {
         val drinks = Drink::class.sealedSubclasses
-        for (kClass: KClass<out Drink> in drinks) {
-            val drinkInstance: Drink = kClass.createInstance()
-            if (drinkInstance.name() == drink) return drinkInstance
+        for (drinkClass: KClass<out Drink> in drinks) {
+            val drink: Drink = drinkClass.createInstance()
+            if (drink.name() == drinkType) return drink
         }
-        throw NotImplementedException("Drink doesn't exist: $drink")
+        throw NotImplementedException("Drink doesn't exist: $drinkType")
     }
 }
