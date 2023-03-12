@@ -47,7 +47,7 @@ object VendingMachine {
             .withSugar(NONE)
             .withCoins(20)
             .build()
-        println(tea.toString())
+        DrinkService.order(tea);
     }
 
     fun stop() {

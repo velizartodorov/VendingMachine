@@ -1,6 +1,8 @@
-package drinks
+package drinks.impl
 
-abstract class Drink {
+import drinks.DrinkType
+
+sealed class Drink {
     abstract fun name(): DrinkType
     abstract fun price(): Int
     fun prepare() {

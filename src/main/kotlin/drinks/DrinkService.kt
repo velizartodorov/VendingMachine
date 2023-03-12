@@ -1,10 +1,10 @@
 package drinks
 
-import drinks.DrinkType.*
-import drinks.impl.Americano
-import drinks.impl.Cappuccino
-import drinks.impl.Latte
+import drinks.impl.Drink
+import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Order
+import kotlin.reflect.KClass
+import kotlin.reflect.full.createInstance
 
 object DrinkService {
     fun order(order: Order) {
@@ -18,11 +18,11 @@ object DrinkService {
         "Amount insufficient! Needed amount: ${drink.price()} Current amount: ${order.coins}"
 
     private fun getDrink(drink: DrinkType?): Drink {
-        return when (drink) {
-            LATTE -> Latte()
-            CAPPUCCINO -> Cappuccino()
-            AMERICANO -> Americano()
-            else -> throw IllegalArgumentException("Drink doesn't exist or not specified!")
+        val drinks = Drink::class.sealedSubclasses
+        for (kClass: KClass<out Drink> in drinks) {
+            val drinkInstance: Drink = kClass.createInstance()
+            if (drinkInstance.name() == drink) return drinkInstance
         }
+        throw NotImplementedException("Drink doesn't exist!")
     }
 }
