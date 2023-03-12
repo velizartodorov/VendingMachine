@@ -1,6 +1,6 @@
 package order
 
-enum class Drink {
+enum class DrinkEnum {
     LATTE,
     CAPPUCCINO,
     AMERICANO,
