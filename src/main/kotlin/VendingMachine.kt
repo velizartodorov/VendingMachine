@@ -1,7 +1,6 @@
 import drinks.DrinkService
 import drinks.DrinkType
-import drinks.DrinkType.DECAF
-import drinks.DrinkType.IRISH_COFFEE
+import drinks.DrinkType.*
 import order.Amount.NONE
 import order.Order
 import order.Strength.MEDIUM
@@ -11,6 +10,7 @@ fun main() {
     start()
     orderLatte()
     orderCappuccino()
+    orderAmericano()
     orderCortado()
     orderTea()
     orderEspresso()
@@ -50,6 +50,17 @@ fun orderCappuccino() {
         .withCoins(30)
         .build()
     DrinkService.order(cappuccino)
+}
+
+fun orderAmericano() {
+    val americano = Order.Builder()
+        .drink(AMERICANO)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(50)
+        .build()
+    DrinkService.order(americano)
 }
 
 fun orderCortado() {
