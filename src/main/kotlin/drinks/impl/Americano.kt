@@ -1,5 +1,6 @@
 package drinks.impl
 
+import drinks.Drink
 import drinks.DrinkEnum.AMERICANO
 
 class Americano : Drink() {
