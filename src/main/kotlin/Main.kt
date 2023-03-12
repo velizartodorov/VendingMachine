@@ -7,5 +7,6 @@ fun main() {
     VendingMachine.orderCortado()
     VendingMachine.orderTea()
     VendingMachine.orderEspresso()
+    VendingMachine.orderMocha()
     VendingMachine.stop()
 }
