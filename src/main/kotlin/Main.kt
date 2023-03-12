@@ -10,5 +10,6 @@ fun main() {
     VendingMachine.orderMocha()
     VendingMachine.orderMacchiato()
     VendingMachine.orderFlatWhite()
+    VendingMachine.orderDecaf()
     VendingMachine.stop()
 }
