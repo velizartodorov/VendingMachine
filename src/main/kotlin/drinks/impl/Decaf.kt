@@ -6,7 +6,7 @@ import order.Amount.NONE
 import order.Order
 import order.Strength.MEDIUM
 
-class Decaf : Drink() {
+class Decaf : Drink {
     override fun name() = DECAF
     override fun price() = 80
     override fun test() {

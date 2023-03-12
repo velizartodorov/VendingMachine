@@ -7,7 +7,7 @@ import order.Amount.NONE
 import order.Order
 import order.Strength.MEDIUM
 
-class Tea : Drink() {
+class Tea : Drink {
     override fun name(): DrinkType = TEA
     override fun price(): Int = 15
     override fun test() {
