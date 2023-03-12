@@ -1,29 +1,28 @@
 package order
 
 import com.google.gson.Gson
-import order.Amount.MEDIUM
 
-class Order {
-    var drink: Drink? = null;
-    var milk: Amount = MEDIUM
-    var sugar: Amount = MEDIUM
-    var strength: Amount = MEDIUM
-    var price: Int? = null
-
+class Order private constructor(
+    val drink: DrinkEnum?,
+    val milk: Amount?,
+    val sugar: Amount?,
+    val strength: Amount?,
+    val price: Int?
+) {
     data class Builder(
-        var drink: Drink? = null,
+        var drink: DrinkEnum? = null,
         var milk: Amount? = null,
         var sugar: Amount? = null,
         var strength: Amount? = null,
         var price: Int? = null
     ) {
 
-        fun drink(drink: Drink) = apply { this.drink = drink }
+        fun drink(drink: DrinkEnum) = apply { this.drink = drink }
         fun withMilk(milk: Amount) = apply { this.milk = milk }
         fun withSugar(milk: Amount) = apply { this.sugar = milk }
         fun withStrength(size: Amount) = apply { this.strength = size }
         fun withPrice(price: Int) = apply { this.price = price }
-        fun order() = Order()
+        fun order() = Order(drink, milk, sugar, strength, price)
     }
 
     override fun toString(): String = Gson().toJson(this)

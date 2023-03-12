@@ -1,8 +1,10 @@
 package vending_machine
 
+import drinks.DrinkService
 import order.Amount.MEDIUM
 import order.Amount.NONE
-import order.Drink.TEA
+import order.DrinkEnum.LATTE
+import order.DrinkEnum.TEA
 import order.Order
 import vending_machine.Power.OFF
 import vending_machine.Power.ON
@@ -14,6 +16,17 @@ object VendingMachine {
         println("Starting vending machine ...")
         println("Vending machine is ON.")
         power = ON
+    }
+
+    fun orderLatte(){
+        val latte = Order.Builder()
+            .drink(LATTE)
+            .withMilk(NONE)
+            .withStrength(MEDIUM)
+            .withSugar(NONE)
+            .withPrice(30)
+            .order()
+        DrinkService.order(latte);
     }
 
     fun orderTea() {
