@@ -5,6 +5,7 @@ import drinks.DrinkType
 sealed class Drink {
     abstract fun name(): DrinkType
     abstract fun price(): Int
+    abstract fun test()
     fun prepare() {
         println("${name()} ordered successfully! Preparing ...")
         println("Drink prepared successfully! Take it! 😃")
