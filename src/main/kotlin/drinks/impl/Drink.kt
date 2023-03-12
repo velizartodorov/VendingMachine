@@ -1,4 +1,6 @@
-package drinks
+package drinks.impl
+
+import drinks.DrinkEnum
 
 abstract class Drink {
     abstract fun name(): DrinkEnum

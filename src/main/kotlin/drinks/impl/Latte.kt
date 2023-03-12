@@ -1,4 +1,4 @@
-package drinks
+package drinks.impl
 
 import drinks.DrinkEnum.LATTE
 
