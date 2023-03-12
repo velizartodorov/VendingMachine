@@ -22,6 +22,7 @@ fun main() {
     orderIrishCoffee()
     orderIcedCoffee()
     orderCafeAuLait()
+    orderWater()
     stop()
 }
 
@@ -168,6 +169,17 @@ fun orderIcedCoffee() {
 fun orderCafeAuLait() {
     val cafeAuLait = Order.Builder()
         .drink(CAFE_AU_LAIT)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(110)
+        .build()
+    DrinkService.order(cafeAuLait)
+}
+
+fun orderWater() {
+    val cafeAuLait = Order.Builder()
+        .drink(WATER)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
