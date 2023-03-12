@@ -25,7 +25,7 @@ object VendingMachine {
             .withSugar(NONE)
             .withCoins(30)
             .build()
-        DrinkService.order(latte);
+        DrinkService.order(latte)
     }
 
     fun orderCappuccino() {
@@ -36,7 +36,18 @@ object VendingMachine {
             .withSugar(NONE)
             .withCoins(30)
             .build()
-        DrinkService.order(cappuccino);
+        DrinkService.order(cappuccino)
+    }
+
+    fun orderCortado() {
+        val cortado = Order.Builder()
+            .drink(CORTADO)
+            .withMilk(NONE)
+            .withStrength(Strength.MEDIUM)
+            .withSugar(NONE)
+            .withCoins(50)
+            .build()
+        DrinkService.order(cortado)
     }
 
     fun orderTea() {
@@ -47,7 +58,7 @@ object VendingMachine {
             .withSugar(NONE)
             .withCoins(20)
             .build()
-        DrinkService.order(tea);
+        DrinkService.order(tea)
     }
 
     fun orderEspresso() {
@@ -58,7 +69,7 @@ object VendingMachine {
             .withSugar(NONE)
             .withCoins(25)
             .build()
-        DrinkService.order(espresso);
+        DrinkService.order(espresso)
     }
 
     fun stop() {
