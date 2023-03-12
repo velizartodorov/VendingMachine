@@ -15,12 +15,12 @@ internal class OrderTest {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withPrice(30)
+            .withCoins(30)
             .build()
         assertEquals(latte.drink, LATTE)
         assertEquals(latte.milk, NONE)
         assertEquals(latte.strength, MEDIUM)
         assertEquals(latte.sugar, NONE)
-        assertEquals(latte.price, 30)
+        assertEquals(latte.coins, 30)
     }
 }

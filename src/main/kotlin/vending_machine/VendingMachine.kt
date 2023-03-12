@@ -23,7 +23,7 @@ object VendingMachine {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withPrice(30)
+            .withCoins(30)
             .build()
         DrinkService.order(latte);
     }
@@ -34,7 +34,7 @@ object VendingMachine {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withPrice(30)
+            .withCoins(30)
             .build()
         DrinkService.order(cappuccino);
     }
@@ -45,7 +45,7 @@ object VendingMachine {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withPrice(20)
+            .withCoins(20)
             .build()
         println(tea.toString())
     }

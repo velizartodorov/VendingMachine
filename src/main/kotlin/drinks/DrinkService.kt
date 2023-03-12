@@ -1,7 +1,7 @@
 package drinks
 
-import drinks.DrinkEnum.CAPPUCCINO
-import drinks.DrinkEnum.LATTE
+import drinks.DrinkEnum.*
+import drinks.impl.Americano
 import drinks.impl.Cappuccino
 import drinks.impl.Drink
 import drinks.impl.Latte
@@ -10,8 +10,8 @@ import order.Order
 object DrinkService {
     fun order(order: Order) {
         val drink = getDrink(order.drink)
-        if (order.price!! >= drink.price()) drink.prepare() else {
-            throw IllegalArgumentException("Amount not sufficient! Needed amount: ${drink.price()} Current amount: ${order.price}")
+        if (order.coins!! >= drink.price()) drink.prepare() else {
+            throw IllegalArgumentException("Amount not sufficient! Needed amount: ${drink.price()} Current amount: ${order.coins}")
         }
     }
 
@@ -19,6 +19,7 @@ object DrinkService {
         return when (drink) {
             LATTE -> Latte()
             CAPPUCCINO -> Cappuccino()
+            AMERICANO -> Americano()
             else -> throw IllegalArgumentException("Drink doesn't exist or not specified!")
         }
     }
