@@ -1,6 +1,6 @@
 package drinks
 
-enum class DrinkEnum {
+enum class DrinkType {
     LATTE,
     CAPPUCCINO,
     AMERICANO,

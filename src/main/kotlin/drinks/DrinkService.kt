@@ -1,6 +1,6 @@
 package drinks
 
-import drinks.DrinkEnum.*
+import drinks.DrinkType.*
 import drinks.impl.Americano
 import drinks.impl.Cappuccino
 import drinks.impl.Latte
@@ -17,7 +17,7 @@ object DrinkService {
     private fun getErrorMessage(drink: Drink, order: Order) =
         "Amount insufficient! Needed amount: ${drink.price()} Current amount: ${order.coins}"
 
-    private fun getDrink(drink: DrinkEnum?): Drink {
+    private fun getDrink(drink: DrinkType?): Drink {
         return when (drink) {
             LATTE -> Latte()
             CAPPUCCINO -> Cappuccino()

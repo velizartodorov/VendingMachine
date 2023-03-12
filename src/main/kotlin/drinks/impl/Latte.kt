@@ -1,7 +1,7 @@
 package drinks.impl
 
 import drinks.Drink
-import drinks.DrinkEnum.LATTE
+import drinks.DrinkType.LATTE
 
 class Latte : Drink() {
     override fun name() = LATTE
