@@ -11,7 +11,7 @@ object DrinkService {
     fun order(order: Order) {
         val drink = getDrink(order.drink)
         if (order.coins!! >= drink.price()) drink.prepare() else {
-            throw IllegalArgumentException("Amount not sufficient! Needed amount: ${drink.price()} Current amount: ${order.coins}")
+            throw IllegalArgumentException("Amount insufficient! Needed amount: ${drink.price()} Current amount: ${order.coins}")
         }
     }
 
