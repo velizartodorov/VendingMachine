@@ -1,10 +1,11 @@
 import drinks.DrinkService
-import drinks.DrinkType
 import drinks.DrinkType.*
 import order.Amount.NONE
 import order.Order
 import order.Strength.MEDIUM
 import vending_machine.Power
+import vending_machine.Power.OFF
+import vending_machine.Power.ON
 
 fun main() {
     start()
@@ -22,17 +23,17 @@ fun main() {
     stop()
 }
 
-private var power: Power = Power.OFF
+private var power: Power = OFF
 
 fun start() {
     println("Starting vending machine ...")
     println("Vending machine is ON.")
-    power = Power.ON
+    power = ON
 }
 
 fun orderLatte() {
     val latte = Order.Builder()
-        .drink(DrinkType.LATTE)
+        .drink(LATTE)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -43,7 +44,7 @@ fun orderLatte() {
 
 fun orderCappuccino() {
     val cappuccino = Order.Builder()
-        .drink(DrinkType.CAPPUCCINO)
+        .drink(CAPPUCCINO)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -65,7 +66,7 @@ fun orderAmericano() {
 
 fun orderCortado() {
     val cortado = Order.Builder()
-        .drink(DrinkType.CORTADO)
+        .drink(CORTADO)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -76,7 +77,7 @@ fun orderCortado() {
 
 fun orderTea() {
     val tea = Order.Builder()
-        .drink(DrinkType.TEA)
+        .drink(TEA)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -87,7 +88,7 @@ fun orderTea() {
 
 fun orderEspresso() {
     val espresso = Order.Builder()
-        .drink(DrinkType.ESPRESSO)
+        .drink(ESPRESSO)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -98,7 +99,7 @@ fun orderEspresso() {
 
 fun orderMocha() {
     val mocha = Order.Builder()
-        .drink(DrinkType.MOCHA)
+        .drink(MOCHA)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -109,7 +110,7 @@ fun orderMocha() {
 
 fun orderMacchiato() {
     val macchiato = Order.Builder()
-        .drink(DrinkType.MACCHIATO)
+        .drink(MACCHIATO)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -120,7 +121,7 @@ fun orderMacchiato() {
 
 fun orderFlatWhite() {
     val flatWhite = Order.Builder()
-        .drink(DrinkType.FLAT_WHITE)
+        .drink(FLAT_WHITE)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -154,5 +155,5 @@ fun orderIrishCoffee() {
 fun stop() {
     println("Stopping vending machine ...")
     println("Vending machine is OFF.")
-    power = Power.OFF
+    power = OFF
 }
