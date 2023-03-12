@@ -1,8 +1,10 @@
 import drinks.DrinkService
 import drinks.DrinkType
-import order.Amount
+import drinks.DrinkType.DECAF
+import drinks.DrinkType.IRISH_COFFEE
+import order.Amount.NONE
 import order.Order
-import order.Strength
+import order.Strength.MEDIUM
 import vending_machine.Power
 
 fun main() {
@@ -16,6 +18,7 @@ fun main() {
     orderMacchiato()
     orderFlatWhite()
     orderDecaf()
+    orderIrishCoffee()
     stop()
 }
 
@@ -30,9 +33,9 @@ fun start() {
 fun orderLatte() {
     val latte = Order.Builder()
         .drink(DrinkType.LATTE)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
         .withCoins(30)
         .build()
     DrinkService.order(latte)
@@ -41,9 +44,9 @@ fun orderLatte() {
 fun orderCappuccino() {
     val cappuccino = Order.Builder()
         .drink(DrinkType.CAPPUCCINO)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
         .withCoins(30)
         .build()
     DrinkService.order(cappuccino)
@@ -52,9 +55,9 @@ fun orderCappuccino() {
 fun orderCortado() {
     val cortado = Order.Builder()
         .drink(DrinkType.CORTADO)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
         .withCoins(50)
         .build()
     DrinkService.order(cortado)
@@ -63,9 +66,9 @@ fun orderCortado() {
 fun orderTea() {
     val tea = Order.Builder()
         .drink(DrinkType.TEA)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
         .withCoins(20)
         .build()
     DrinkService.order(tea)
@@ -74,9 +77,9 @@ fun orderTea() {
 fun orderEspresso() {
     val espresso = Order.Builder()
         .drink(DrinkType.ESPRESSO)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
         .withCoins(25)
         .build()
     DrinkService.order(espresso)
@@ -85,9 +88,9 @@ fun orderEspresso() {
 fun orderMocha() {
     val mocha = Order.Builder()
         .drink(DrinkType.MOCHA)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
         .withCoins(60)
         .build()
     DrinkService.order(mocha)
@@ -96,9 +99,9 @@ fun orderMocha() {
 fun orderMacchiato() {
     val macchiato = Order.Builder()
         .drink(DrinkType.MACCHIATO)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
         .withCoins(80)
         .build()
     DrinkService.order(macchiato)
@@ -107,9 +110,9 @@ fun orderMacchiato() {
 fun orderFlatWhite() {
     val flatWhite = Order.Builder()
         .drink(DrinkType.FLAT_WHITE)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
         .withCoins(80)
         .build()
     DrinkService.order(flatWhite)
@@ -117,13 +120,24 @@ fun orderFlatWhite() {
 
 fun orderDecaf() {
     val decaf = Order.Builder()
-        .drink(DrinkType.DECAF)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
-        .withCoins(80)
+        .drink(DECAF)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(90)
         .build()
     DrinkService.order(decaf)
+}
+
+fun orderIrishCoffee() {
+    val irishCoffee = Order.Builder()
+        .drink(IRISH_COFFEE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(90)
+        .build()
+    DrinkService.order(irishCoffee)
 }
 
 fun stop() {
