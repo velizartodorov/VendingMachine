@@ -16,7 +16,7 @@ internal class OrderTest {
             .withStrength(MEDIUM)
             .withSugar(NONE)
             .withPrice(30)
-            .order()
+            .build()
         assertEquals(latte.drink, LATTE)
         assertEquals(latte.milk, NONE)
         assertEquals(latte.strength, MEDIUM)

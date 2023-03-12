@@ -23,7 +23,7 @@ class Order private constructor(
         fun withSugar(milk: Amount) = apply { this.sugar = milk }
         fun withStrength(size: Amount) = apply { this.strength = size }
         fun withPrice(price: Int) = apply { this.price = price }
-        fun order() = Order(drink, milk, sugar, strength, price)
+        fun build() = Order(drink, milk, sugar, strength, price)
     }
 
     override fun toString(): String = Gson().toJson(this)
