@@ -1,6 +1,5 @@
 package drinks.impl
 
-import drinks.Drink
 import drinks.DrinkType.AMERICANO
 
 class Americano : Drink() {
