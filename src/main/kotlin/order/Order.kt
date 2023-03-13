@@ -1,5 +1,6 @@
 package order
 
+import coin.Coin
 import com.google.gson.Gson
 import drinks.DrinkType
 import order.Status.TO_DO
@@ -9,7 +10,7 @@ class Order private constructor(
     val milk: Amount?,
     val sugar: Amount?,
     val strength: Strength?,
-    val coins: Int?,
+    val coins: Coin?,
     var status: Status = TO_DO
 ) {
     data class Builder(
@@ -17,13 +18,13 @@ class Order private constructor(
         var milk: Amount? = null,
         var sugar: Amount? = null,
         var strength: Strength? = null,
-        var coins: Int? = null
+        var coins: Coin? = null
     ) {
         fun drink(drink: DrinkType) = apply { this.drink = drink }
         fun withMilk(milk: Amount) = apply { this.milk = milk }
         fun withSugar(milk: Amount) = apply { this.sugar = milk }
         fun withStrength(size: Strength) = apply { this.strength = size }
-        fun withCoins(coins: Int) = apply { this.coins = coins }
+        fun withCoins(coins: Coin) = apply { this.coins = coins }
         fun build() = Order(drink, milk, sugar, strength, coins)
     }
 

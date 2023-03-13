@@ -1,5 +1,7 @@
 package drinks.impl
 
+import coin.Coin
+import coin.Coin.FIFTY_CENTS
 import drinks.DrinkType.AMERICANO
 import order.Amount.NONE
 import order.Order
@@ -15,12 +17,12 @@ internal class AmericanoTest {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(30)
+            .withCoins(FIFTY_CENTS)
             .build()
         assertEquals(americano.drink, AMERICANO)
         assertEquals(americano.milk, NONE)
         assertEquals(americano.strength, MEDIUM)
         assertEquals(americano.sugar, NONE)
-        assertEquals(americano.coins, 30)
+        assertEquals(americano.coins, FIFTY_CENTS)
     }
 }

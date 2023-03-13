@@ -1,5 +1,7 @@
 package drinks.impl
 
+import coin.Coin
+import coin.Coin.ONE_EURO
 import drinks.DrinkType.FLAT_WHITE
 import order.Amount.NONE
 import order.Order
@@ -14,7 +16,7 @@ class FlatWhite : Drink() {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(80)
+            .withCoins(ONE_EURO)
             .build()
     }
 }
