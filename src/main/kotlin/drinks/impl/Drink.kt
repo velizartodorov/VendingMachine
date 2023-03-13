@@ -15,7 +15,7 @@ sealed class Drink {
     }
 
     fun prepare(order: Order) {
-        if (order.coins!! >= price()) {
+        if (order.coins?.coin!! >= price()) {
             order.status = IN_PROGRESS
             println("${name()} ordered successfully! Preparing ... ❤")
             order.status = DONE

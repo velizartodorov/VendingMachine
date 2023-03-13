@@ -1,5 +1,7 @@
 package drinks.impl
 
+import coin.Coin
+import coin.Coin.FIFTY_CENTS
 import drinks.DrinkType.LATTE
 import order.Amount.NONE
 import order.Order
@@ -14,7 +16,7 @@ class Latte : Drink() {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(30)
+            .withCoins(FIFTY_CENTS)
             .build()
     }
 }
