@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package drinks.impl
 
 import coin.Coin.ONE_EURO
