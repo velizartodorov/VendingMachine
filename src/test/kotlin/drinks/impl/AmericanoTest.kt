@@ -1,6 +1,5 @@
 package drinks.impl
 
-import coin.Coin
 import coin.Coin.FIFTY_CENTS
 import drinks.DrinkType.AMERICANO
 import order.Amount.NONE

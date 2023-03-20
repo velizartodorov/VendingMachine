@@ -12,6 +12,14 @@ import kotlin.reflect.full.createInstance
 object VendingMachine {
     private var power: Power = OFF
 
+    fun isOn(): Boolean {
+        return power == ON
+    }
+
+    fun isOff(): Boolean {
+        return power == OFF
+    }
+
     fun start() {
         println("Starting vending machine ...")
         println("Vending machine is ON.")
