@@ -18,13 +18,13 @@ sealed class Drink {
         val amount = order.coins?.coin!!
         if (amount >= price()) {
             order.status = IN_PROGRESS
-            println("${name()} ordered successfully! Preparing ... ❤")
+            println("${name()} ordered successfully! Preparing ...")
             val change = amount.minus(price())
             if (change > 0) {
                 println("Take your change: $change")
             }
             order.status = DONE
-            println("${name()} prepared successfully! Take it! 😃")
+            println("${name()} prepared successfully! Take it!")
         } else {
             throw IllegalArgumentException(getErrorMessage(order))
         }

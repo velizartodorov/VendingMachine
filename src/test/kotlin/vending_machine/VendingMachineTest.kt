@@ -18,4 +18,10 @@ internal class VendingMachineTest {
         assertTrue(VendingMachine.isOff())
         assertFalse(VendingMachine.isOn())
     }
+
+    @Test
+    fun testVendingMachineTestRun() {
+        VendingMachine.start()
+        VendingMachine.testRun()
+    }
 }
