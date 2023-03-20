@@ -1,6 +1,7 @@
+@file:Suppress("unused")
+
 package drinks.impl
 
-import coin.Coin
 import coin.Coin.TWENTY_CENTS
 import drinks.DrinkType
 import drinks.DrinkType.TEA
