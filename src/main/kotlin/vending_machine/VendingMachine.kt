@@ -40,7 +40,7 @@ object VendingMachine {
         }
     }
 
-    private fun prepare(order: Order) {
+    fun prepare(order: Order) {
         getDrink(order.drink).prepare(order)
     }
 
