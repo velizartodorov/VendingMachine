@@ -30,4 +30,4 @@ For now this basic implementation supports the following types of drinks:
 * Tea
 * Water
 
-The vending machine can also return change.
+The vending machine works with list of coins and can also return change.
