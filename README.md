@@ -12,6 +12,8 @@ Building a vending machine in Kotlin because ... why not? 🙂
 
 ### Functionality ✨
 
+The vending machine works with list of coins and can also return change. 🧙‍
+
 For now this basic implementation supports the following types of drinks:
 
 * Americano
@@ -29,5 +31,3 @@ For now this basic implementation supports the following types of drinks:
 * Mocha
 * Tea
 * Water
-
-The vending machine works with list of coins and can also return change.
