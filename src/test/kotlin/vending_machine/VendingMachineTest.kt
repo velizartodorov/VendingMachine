@@ -1,8 +1,9 @@
 package vending_machine
 
+import drinks.DrinkType.AMERICANO
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertTrue
+import order.Status.DONE
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
@@ -31,7 +32,10 @@ internal class VendingMachineTest {
     fun testVendingMachineWithAmericano() {
         VendingMachine.start()
         val americano = DrinkHelper.getAmericano()
-        VendingMachine.prepare(americano)
+        val orderStatus = VendingMachine.prepare(americano)
+        assertEquals(orderStatus.drink, AMERICANO)
+        assertEquals(orderStatus.status, DONE)
+        assertEquals(orderStatus.change, 0)
     }
 
     @Test
