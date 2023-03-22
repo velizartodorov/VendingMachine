@@ -2,7 +2,7 @@ package vending_machine
 
 import drinks.DrinkType
 import drinks.impl.Drink
-import drinks.impl.OrderResponse
+import order.OrderResponse
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Order
 import vending_machine.Power.OFF
