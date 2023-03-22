@@ -5,7 +5,7 @@ import drinks.DrinkType.LATTE
 import order.Amount.NONE
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Test
-import vending_machine.DrinkHelper.getLatte
+import vending_machine.TestHelper.getLatte
 import kotlin.test.assertEquals
 
 internal class LatteTest {

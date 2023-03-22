@@ -1,7 +1,6 @@
 package vending_machine
 
-import drinks.DrinkType.AMERICANO
-import drinks.DrinkType.LATTE
+import drinks.DrinkType.*
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Status.DONE
 import org.junit.jupiter.api.Assertions.*
@@ -32,7 +31,7 @@ internal class VendingMachineTest {
     @Test
     fun testVendingMachineWithAmericano() {
         VendingMachine.start()
-        val americano = DrinkHelper.getAmericano()
+        val americano = TestHelper.getAmericano()
         val orderStatus = VendingMachine.prepare(americano)
         assertEquals(orderStatus.drink, AMERICANO)
         assertEquals(orderStatus.status, DONE)
@@ -42,7 +41,7 @@ internal class VendingMachineTest {
     @Test
     fun testVendingMachineWithLatte() {
         VendingMachine.start()
-        val americano = DrinkHelper.getLatte()
+        val americano = TestHelper.getLatte()
         val orderStatus = VendingMachine.prepare(americano)
         assertEquals(orderStatus.drink, LATTE)
         assertEquals(orderStatus.status, DONE)
@@ -50,9 +49,19 @@ internal class VendingMachineTest {
     }
 
     @Test
+    fun testCappuccino() {
+        VendingMachine.start()
+        val cappuccino = TestHelper.getCappuccino()
+        val orderStatus = VendingMachine.prepare(cappuccino)
+        assertEquals(orderStatus.drink, CAPPUCCINO)
+        assertEquals(orderStatus.status, DONE)
+        assertEquals(orderStatus.change, 30)
+    }
+
+    @Test
     fun testVendingMachineWithNonExistingDrink() {
         VendingMachine.start()
-        val nonExisting = DrinkHelper.getNonExistingDrink()
+        val nonExisting = TestHelper.getNonExistingDrink()
         assertThrows<NotImplementedException> { VendingMachine.prepare(nonExisting) }
     }
 }
