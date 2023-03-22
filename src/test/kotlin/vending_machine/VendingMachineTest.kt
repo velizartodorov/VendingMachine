@@ -36,7 +36,7 @@ internal class VendingMachineTest {
         val orderStatus = VendingMachine.prepare(americano)
         assertEquals(orderStatus.drink, AMERICANO)
         assertEquals(orderStatus.status, DONE)
-        assertEquals(orderStatus.change, 0)
+        assertEquals(orderStatus.change, 10)
     }
 
     @Test

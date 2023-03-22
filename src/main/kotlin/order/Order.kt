@@ -9,20 +9,20 @@ class Order private constructor(
     val milk: Amount?,
     val sugar: Amount?,
     val strength: Strength?,
-    val coins: Coin?
+    val coins: List<Coin>?,
 ) {
     data class Builder(
         var drink: DrinkType? = null,
         var milk: Amount? = null,
         var sugar: Amount? = null,
         var strength: Strength? = null,
-        var coins: Coin? = null
+        var coins: List<Coin>? = null,
     ) {
         fun drink(drink: DrinkType) = apply { this.drink = drink }
         fun withMilk(milk: Amount) = apply { this.milk = milk }
         fun withSugar(milk: Amount) = apply { this.sugar = milk }
         fun withStrength(size: Strength) = apply { this.strength = size }
-        fun withCoins(coins: Coin) = apply { this.coins = coins }
+        fun withCoins(coins: List<Coin>) = apply { this.coins = coins }
         fun build() = Order(drink, milk, sugar, strength, coins)
     }
 
