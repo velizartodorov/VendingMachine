@@ -14,20 +14,24 @@ sealed class Drink {
         prepare(testOrder())
     }
 
-    fun prepare(order: Order) {
+    fun prepare(order: Order): OrderResponse {
         val amount = order.coins?.coin!!
+        val orderResponse = OrderResponse()
         if (amount >= price()) {
-            order.status = IN_PROGRESS
+            orderResponse.status = IN_PROGRESS
             println("${name()} ordered successfully! Preparing ...")
             val change = amount.minus(price())
             if (change > 0) {
                 println("Take your change: $change")
             }
-            order.status = DONE
+            orderResponse.change = change
+            orderResponse.status = DONE
+            orderResponse.drink = order.drink!!
             println("${name()} prepared successfully! Take it!")
         } else {
             throw IllegalArgumentException(getErrorMessage(order))
         }
+        return orderResponse
     }
 
     private fun getErrorMessage(order: Order) =

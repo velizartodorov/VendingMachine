@@ -3,15 +3,13 @@ package order
 import coin.Coin
 import com.google.gson.Gson
 import drinks.DrinkType
-import order.Status.TO_DO
 
 class Order private constructor(
     val drink: DrinkType?,
     val milk: Amount?,
     val sugar: Amount?,
     val strength: Strength?,
-    val coins: Coin?,
-    var status: Status = TO_DO
+    val coins: Coin?
 ) {
     data class Builder(
         var drink: DrinkType? = null,

@@ -2,6 +2,7 @@ package vending_machine
 
 import drinks.DrinkType
 import drinks.impl.Drink
+import drinks.impl.OrderResponse
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Order
 import vending_machine.Power.OFF
@@ -40,8 +41,8 @@ object VendingMachine {
         }
     }
 
-    fun prepare(order: Order) {
-        getDrink(order.drink).prepare(order)
+    fun prepare(order: Order): OrderResponse {
+        return getDrink(order.drink).prepare(order)
     }
 
     private fun getDrink(drinkType: DrinkType?): Drink {
