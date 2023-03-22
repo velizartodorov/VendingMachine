@@ -17,7 +17,7 @@ class Water : Drink() {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(TWO_EUROS)
+            .withCoins(listOf(TWO_EUROS))
             .build()
     }
 

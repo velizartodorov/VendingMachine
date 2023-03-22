@@ -17,7 +17,7 @@ class IcedCoffee : Drink() {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(ONE_EURO)
+            .withCoins(listOf(ONE_EURO))
             .build()
     }
 }

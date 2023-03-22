@@ -1,5 +1,6 @@
 package drinks.impl
 
+import coin.Coin
 import drinks.DrinkType
 import order.Order
 import order.OrderResponse
@@ -16,7 +17,7 @@ sealed class Drink {
     }
 
     fun prepare(order: Order): OrderResponse {
-        val amount = order.coins?.coin!!
+        val amount = getAmount(order.coins)
         val orderResponse = OrderResponse()
         if (amount >= price()) {
             orderResponse.status = IN_PROGRESS
@@ -35,10 +36,18 @@ sealed class Drink {
         return orderResponse
     }
 
+    private fun getAmount(coins: List<Coin>?): Int {
+        var amount = 0
+        coins!!.forEach { coin ->
+            amount += coin.coin
+        }
+        return amount
+    }
+
     private fun getErrorMessage(order: Order) =
         "Amount insufficient for ${name()}! " +
                 "Needed amount: ${price()} " +
-                "Current amount: ${order.coins}"
+                "Current amount: ${getAmount(order.coins)}"
 
     override fun equals(other: Any?): Boolean {
         return this === other

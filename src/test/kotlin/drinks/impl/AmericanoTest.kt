@@ -16,12 +16,12 @@ internal class AmericanoTest {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(FIFTY_CENTS)
+            .withCoins(listOf(FIFTY_CENTS))
             .build()
         assertEquals(americano.drink, AMERICANO)
         assertEquals(americano.milk, NONE)
         assertEquals(americano.strength, MEDIUM)
         assertEquals(americano.sugar, NONE)
-        assertEquals(americano.coins, FIFTY_CENTS)
+        assertEquals(americano.coins, listOf(FIFTY_CENTS))
     }
 }
