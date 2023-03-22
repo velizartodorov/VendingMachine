@@ -1,6 +1,7 @@
 package vending_machine
 
 import coin.Coin.FIFTY_CENTS
+import drinks.DrinkType
 import drinks.DrinkType.AMERICANO
 import order.Amount.NONE
 import order.Order
@@ -10,6 +11,14 @@ object DrinkHelper {
 
     fun getAmericano() = Order.Builder()
         .drink(AMERICANO)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(FIFTY_CENTS)
+        .build()
+
+    fun getLatte() = Order.Builder()
+        .drink(DrinkType.LATTE)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
