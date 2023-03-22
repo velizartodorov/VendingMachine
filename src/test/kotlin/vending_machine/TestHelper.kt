@@ -1,13 +1,15 @@
 package vending_machine
 
-import coin.Coin.*
+import coin.Coin.FIFTY_CENTS
+import coin.Coin.TWENTY_CENTS
 import drinks.DrinkType
 import drinks.DrinkType.AMERICANO
+import drinks.DrinkType.LATTE
 import order.Amount.NONE
 import order.Order
 import order.Strength.MEDIUM
 
-object DrinkHelper {
+object TestHelper {
 
     fun getAmericano() = Order.Builder()
         .drink(AMERICANO)
@@ -18,7 +20,15 @@ object DrinkHelper {
         .build()
 
     fun getLatte() = Order.Builder()
-        .drink(DrinkType.LATTE)
+        .drink(LATTE)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(listOf(FIFTY_CENTS))
+        .build()
+
+    fun getCappuccino() = Order.Builder()
+        .drink(DrinkType.CAPPUCCINO)
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
