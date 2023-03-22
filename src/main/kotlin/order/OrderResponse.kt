@@ -1,7 +1,6 @@
-package drinks.impl
+package order
 
 import drinks.DrinkType
-import order.Status
 import order.Status.TO_DO
 
 class OrderResponse {
