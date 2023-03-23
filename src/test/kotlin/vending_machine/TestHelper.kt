@@ -11,13 +11,16 @@ import order.Strength.MEDIUM
 
 object TestHelper {
 
-    fun getAmericano() = Order.Builder()
-        .drink(AMERICANO)
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(listOf(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS))
-        .build()
+    fun getAmericano(): Order {
+        val sixtyCents = listOf(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS)
+        return Order.Builder()
+            .drink(AMERICANO)
+            .withMilk(NONE)
+            .withStrength(MEDIUM)
+            .withSugar(NONE)
+            .withCoins(sixtyCents)
+            .build()
+    }
 
     fun getLatte() = Order.Builder()
         .drink(LATTE)

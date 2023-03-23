@@ -1,27 +1,21 @@
 package drinks.impl
 
-import coin.Coin.FIFTY_CENTS
+import coin.Coin.TWENTY_CENTS
 import drinks.DrinkType.AMERICANO
 import order.Amount.NONE
-import order.Order
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Test
+import vending_machine.TestHelper
 import kotlin.test.assertEquals
 
 internal class AmericanoTest {
     @Test
     fun testOrderAmericano() {
-        val americano = Order.Builder()
-            .drink(AMERICANO)
-            .withMilk(NONE)
-            .withStrength(MEDIUM)
-            .withSugar(NONE)
-            .withCoins(listOf(FIFTY_CENTS))
-            .build()
+        val americano = TestHelper.getAmericano()
         assertEquals(americano.drink, AMERICANO)
         assertEquals(americano.milk, NONE)
         assertEquals(americano.strength, MEDIUM)
         assertEquals(americano.sugar, NONE)
-        assertEquals(americano.coins, listOf(FIFTY_CENTS))
+        assertEquals(americano.coins, listOf(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS))
     }
 }
