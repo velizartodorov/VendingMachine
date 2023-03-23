@@ -25,9 +25,9 @@ For now this basic implementation supports the following types of drinks:
 * Decaf
 * Drink
 * Espresso
-* Flat white
+* Flat White
 * Iced Coffee
-* Irish coffee
+* Irish Coffee
 * Latte
 * Macchiato
 * Mocha
