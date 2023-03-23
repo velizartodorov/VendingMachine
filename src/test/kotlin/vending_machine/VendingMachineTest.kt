@@ -49,6 +49,16 @@ internal class VendingMachineTest {
     }
 
     @Test
+    fun testVendingMachineWithSoftLatte() {
+        VendingMachine.start()
+        val americano = TestHelper.getSoftLatte()
+        val orderStatus = VendingMachine.prepare(americano)
+        assertEquals(orderStatus.drink, LATTE)
+        assertEquals(orderStatus.status, DONE)
+        assertEquals(orderStatus.change, 20)
+    }
+
+    @Test
     fun testCappuccino() {
         VendingMachine.start()
         val cappuccino = TestHelper.getCappuccino()
