@@ -5,6 +5,7 @@ import coin.Coin.TWENTY_CENTS
 import drinks.DrinkType.*
 import order.Amount.NONE
 import order.Order
+import order.Strength.LOW
 import order.Strength.MEDIUM
 
 object TestHelper {
@@ -21,6 +22,14 @@ object TestHelper {
         .drink(LATTE)
         .withMilk(NONE)
         .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(listOf(FIFTY_CENTS))
+        .build()
+
+    fun getSoftLatte() = Order.Builder()
+        .drink(LATTE)
+        .withMilk(NONE)
+        .withStrength(LOW)
         .withSugar(NONE)
         .withCoins(listOf(FIFTY_CENTS))
         .build()
