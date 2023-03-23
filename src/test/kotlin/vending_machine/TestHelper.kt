@@ -5,8 +5,7 @@ import coin.Coin.TWENTY_CENTS
 import drinks.DrinkType.*
 import order.Amount.NONE
 import order.Order
-import order.Strength.LOW
-import order.Strength.MEDIUM
+import order.Strength.*
 
 object TestHelper {
 
@@ -34,10 +33,26 @@ object TestHelper {
         .withCoins(listOf(FIFTY_CENTS))
         .build()
 
+    fun getStrongLatte() = Order.Builder()
+        .drink(LATTE)
+        .withMilk(NONE)
+        .withStrength(HIGH)
+        .withSugar(NONE)
+        .withCoins(listOf(FIFTY_CENTS))
+        .build()
+
     fun getCappuccino() = Order.Builder()
         .drink(CAPPUCCINO)
         .withMilk(NONE)
         .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(listOf(FIFTY_CENTS))
+        .build()
+
+    fun getMaxCappuccino() = Order.Builder()
+        .drink(CAPPUCCINO)
+        .withMilk(NONE)
+        .withStrength(MAX)
         .withSugar(NONE)
         .withCoins(listOf(FIFTY_CENTS))
         .build()
