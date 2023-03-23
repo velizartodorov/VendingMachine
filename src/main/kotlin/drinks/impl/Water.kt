@@ -20,5 +20,4 @@ class Water : Drink() {
             .withCoins(listOf(TWO_EUROS))
             .build()
     }
-
 }
