@@ -1,6 +1,7 @@
-package drinks
+package drinks.impl
 
 import coin.Coin
+import drinks.DrinkType
 import order.Order
 import order.OrderResponse
 import order.Status.DONE
