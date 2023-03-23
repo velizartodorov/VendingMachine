@@ -1,6 +1,6 @@
 package coin
 
-enum class Coin(val coin: Int) {
+enum class Coin(val value: Int) {
     ONE_CENT(1),
     TWO_CENTS(2),
     FIVE_CENTS(5),
@@ -8,5 +8,5 @@ enum class Coin(val coin: Int) {
     TWENTY_CENTS(20),
     FIFTY_CENTS(50),
     ONE_EURO(100),
-    TWO_EUROS(200)
+    TWO_EUROS(200);
 }

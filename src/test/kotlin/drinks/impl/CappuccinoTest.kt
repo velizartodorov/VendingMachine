@@ -1,5 +1,7 @@
 package drinks.impl
 
+import coin.Coin.TEN_CENTS
+import coin.Coin.TWENTY_CENTS
 import drinks.DrinkType.CAPPUCCINO
 import order.Status.DONE
 import org.junit.jupiter.api.Assertions
@@ -15,7 +17,7 @@ internal class CappuccinoTest {
         val orderStatus = VendingMachine.prepare(cappuccino)
         Assertions.assertEquals(orderStatus.drink, CAPPUCCINO)
         Assertions.assertEquals(orderStatus.status, DONE)
-        Assertions.assertEquals(orderStatus.change, 30)
+        Assertions.assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
     }
 
     @Test
@@ -25,6 +27,6 @@ internal class CappuccinoTest {
         val orderStatus = VendingMachine.prepare(cappuccino)
         Assertions.assertEquals(orderStatus.drink, CAPPUCCINO)
         Assertions.assertEquals(orderStatus.status, DONE)
-        Assertions.assertEquals(orderStatus.change, 30)
+        Assertions.assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
     }
 }

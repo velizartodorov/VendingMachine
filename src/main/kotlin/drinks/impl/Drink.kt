@@ -18,17 +18,15 @@ sealed class Drink {
 
     fun prepare(order: Order): OrderResponse {
         val amount = getAmount(order.coins)
-        val orderResponse = OrderResponse()
-        if (amount >= price()) {
-            orderResponse.status = IN_PROGRESS
-            println("${name()} ordered successfully! Preparing ...")
-            val change = amount.minus(price())
-            if (change > 0) {
-                println("Take your change: $change")
-            }
-            orderResponse.change = change
-            orderResponse.status = DONE
-            orderResponse.drink = order.drink!!
+        val change = amount - price()
+        val orderResponse = OrderResponse().apply {
+            status = if (amount >= price()) DONE else IN_PROGRESS
+            drink = order.drink ?: throw IllegalArgumentException("Drink not specified")
+            this.change = getChange(change)
+        }
+        println("${name()} ordered successfully! Preparing ...")
+        if (orderResponse.status == DONE) {
+            println("Take your change: $change")
             println("${name()} prepared successfully! Take it!")
         } else {
             throw IllegalArgumentException(getErrorMessage(order))
@@ -36,12 +34,21 @@ sealed class Drink {
         return orderResponse
     }
 
+
     private fun getAmount(coins: List<Coin>?): Int {
-        var amount = 0
-        coins!!.forEach { coin ->
-            amount += coin.coin
+        return coins?.sumOf { it.value } ?: 0
+    }
+
+    private fun getChange(change: Int): List<Coin> {
+        val coins = mutableListOf<Coin>()
+        var remainingChange = change
+        for (coin in Coin.values().sortedDescending()) {
+            while (remainingChange >= coin.value) {
+                coins.add(coin)
+                remainingChange -= coin.value
+            }
         }
-        return amount
+        return coins
     }
 
     private fun getErrorMessage(order: Order) =

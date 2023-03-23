@@ -1,5 +1,6 @@
 package drinks.impl
 
+import coin.Coin.TEN_CENTS
 import coin.Coin.TWENTY_CENTS
 import drinks.DrinkType.AMERICANO
 import order.Amount.NONE
@@ -29,6 +30,6 @@ internal class AmericanoTest {
         val orderStatus = VendingMachine.prepare(americano)
         Assertions.assertEquals(orderStatus.drink, AMERICANO)
         Assertions.assertEquals(orderStatus.status, DONE)
-        Assertions.assertEquals(orderStatus.change, 10)
+        Assertions.assertEquals(orderStatus.change, listOf(TEN_CENTS))
     }
 }
