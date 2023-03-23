@@ -1,6 +1,7 @@
 package drinks.impl
 
 import coin.Coin.FIFTY_CENTS
+import coin.Coin.TWENTY_CENTS
 import drinks.DrinkType.LATTE
 import order.Amount.NONE
 import order.Status.DONE
@@ -31,7 +32,7 @@ internal class LatteTest {
         val orderStatus = VendingMachine.prepare(americano)
         assertEquals(orderStatus.drink, LATTE)
         assertEquals(orderStatus.status, DONE)
-        assertEquals(orderStatus.change, 20)
+        assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
     }
 
     @Test
@@ -41,7 +42,7 @@ internal class LatteTest {
         val orderStatus = VendingMachine.prepare(americano)
         assertEquals(orderStatus.drink, LATTE)
         assertEquals(orderStatus.status, DONE)
-        assertEquals(orderStatus.change, 20)
+        assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
     }
 
     @Test
@@ -51,7 +52,7 @@ internal class LatteTest {
         val orderStatus = VendingMachine.prepare(americano)
         assertEquals(orderStatus.drink, LATTE)
         assertEquals(orderStatus.status, DONE)
-        assertEquals(orderStatus.change, 20)
+        assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
     }
 
 }
