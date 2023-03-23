@@ -1,4 +1,6 @@
-# Vending Machine in Kotlin ☕🍵🥛
+# Vending Machine
+
+![](assets/vending_machine.png)
 
 Building a vending machine in Kotlin because ... why not? 🙂
 
