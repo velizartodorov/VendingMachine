@@ -3,6 +3,7 @@
 package drinks.impl
 
 import coin.Coin.ONE_EURO
+import drinks.Drink
 import drinks.DrinkType.IRISH_COFFEE
 import order.Amount.NONE
 import order.Order
