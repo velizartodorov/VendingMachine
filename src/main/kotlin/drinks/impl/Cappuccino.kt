@@ -3,7 +3,6 @@
 package drinks.impl
 
 import coin.Coin.FIFTY_CENTS
-import drinks.Drink
 import drinks.DrinkType.CAPPUCCINO
 import order.Amount.NONE
 import order.Order
