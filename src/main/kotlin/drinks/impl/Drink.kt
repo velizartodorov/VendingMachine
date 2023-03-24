@@ -32,7 +32,6 @@ sealed class Drink {
         return orderResponse
     }
 
-
     private fun getAmount(coins: List<Coin>?): Int {
         return coins?.sumOf { it.value } ?: 0
     }
