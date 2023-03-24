@@ -18,7 +18,7 @@ class Tea : Drink() {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(listOf(TWENTY_CENTS))
+            .withCoins(TWENTY_CENTS)
             .build()
     }
 }

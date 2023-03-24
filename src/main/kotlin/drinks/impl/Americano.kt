@@ -17,7 +17,7 @@ class Americano : Drink() {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(listOf(FIFTY_CENTS))
+            .withCoins(FIFTY_CENTS)
             .build()
     }
 }
