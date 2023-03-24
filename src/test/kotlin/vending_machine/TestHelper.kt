@@ -14,7 +14,7 @@ object TestHelper {
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
-        .withCoins(listOf(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS))
+        .withCoins(listOf(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS))
         .build()
 
     fun getLatte() = Order.Builder()
