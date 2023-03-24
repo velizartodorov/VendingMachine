@@ -40,7 +40,7 @@ sealed class Drink {
     private fun getChange(change: Int): List<Coin> {
         val coins = mutableListOf<Coin>()
         var remainingChange = change
-        for (coin in Coin.values().sortedDescending()) {
+        for (coin in Coin.descending) {
             while (remainingChange >= coin.value) {
                 coins.add(coin)
                 remainingChange -= coin.value

@@ -9,4 +9,8 @@ enum class Coin(val value: Int) {
     FIFTY_CENTS(50),
     ONE_EURO(100),
     TWO_EUROS(200);
+
+    companion object {
+        val descending = values().reversed()
+    }
 }
