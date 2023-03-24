@@ -14,7 +14,7 @@ object TestHelper {
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
-        .withCoins(listOf(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS))
+        .withCoins(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS)
         .build()
 
     fun getLatte() = Order.Builder()
@@ -22,7 +22,7 @@ object TestHelper {
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
-        .withCoins(listOf(FIFTY_CENTS))
+        .withCoins(FIFTY_CENTS)
         .build()
 
     fun getSoftLatte() = Order.Builder()
@@ -30,7 +30,7 @@ object TestHelper {
         .withMilk(NONE)
         .withStrength(LOW)
         .withSugar(NONE)
-        .withCoins(listOf(FIFTY_CENTS))
+        .withCoins(FIFTY_CENTS)
         .build()
 
     fun getStrongLatte() = Order.Builder()
@@ -38,7 +38,7 @@ object TestHelper {
         .withMilk(NONE)
         .withStrength(HIGH)
         .withSugar(NONE)
-        .withCoins(listOf(FIFTY_CENTS))
+        .withCoins(FIFTY_CENTS)
         .build()
 
     fun getCappuccino() = Order.Builder()
@@ -46,7 +46,7 @@ object TestHelper {
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
-        .withCoins(listOf(FIFTY_CENTS))
+        .withCoins(FIFTY_CENTS)
         .build()
 
     fun getMaxCappuccino() = Order.Builder()
@@ -54,13 +54,13 @@ object TestHelper {
         .withMilk(NONE)
         .withStrength(MAX)
         .withSugar(NONE)
-        .withCoins(listOf(FIFTY_CENTS))
+        .withCoins(FIFTY_CENTS)
         .build()
 
     fun getNonExistingDrink() = Order.Builder()
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
-        .withCoins(listOf(FIFTY_CENTS))
+        .withCoins(FIFTY_CENTS)
         .build()
 }

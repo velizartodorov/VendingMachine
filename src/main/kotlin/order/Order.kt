@@ -4,25 +4,26 @@ import coin.Coin
 import com.google.gson.Gson
 import drinks.DrinkType
 
-class Order private constructor(
+data class Order(
     val drink: DrinkType?,
     val milk: Amount?,
     val sugar: Amount?,
     val strength: Strength?,
     val coins: List<Coin>?,
 ) {
-    data class Builder(
-        var drink: DrinkType? = null,
-        var milk: Amount? = null,
-        var sugar: Amount? = null,
-        var strength: Strength? = null,
-        var coins: List<Coin>? = null,
-    ) {
+    class Builder {
+        private var drink: DrinkType? = null
+        private var milk: Amount? = null
+        private var sugar: Amount? = null
+        private var strength: Strength? = null
+        private var coins: List<Coin>? = null
+
         fun drink(drink: DrinkType) = apply { this.drink = drink }
         fun withMilk(milk: Amount) = apply { this.milk = milk }
-        fun withSugar(milk: Amount) = apply { this.sugar = milk }
-        fun withStrength(size: Strength) = apply { this.strength = size }
-        fun withCoins(coins: List<Coin>) = apply { this.coins = coins }
+        fun withSugar(sugar: Amount) = apply { this.sugar = sugar }
+        fun withStrength(strength: Strength) = apply { this.strength = strength }
+        fun withCoins(vararg coins: Coin) = apply { this.coins = coins.toList() }
+
         fun build() = Order(drink, milk, sugar, strength, coins)
     }
 

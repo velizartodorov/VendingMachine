@@ -17,7 +17,7 @@ class CafeAuLait : Drink() {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(listOf(TWO_EUROS))
+            .withCoins(TWO_EUROS)
             .build()
     }
 }

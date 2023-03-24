@@ -17,7 +17,7 @@ class Decaf : Drink() {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(listOf(ONE_EURO))
+            .withCoins(ONE_EURO)
             .build()
     }
 }
