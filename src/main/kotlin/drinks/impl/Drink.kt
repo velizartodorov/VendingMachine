@@ -19,11 +19,9 @@ sealed class Drink {
     fun prepare(order: Order): OrderResponse {
         val amount = getAmount(order.coins)
         val change = amount - price()
-        val orderResponse = OrderResponse().apply {
-            status = if (amount >= price()) DONE else IN_PROGRESS
-            drink = order.drink ?: throw IllegalArgumentException("Drink not specified")
-            this.change = getChange(change)
-        }
+        val status = if (amount >= price()) DONE else IN_PROGRESS
+        val drink = order.drink ?: throw IllegalArgumentException("Drink not specified")
+        val orderResponse = OrderResponse(getChange(change), status, drink)
         println("${name()} ordered successfully! Preparing ...")
         if (orderResponse.status == DONE) {
             println("Take your change: $change")
