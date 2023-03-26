@@ -17,10 +17,10 @@ sealed class Drink {
     }
 
     fun prepare(order: Order): OrderResponse {
+        val drink = order.drink ?: throw IllegalArgumentException("Drink not specified")
         val amount = getAmount(order.coins)
         val change = amount - price()
         val status = if (amount >= price()) DONE else IN_PROGRESS
-        val drink = order.drink ?: throw IllegalArgumentException("Drink not specified")
         val orderResponse = OrderResponse(getChange(change), status, drink)
         println("${name()} ordered successfully! Preparing ...")
         if (orderResponse.status == DONE) {
@@ -54,10 +54,11 @@ sealed class Drink {
                 "Current amount: ${getAmount(order.coins)}"
 
     override fun equals(other: Any?): Boolean {
-        return this === other
+        return other?.javaClass != this.javaClass
     }
 
     override fun hashCode(): Int {
-        return System.identityHashCode(this)
+        return javaClass.hashCode()
     }
+
 }
