@@ -40,4 +40,4 @@ The choice of a drink is based
 on [Factory Pattern](https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)). All the
 drinks implement the abstract sealed class `Drink` and inherit it. with the help
 of [sealed classes](https://kotlinlang.org/docs/sealed-classes.html) in Kotlin, we can avoid the use
-of pattern matching/switch/if-else statements and can autoload new implementations.
+of pattern matching/`switch`/`if...else` statements and can autoload new implementations.
