@@ -45,8 +45,17 @@ For now this basic implementation supports the following types of drinks:
 
 ### Architecture ⚙️
 
+#### Choice of drink 🍶
+
 The choice of a drink is based
 on [Factory Pattern](https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)). All the
 drinks implement the abstract sealed class `Drink` and inherit it. with the help
 of [sealed classes](https://kotlinlang.org/docs/sealed-classes.html) in Kotlin, we can avoid the use
 of pattern matching/`switch`/`if...else` statements and can autoload new implementations.
+
+#### Choice of container 📥📤
+
+The choice of a container is based
+on [Factory Pattern](https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)). For now
+there are a few containers - water, beans, milk and sugar. When a certain container is chosen, the
+amount in the container itself decreases.
