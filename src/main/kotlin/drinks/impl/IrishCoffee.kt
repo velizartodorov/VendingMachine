@@ -20,4 +20,8 @@ class IrishCoffee : Drink() {
             .withCoins(ONE_EURO)
             .build()
     }
+
+    override fun prepare() {
+        println("Irish Coffee preparing ...")
+    }
 }

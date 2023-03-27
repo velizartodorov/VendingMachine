@@ -20,4 +20,8 @@ class Water : Drink() {
             .withCoins(TWO_EUROS)
             .build()
     }
+
+    override fun prepare() {
+        println("Water prepared ...")
+    }
 }

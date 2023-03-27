@@ -20,4 +20,8 @@ class Cappuccino : Drink() {
             .withCoins(FIFTY_CENTS)
             .build()
     }
+
+    override fun prepare() {
+        println("Cappuccino preparing ...")
+    }
 }

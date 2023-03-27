@@ -20,4 +20,8 @@ class Mocha : Drink() {
             .withCoins(ONE_EURO)
             .build()
     }
+
+    override fun prepare() {
+        println("Mocha prepared ..")
+    }
 }

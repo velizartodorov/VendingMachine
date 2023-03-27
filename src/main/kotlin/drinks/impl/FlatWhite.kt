@@ -20,4 +20,8 @@ class FlatWhite : Drink() {
             .withCoins(ONE_EURO)
             .build()
     }
+
+    override fun prepare() {
+        println("Flat White preparing ...")
+    }
 }
