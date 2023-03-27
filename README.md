@@ -8,7 +8,16 @@ Building a vending machine in Kotlin because ... why not? 🙂
 
 1. Make sure you have [azul-13-sdk](https://www.azul.com/downloads/?package=jdk)
    installed for Kotlin.
-2. Go to `src/main/kotlin/Main.kt` and run the `main()` function.
+2. Go to [Main.kt](src/main/kotlin/Main.kt) and run the `fun main()` function.
+
+## Building & testing ✅
+
+When a new commit is pushed, a [GitHub Actions](https://github.com/features/actions) pipeline is
+triggered.
+<br>This is acquired by the [build.yml](.github/workflows/build.yml)
+and [tests.yml](.github/workflows/tests.yml) files. Example:
+
+<img src="assets/github_actions.png" width="450">
 
 ## Implementation 🔧
 
