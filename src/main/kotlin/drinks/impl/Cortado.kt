@@ -9,7 +9,7 @@ import order.Order
 import order.Strength.MEDIUM
 
 class Cortado : Drink() {
-    override fun name() = CORTADO
+    override val name = CORTADO
     override fun price() = 50
     override fun testOrder(): Order {
         return Order.Builder()

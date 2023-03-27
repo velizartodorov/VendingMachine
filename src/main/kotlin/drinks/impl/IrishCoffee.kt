@@ -9,7 +9,7 @@ import order.Order
 import order.Strength.MEDIUM
 
 class IrishCoffee : Drink() {
-    override fun name() = IRISH_COFFEE
+    override val name = IRISH_COFFEE
     override fun price() = 90
     override fun testOrder(): Order {
         return Order.Builder()

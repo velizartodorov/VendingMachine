@@ -8,7 +8,7 @@ import order.Status.DONE
 import order.Status.IN_PROGRESS
 
 sealed class Drink {
-    abstract fun name(): DrinkType
+    abstract val name: DrinkType
     abstract fun price(): Int
     abstract fun testOrder(): Order
     abstract fun prepare()
@@ -23,11 +23,11 @@ sealed class Drink {
         val change = amount - price()
         val status = if (amount >= price()) DONE else IN_PROGRESS
         val orderResponse = OrderResponse(getChange(change), status, drink)
-        println("${name()} ordered successfully! Preparing ...")
+        println("$name ordered successfully! Preparing ...")
         prepare()
         if (orderResponse.status == DONE) {
             println("Take your change: $change")
-            println("${name()} prepared successfully! Take it!")
+            println("$name prepared successfully! Take it!")
         } else {
             throw IllegalArgumentException(getErrorMessage(order))
         }
@@ -51,7 +51,7 @@ sealed class Drink {
     }
 
     private fun getErrorMessage(order: Order) =
-        "Amount insufficient for ${name()}! " +
+        "Amount insufficient for ${name}! " +
                 "Needed amount: ${price()} " +
                 "Current amount: ${getAmount(order.coins)}"
 
