@@ -1,11 +1,14 @@
 package containers
 
 class WaterContainer : Container {
+    private var amount = 500.0
+
     override fun getAmount(): Double {
-        return 50.0;
+        return amount
     }
 
     override fun extract() {
-        print("Water extracted.")
+        amount--
+        println("Water extracted. Sugar amount remaining: $amount ml")
     }
 }
