@@ -11,6 +11,7 @@ sealed class Drink {
     abstract fun name(): DrinkType
     abstract fun price(): Int
     abstract fun testOrder(): Order
+    abstract fun prepare()
 
     fun prepareTestOrder() {
         prepare(testOrder())
@@ -23,6 +24,7 @@ sealed class Drink {
         val status = if (amount >= price()) DONE else IN_PROGRESS
         val orderResponse = OrderResponse(getChange(change), status, drink)
         println("${name()} ordered successfully! Preparing ...")
+        prepare()
         if (orderResponse.status == DONE) {
             println("Take your change: $change")
             println("${name()} prepared successfully! Take it!")

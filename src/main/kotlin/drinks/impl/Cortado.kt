@@ -20,4 +20,8 @@ class Cortado : Drink() {
             .withCoins(FIFTY_CENTS)
             .build()
     }
+
+    override fun prepare() {
+        println("Cortado preparing ...")
+    }
 }

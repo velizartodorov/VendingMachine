@@ -21,4 +21,8 @@ class Tea : Drink() {
             .withCoins(TWENTY_CENTS)
             .build()
     }
+
+    override fun prepare() {
+        println("Tea prepared ...")
+    }
 }
