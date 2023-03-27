@@ -10,7 +10,7 @@ import order.Strength.MEDIUM
 
 class FlatWhite : Drink() {
     override val name = FLAT_WHITE
-    override fun price() = 70
+    override val price = 70
     override fun testOrder(): Order {
         return Order.Builder()
             .drink(FLAT_WHITE)

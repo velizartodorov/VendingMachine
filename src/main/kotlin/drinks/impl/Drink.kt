@@ -9,7 +9,7 @@ import order.Status.IN_PROGRESS
 
 sealed class Drink {
     abstract val name: DrinkType
-    abstract fun price(): Int
+    abstract val price: Int
     abstract fun testOrder(): Order
     abstract fun prepare()
 
@@ -20,8 +20,8 @@ sealed class Drink {
     fun prepare(order: Order): OrderResponse {
         val drink = order.drink ?: throw IllegalArgumentException("Drink not specified")
         val amount = getAmount(order.coins)
-        val change = amount - price()
-        val status = if (amount >= price()) DONE else IN_PROGRESS
+        val change = amount - price
+        val status = if (amount >= price) DONE else IN_PROGRESS
         val orderResponse = OrderResponse(getChange(change), status, drink)
         println("$name ordered successfully! Preparing ...")
         prepare()
@@ -51,8 +51,8 @@ sealed class Drink {
     }
 
     private fun getErrorMessage(order: Order) =
-        "Amount insufficient for ${name}! " +
-                "Needed amount: ${price()} " +
+        "Amount insufficient for $name! " +
+                "Needed amount: $price " +
                 "Current amount: ${getAmount(order.coins)}"
 
     override fun equals(other: Any?): Boolean {
