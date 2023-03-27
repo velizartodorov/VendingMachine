@@ -1,11 +1,14 @@
 package containers
 
 class BeansContainer : Container {
+    private var amount = 500.0
+
     override fun getAmount(): Double {
-        return 50.0;
+        return amount
     }
 
     override fun extract() {
-        print("Beans extracted.")
+        amount--
+        println("Beans extracted. Beans amount remaining: $amount gr")
     }
 }

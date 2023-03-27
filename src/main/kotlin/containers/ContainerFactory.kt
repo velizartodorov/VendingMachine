@@ -1,12 +1,18 @@
 package containers
 
-class ContainerFactory {
-    fun getContainer(container: String) =
-        when (container.substringAfterLast('.')) {
+object ContainerFactory {
+    fun getContainer(containerName: String): Container {
+        val container = when (containerName.substringAfterLast('.')) {
             "beans" -> BeansContainer()
             "milk" -> MilkContainer()
             "sugar" -> SugarContainer()
             "water" -> WaterContainer()
-            else -> throw Exception("Container unknown: $container.")
+            else -> throw Exception("Container unknown: $containerName.")
         }
+        if (container.getAmount() <= 0) {
+            throw Exception("Insufficient amount in container $container. " +
+                    "Amount: ${container.getAmount()}")
+        }
+        return container
+    }
 }
