@@ -49,7 +49,7 @@ object VendingMachine {
         val drinks = Drink::class.sealedSubclasses
         for (drinkClass: KClass<out Drink> in drinks) {
             val drink: Drink = drinkClass.createInstance()
-            if (drink.name() == drinkType) return drink
+            if (drink.name == drinkType) return drink
         }
         throw NotImplementedException("Drink doesn't exist: $drinkType")
     }

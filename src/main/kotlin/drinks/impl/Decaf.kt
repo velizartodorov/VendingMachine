@@ -9,7 +9,7 @@ import order.Order
 import order.Strength.MEDIUM
 
 class Decaf : Drink() {
-    override fun name() = DECAF
+    override val name = DECAF
     override fun price() = 80
     override fun testOrder(): Order {
         return Order.Builder()
