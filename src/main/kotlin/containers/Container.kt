@@ -1,6 +1,6 @@
 package containers
 
 interface Container {
-    fun getAmount():Double
+    val amount: Double
     fun extract()
 }

@@ -9,9 +9,9 @@ object ContainerFactory {
             "water" -> WaterContainer()
             else -> throw Exception("Container unknown: $containerName.")
         }
-        if (container.getAmount() <= 0) {
+        if (container.amount <= 0) {
             throw Exception("Insufficient amount in container $container. " +
-                    "Amount: ${container.getAmount()}")
+                    "Amount: ${container.amount}")
         }
         return container
     }
