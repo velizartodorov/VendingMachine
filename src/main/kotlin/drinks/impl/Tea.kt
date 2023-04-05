@@ -3,6 +3,7 @@
 package drinks.impl
 
 import coin.Coin.TWENTY_CENTS
+import containers.ContainerFactory
 import drinks.DrinkType.TEA
 import order.Amount.NONE
 import order.Order
@@ -23,5 +24,8 @@ class Tea : Drink() {
 
     override fun prepare() {
         println("Tea prepared ...")
+        ContainerFactory.getContainer("tea").extract()
+        ContainerFactory.getContainer("sugar").extract()
+        ContainerFactory.getContainer("water").extract()
     }
 }
