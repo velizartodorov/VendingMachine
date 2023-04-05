@@ -7,6 +7,7 @@ object ContainerFactory {
             "milk" -> MilkContainer()
             "sugar" -> SugarContainer()
             "water" -> WaterContainer()
+            "tea" -> TeaContainer()
             else -> throw Exception("Container unknown: $containerName.")
         }
         if (container.amount <= 0) {

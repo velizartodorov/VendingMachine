@@ -3,6 +3,7 @@
 package drinks.impl
 
 import coin.Coin.ONE_EURO
+import containers.ContainerFactory
 import drinks.DrinkType.FLAT_WHITE
 import order.Amount.NONE
 import order.Order
@@ -23,5 +24,9 @@ class FlatWhite : Drink() {
 
     override fun prepare() {
         println("Flat White preparing ...")
+        ContainerFactory.getContainer("beans").extract()
+        ContainerFactory.getContainer("milk").extract()
+        ContainerFactory.getContainer("sugar").extract()
+        ContainerFactory.getContainer("water").extract()
     }
 }
