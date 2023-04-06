@@ -1,10 +1,12 @@
 package containers
 
+import order.Amount
+
 class BeansContainer : Container {
     override var amount = 500.0
 
-    override fun extract() {
-        amount--
-        println("Beans extracted. Beans amount remaining: $amount gr")
+    override fun extractAmount(amount: Amount) {
+        reduceAmount(amount)
+        println("Beans extracted. Beans amount remaining: ${this.amount} gr")
     }
 }

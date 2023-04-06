@@ -5,7 +5,8 @@ package drinks.impl
 import coin.Coin.ONE_EURO
 import containers.ContainerFactory
 import drinks.DrinkType.IRISH_COFFEE
-import order.Amount.NONE
+import order.Amount
+import order.Amount.*
 import order.Order
 import order.Strength.MEDIUM
 
@@ -24,9 +25,11 @@ class IrishCoffee : Drink() {
 
     override fun prepare() {
         println("Irish Coffee preparing ...")
-        ContainerFactory.getContainer("beans").extract()
-        ContainerFactory.getContainer("milk").extract()
-        ContainerFactory.getContainer("sugar").extract()
-        ContainerFactory.getContainer("water").extract()
+        ContainerFactory.run {
+            getContainer("beans").extractAmount(NONE)
+            getContainer("milk").extractAmount(LOW)
+            getContainer("sugar").extractAmount(Amount.MEDIUM)
+            getContainer("water").extractAmount(MAX)
+        }
     }
 }

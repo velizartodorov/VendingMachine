@@ -5,6 +5,7 @@ package drinks.impl
 import coin.Coin.TWO_EUROS
 import containers.ContainerFactory
 import drinks.DrinkType.CAFE_AU_LAIT
+import order.Amount
 import order.Amount.NONE
 import order.Order
 import order.Strength.MEDIUM
@@ -24,9 +25,9 @@ class CafeAuLait : Drink() {
 
     override fun prepare() {
         println("Cafe Au Lait preparing ...")
-        ContainerFactory.getContainer("beans").extract()
-        ContainerFactory.getContainer("milk").extract()
-        ContainerFactory.getContainer("sugar").extract()
-        ContainerFactory.getContainer("water").extract()
+        ContainerFactory.getContainer("beans").extractAmount(NONE)
+        ContainerFactory.getContainer("milk").extractAmount(Amount.LOW)
+        ContainerFactory.getContainer("sugar").extractAmount(Amount.MEDIUM)
+        ContainerFactory.getContainer("water").extractAmount(Amount.MAX)
     }
 }
