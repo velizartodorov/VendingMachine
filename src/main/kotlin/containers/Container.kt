@@ -3,10 +3,11 @@ package containers
 import order.Amount
 import order.Amount.*
 
-interface Container {
-    var amount: Double
+sealed class Container {
+    abstract val name: String
+    abstract var amount: Double
 
-    fun extractAmount(amount: Amount?)
+    abstract fun extractAmount(amount: Amount?)
 
     fun reduceAmount(amount: Amount?) {
         when (amount) {
@@ -18,7 +19,7 @@ interface Container {
         }
     }
 
-    fun reduceAmountForLow() {
+    private fun reduceAmountForLow() {
         this.amount--
     }
 
