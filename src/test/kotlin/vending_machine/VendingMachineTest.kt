@@ -1,6 +1,10 @@
 package vending_machine
 
+import coin.Coin
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
+import order.Amount
+import order.Order
+import order.Strength
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -30,7 +34,14 @@ internal class VendingMachineTest {
     @Test
     fun testVendingMachineWithNonExistingDrink() {
         VendingMachine.start()
-        val nonExisting = TestHelper.getNonExistingDrink()
+        val nonExisting = getNonExistingDrink()
         assertThrows<NotImplementedException> { VendingMachine.prepare(nonExisting) }
     }
+
+    private fun getNonExistingDrink() = Order.Builder()
+        .withMilk(Amount.NONE)
+        .withStrength(Strength.MEDIUM)
+        .withSugar(Amount.NONE)
+        .withCoins(Coin.FIFTY_CENTS)
+        .build()
 }
