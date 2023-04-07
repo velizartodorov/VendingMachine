@@ -4,7 +4,7 @@ package drinks.impl
 
 import containers.ContainerFactory
 import drinks.DrinkType.WATER
-import order.Amount
+import order.Amount.MEDIUM
 import order.Order
 
 class Water : Drink() {
@@ -13,6 +13,6 @@ class Water : Drink() {
 
     override fun prepareDrink(order: Order) {
         println("Water prepared ...")
-        ContainerFactory.getContainer("water").extractAmount(Amount.MEDIUM)
+        ContainerFactory.getContainer("water").extractAmount(MEDIUM)
     }
 }
