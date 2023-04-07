@@ -1,19 +1,25 @@
 package containers
 
+import jdk.jshell.spi.ExecutionControl.NotImplementedException
+import kotlin.reflect.KClass
+import kotlin.reflect.full.createInstance
+
 object ContainerFactory {
     fun getContainer(containerName: String): Container {
-        val container = when (containerName.substringAfterLast('.')) {
-            "beans" -> BeansContainer()
-            "milk" -> MilkContainer()
-            "sugar" -> SugarContainer()
-            "water" -> WaterContainer()
-            "tea" -> TeaContainer()
-            else -> throw Exception("Container unknown: $containerName.")
+        val containers = Container::class.sealedSubclasses
+        for (containerClass: KClass<out Container> in containers) {
+            val container = containerClass.createInstance()
+            if (container.name == containerName) {
+                return checkAmount(container)
+            }
         }
-        if (container.amount <= 0) {
-            throw Exception("Insufficient amount in container $container. " +
-                    "Amount: ${container.amount}")
-        }
-        return container
+        throw NotImplementedException("Container doesn't exist: $containerName")
     }
+
+    private fun checkAmount(container: Container): Container {
+        if (container.amount > 0) return container
+        else throw Exception("Insufficient amount in container $container. " +
+                "Amount: ${container.amount}")
+    }
+
 }

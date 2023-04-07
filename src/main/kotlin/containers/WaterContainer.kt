@@ -2,7 +2,9 @@ package containers
 
 import order.Amount
 
-class WaterContainer : Container {
+@Suppress("unused")
+class WaterContainer : Container() {
+    override val name = "water"
     override var amount = 500.0
 
     override fun extractAmount(amount: Amount?) {

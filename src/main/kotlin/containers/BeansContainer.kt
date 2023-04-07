@@ -1,8 +1,11 @@
+@file:Suppress("unused")
+
 package containers
 
 import order.Amount
 
-class BeansContainer : Container {
+class BeansContainer : Container() {
+    override val name = "beans"
     override var amount = 500.0
 
     override fun extractAmount(amount: Amount?) {
