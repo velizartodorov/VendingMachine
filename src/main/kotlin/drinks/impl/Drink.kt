@@ -62,21 +62,17 @@ sealed class Drink {
         return javaClass.hashCode()
     }
 
-    fun getAmount(strength: Strength?): Amount {
-        return when (strength) {
-            LOW -> Amount.LOW
-            MEDIUM -> Amount.MEDIUM
-            HIGH -> Amount.HIGH
-            MAX -> Amount.MAX
-            else -> throw IllegalArgumentException("Strength undetermined: $strength")
-        }
+    fun getAmount(strength: Strength?): Amount = when (strength) {
+        LOW -> Amount.LOW
+        MEDIUM -> Amount.MEDIUM
+        HIGH -> Amount.HIGH
+        MAX -> Amount.MAX
+        else -> throw IllegalArgumentException("Strength undetermined: $strength")
     }
 
-    fun getAmount(drink: DrinkType?): Amount {
-        return when (drink) {
-            WATER -> Amount.MAX
-            else -> Amount.MEDIUM
-        }
+    fun getAmount(drink: DrinkType?): Amount = when (drink) {
+        WATER -> Amount.MAX
+        else -> Amount.MEDIUM
     }
 
 }
