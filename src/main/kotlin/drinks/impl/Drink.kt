@@ -14,12 +14,7 @@ import order.Strength.*
 sealed class Drink {
     abstract val name: DrinkType
     abstract val price: Int
-    abstract fun testOrder(): Order
     protected abstract fun prepareDrink(order: Order)
-
-    fun prepareTestOrder() {
-        prepare(testOrder())
-    }
 
     fun prepare(order: Order): OrderResponse {
         val drink = order.drink ?: throw IllegalArgumentException("Drink not specified")

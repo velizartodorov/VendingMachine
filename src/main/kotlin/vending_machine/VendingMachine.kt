@@ -33,14 +33,6 @@ object VendingMachine {
         power = OFF
     }
 
-    fun testRun() {
-        val drinks = Drink::class.sealedSubclasses
-        for (drinkClass: KClass<out Drink> in drinks) {
-            val drink = drinkClass.createInstance()
-            drink.prepareTestOrder()
-        }
-    }
-
     fun prepare(order: Order): OrderResponse {
         return getDrink(order.drink).prepare(order)
     }

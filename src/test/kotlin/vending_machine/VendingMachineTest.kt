@@ -28,7 +28,6 @@ internal class VendingMachineTest {
     @Test
     fun testVendingMachineTestRun() {
         VendingMachine.start()
-        VendingMachine.testRun()
     }
 
     @Test
