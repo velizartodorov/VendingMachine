@@ -6,8 +6,7 @@ import drinks.DrinkType.LATTE
 import order.Amount.NONE
 import order.Order
 import order.Status.DONE
-import order.Strength
-import order.Strength.MEDIUM
+import order.Strength.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
@@ -65,7 +64,7 @@ internal class LatteTest {
     private fun getSoftLatte() = Order.Builder()
         .drink(LATTE)
         .withMilk(NONE)
-        .withStrength(Strength.LOW)
+        .withStrength(LOW)
         .withSugar(NONE)
         .withCoins(FIFTY_CENTS)
         .build()
@@ -73,7 +72,7 @@ internal class LatteTest {
     private fun getStrongLatte() = Order.Builder()
         .drink(LATTE)
         .withMilk(NONE)
-        .withStrength(Strength.HIGH)
+        .withStrength(HIGH)
         .withSugar(NONE)
         .withCoins(FIFTY_CENTS)
         .build()

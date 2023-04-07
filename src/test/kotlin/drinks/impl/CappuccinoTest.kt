@@ -1,14 +1,13 @@
 package drinks.impl
 
-import coin.Coin
-import coin.Coin.TEN_CENTS
-import coin.Coin.TWENTY_CENTS
+import coin.Coin.*
 import drinks.DrinkType.CAPPUCCINO
-import order.Amount
+import order.Amount.NONE
 import order.Order
 import order.Status.DONE
-import order.Strength
-import org.junit.jupiter.api.Assertions
+import order.Strength.MAX
+import order.Strength.MEDIUM
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
@@ -18,9 +17,9 @@ internal class CappuccinoTest {
         VendingMachine.start()
         val drink = getCappuccino()
         val orderStatus = VendingMachine.prepare(drink)
-        Assertions.assertEquals(orderStatus.drink, CAPPUCCINO)
-        Assertions.assertEquals(orderStatus.status, DONE)
-        Assertions.assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
+        assertEquals(orderStatus.drink, CAPPUCCINO)
+        assertEquals(orderStatus.status, DONE)
+        assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
     }
 
     @Test
@@ -28,24 +27,24 @@ internal class CappuccinoTest {
         VendingMachine.start()
         val drink = getMaxCappuccino()
         val orderStatus = VendingMachine.prepare(drink)
-        Assertions.assertEquals(orderStatus.drink, CAPPUCCINO)
-        Assertions.assertEquals(orderStatus.status, DONE)
-        Assertions.assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
+        assertEquals(orderStatus.drink, CAPPUCCINO)
+        assertEquals(orderStatus.status, DONE)
+        assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
     }
 
     private fun getCappuccino() = Order.Builder()
         .drink(CAPPUCCINO)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MEDIUM)
-        .withSugar(Amount.NONE)
-        .withCoins(Coin.FIFTY_CENTS)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(FIFTY_CENTS)
         .build()
 
     private fun getMaxCappuccino() = Order.Builder()
         .drink(CAPPUCCINO)
-        .withMilk(Amount.NONE)
-        .withStrength(Strength.MAX)
-        .withSugar(Amount.NONE)
-        .withCoins(Coin.FIFTY_CENTS)
+        .withMilk(NONE)
+        .withStrength(MAX)
+        .withSugar(NONE)
+        .withCoins(FIFTY_CENTS)
         .build()
 }
