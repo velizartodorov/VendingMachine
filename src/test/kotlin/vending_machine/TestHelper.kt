@@ -40,6 +40,14 @@ object TestHelper {
         .withCoins(FIFTY_CENTS)
         .build()
 
+    fun getDecaf() = Order.Builder()
+        .drink(DECAF)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(ONE_EURO)
+        .build()
+
     fun getSoftLatte() = Order.Builder()
         .drink(LATTE)
         .withMilk(NONE)
