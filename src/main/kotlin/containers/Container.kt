@@ -6,9 +6,9 @@ import order.Amount.*
 interface Container {
     var amount: Double
 
-    fun extractAmount(amount: Amount)
+    fun extractAmount(amount: Amount?)
 
-    fun reduceAmount(amount: Amount) {
+    fun reduceAmount(amount: Amount?) {
         when (amount) {
             NONE -> println("Amount remains the same.")
             LOW -> reduceAmountForLow()
