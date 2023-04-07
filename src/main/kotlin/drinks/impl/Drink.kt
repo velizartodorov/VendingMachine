@@ -30,7 +30,7 @@ sealed class Drink {
         println("$name ordered successfully! Preparing ...")
         prepareDrink(order)
         if (orderResponse.status == DONE) {
-            println("Take your change: $change")
+            println("Take your change: ${orderResponse.change}")
             println("$name prepared successfully! Take it!")
         } else {
             throw IllegalArgumentException(getErrorMessage(order))
