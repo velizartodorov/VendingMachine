@@ -6,7 +6,7 @@ import coin.Coin.ONE_EURO
 import containers.ContainerFactory
 import drinks.DrinkType.DECAF
 import order.Amount
-import order.Amount.NONE
+import order.Amount.*
 import order.Order
 import order.Strength.MEDIUM
 
@@ -27,9 +27,9 @@ class Decaf : Drink() {
         println("Decaf preparing ...")
         ContainerFactory.run {
             getContainer("beans").extractAmount(NONE)
-            getContainer("milk").extractAmount(Amount.LOW)
+            getContainer("milk").extractAmount(LOW)
             getContainer("sugar").extractAmount(Amount.MEDIUM)
-            getContainer("water").extractAmount(Amount.MAX)
+            getContainer("water").extractAmount(MAX)
         }
     }
 }
