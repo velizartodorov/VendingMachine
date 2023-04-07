@@ -5,7 +5,6 @@ package drinks.impl
 import coin.Coin.FIFTY_CENTS
 import containers.ContainerFactory.getContainer
 import drinks.DrinkType.CAPPUCCINO
-import order.Amount
 import order.Amount.*
 import order.Order
 import order.Strength.MEDIUM
@@ -23,11 +22,11 @@ class Cappuccino : Drink() {
             .build()
     }
 
-    override fun prepare() {
+    override fun prepareDrink(order: Order) {
         println("Cappuccino preparing ...")
-        getContainer("beans").extractAmount(NONE)
-        getContainer("milk").extractAmount(LOW)
-        getContainer("sugar").extractAmount(Amount.MEDIUM)
-        getContainer("water").extractAmount(MAX)
+        getContainer("beans").extractAmount(getAmount(order.strength))
+        getContainer("milk").extractAmount(order.milk)
+        getContainer("sugar").extractAmount(order.sugar)
+        getContainer("water").extractAmount(getAmount(order.drink))
     }
 }

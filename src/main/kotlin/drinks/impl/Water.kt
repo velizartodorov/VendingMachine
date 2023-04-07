@@ -23,7 +23,7 @@ class Water : Drink() {
             .build()
     }
 
-    override fun prepare() {
+    override fun prepareDrink(order: Order) {
         println("Water prepared ...")
         ContainerFactory.getContainer("water").extractAmount(Amount.MEDIUM)
     }

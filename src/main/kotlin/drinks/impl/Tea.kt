@@ -5,7 +5,6 @@ package drinks.impl
 import coin.Coin.TWENTY_CENTS
 import containers.ContainerFactory
 import drinks.DrinkType.TEA
-import order.Amount
 import order.Amount.*
 import order.Order
 import order.Strength.MEDIUM
@@ -23,12 +22,10 @@ class Tea : Drink() {
             .build()
     }
 
-    override fun prepare() {
+    override fun prepareDrink(order: Order) {
         println("Tea prepared ...")
-        ContainerFactory.run {
-            getContainer("tea").extractAmount(LOW)
-            getContainer("sugar").extractAmount(Amount.MEDIUM)
-            getContainer("water").extractAmount(MAX)
-        }
+        ContainerFactory.getContainer("tea").extractAmount(getAmount(order.strength))
+        ContainerFactory.getContainer("sugar").extractAmount(order.sugar)
+        ContainerFactory.getContainer("water").extractAmount(getAmount(order.drink))
     }
 }

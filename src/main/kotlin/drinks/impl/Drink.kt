@@ -2,16 +2,20 @@ package drinks.impl
 
 import coin.Coin
 import drinks.DrinkType
+import drinks.DrinkType.WATER
+import order.Amount
 import order.Order
 import order.OrderResponse
 import order.Status.DONE
 import order.Status.IN_PROGRESS
+import order.Strength
+import order.Strength.*
 
 sealed class Drink {
     abstract val name: DrinkType
     abstract val price: Int
     abstract fun testOrder(): Order
-    abstract fun prepare()
+    protected abstract fun prepareDrink(order: Order)
 
     fun prepareTestOrder() {
         prepare(testOrder())
@@ -24,7 +28,7 @@ sealed class Drink {
         val status = if (amount >= price) DONE else IN_PROGRESS
         val orderResponse = OrderResponse(getChange(change), status, drink)
         println("$name ordered successfully! Preparing ...")
-        prepare()
+        prepareDrink(order)
         if (orderResponse.status == DONE) {
             println("Take your change: $change")
             println("$name prepared successfully! Take it!")
@@ -61,6 +65,23 @@ sealed class Drink {
 
     override fun hashCode(): Int {
         return javaClass.hashCode()
+    }
+
+    fun getAmount(strength: Strength?): Amount {
+        return when (strength) {
+            LOW -> Amount.LOW
+            MEDIUM -> Amount.MEDIUM
+            HIGH -> Amount.HIGH
+            MAX -> Amount.MAX
+            else -> throw IllegalArgumentException("Strength undetermined: $strength")
+        }
+    }
+
+    fun getAmount(drink: DrinkType?): Amount {
+        return when (drink) {
+            WATER -> Amount.MAX
+            else -> Amount.MEDIUM
+        }
     }
 
 }

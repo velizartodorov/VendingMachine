@@ -5,7 +5,6 @@ package drinks.impl
 import coin.Coin.ONE_EURO
 import containers.ContainerFactory
 import drinks.DrinkType.MACCHIATO
-import order.Amount
 import order.Amount.*
 import order.Order
 import order.Strength.MEDIUM
@@ -23,13 +22,11 @@ class Macchiato : Drink() {
             .build()
     }
 
-    override fun prepare() {
+    override fun prepareDrink(order: Order) {
         println("Macchiato prepared ...")
-        ContainerFactory.run {
-            getContainer("beans").extractAmount(NONE)
-            getContainer("milk").extractAmount(LOW)
-            getContainer("sugar").extractAmount(Amount.MEDIUM)
-            getContainer("water").extractAmount(HIGH)
-        }
+        ContainerFactory.getContainer("beans").extractAmount(getAmount(order.strength))
+        ContainerFactory.getContainer("milk").extractAmount(order.milk)
+        ContainerFactory.getContainer("sugar").extractAmount(order.sugar)
+        ContainerFactory.getContainer("water").extractAmount(getAmount(order.drink))
     }
 }
