@@ -58,4 +58,5 @@ of pattern matching/`switch`/`if...else` statements and can autoload new impleme
 The choice of a container is based
 on [Factory Pattern](https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)). For now
 there are a few containers - water, beans, tea, milk and sugar. When a certain container is chosen,
-the amount in the container itself decreases.
+the amount in the container itself decreases. If the container is empty, an exception is thrown to
+notify the user.
