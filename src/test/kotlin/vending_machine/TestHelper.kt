@@ -1,7 +1,7 @@
 package vending_machine
 
-import coin.Coin.FIFTY_CENTS
-import coin.Coin.TWENTY_CENTS
+import coin.Coin
+import coin.Coin.*
 import drinks.DrinkType.*
 import order.Amount.NONE
 import order.Order
@@ -23,6 +23,14 @@ object TestHelper {
         .withStrength(MEDIUM)
         .withSugar(NONE)
         .withCoins(FIFTY_CENTS)
+        .build()
+
+    fun getCafeAuLait() = Order.Builder()
+        .drink(CAFE_AU_LAIT)
+        .withMilk(NONE)
+        .withStrength(MEDIUM)
+        .withSugar(NONE)
+        .withCoins(TWO_EUROS, FIFTY_CENTS)
         .build()
 
     fun getSoftLatte() = Order.Builder()
