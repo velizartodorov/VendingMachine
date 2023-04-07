@@ -17,19 +17,19 @@ internal class LatteTest {
 
     @Test
     fun testOrderLatte() {
-        val latte = getLatte()
-        assertEquals(latte.drink, LATTE)
-        assertEquals(latte.milk, NONE)
-        assertEquals(latte.strength, MEDIUM)
-        assertEquals(latte.sugar, NONE)
-        assertEquals(latte.coins, listOf(FIFTY_CENTS))
+        val drink = getLatte()
+        assertEquals(drink.drink, LATTE)
+        assertEquals(drink.milk, NONE)
+        assertEquals(drink.strength, MEDIUM)
+        assertEquals(drink.sugar, NONE)
+        assertEquals(drink.coins, listOf(FIFTY_CENTS))
     }
 
     @Test
     fun testVendingMachineWithLatte() {
         VendingMachine.start()
-        val americano = getLatte()
-        val orderStatus = VendingMachine.prepare(americano)
+        val drink = getLatte()
+        val orderStatus = VendingMachine.prepare(drink)
         assertEquals(orderStatus.drink, LATTE)
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
@@ -38,8 +38,8 @@ internal class LatteTest {
     @Test
     fun testVendingMachineWithSoftLatte() {
         VendingMachine.start()
-        val americano = getSoftLatte()
-        val orderStatus = VendingMachine.prepare(americano)
+        val drink = getSoftLatte()
+        val orderStatus = VendingMachine.prepare(drink)
         assertEquals(orderStatus.drink, LATTE)
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
@@ -48,8 +48,8 @@ internal class LatteTest {
     @Test
     fun testVendingMachineWithStrongLatte() {
         VendingMachine.start()
-        val americano = getStrongLatte()
-        val orderStatus = VendingMachine.prepare(americano)
+        val drink = getStrongLatte()
+        val orderStatus = VendingMachine.prepare(drink)
         assertEquals(orderStatus.drink, LATTE)
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))

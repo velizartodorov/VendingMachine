@@ -13,8 +13,8 @@ internal class CappuccinoTest {
     @Test
     fun testCappuccino() {
         VendingMachine.start()
-        val cappuccino = TestHelper.getCappuccino()
-        val orderStatus = VendingMachine.prepare(cappuccino)
+        val drink = TestHelper.getCappuccino()
+        val orderStatus = VendingMachine.prepare(drink)
         Assertions.assertEquals(orderStatus.drink, CAPPUCCINO)
         Assertions.assertEquals(orderStatus.status, DONE)
         Assertions.assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
@@ -23,8 +23,8 @@ internal class CappuccinoTest {
     @Test
     fun testMaxCappuccino() {
         VendingMachine.start()
-        val cappuccino = TestHelper.getMaxCappuccino()
-        val orderStatus = VendingMachine.prepare(cappuccino)
+        val drink = TestHelper.getMaxCappuccino()
+        val orderStatus = VendingMachine.prepare(drink)
         Assertions.assertEquals(orderStatus.drink, CAPPUCCINO)
         Assertions.assertEquals(orderStatus.status, DONE)
         Assertions.assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
