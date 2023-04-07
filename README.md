@@ -54,5 +54,5 @@ in Kotlin, we can avoid the use of pattern matching/`switch`/`if...else` stateme
 new implementations.
 
 For now, there are a few containers - water, beans, tea, milk, and sugar. When a certain container
-is chosen, the amount in the container itself decreases. If the container is empty, an exception is
-thrown to notify the user.
+is chosen, the amount in the container decreases. If the container is empty, an exception is thrown
+to notify the user.
