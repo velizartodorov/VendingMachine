@@ -8,7 +8,7 @@ import order.Order
 
 class Tea : Drink() {
     override val name = "Tea"
-    override val price: Int = 15
+    override val price = 15
 
     override fun prepareDrink(order: Order) {
         println("Tea prepared ...")
