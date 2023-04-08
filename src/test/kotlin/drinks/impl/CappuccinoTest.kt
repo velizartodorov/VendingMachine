@@ -1,7 +1,6 @@
 package drinks.impl
 
 import coin.Coin.*
-import drinks.DrinkType.CAPPUCCINO
 import order.Amount.NONE
 import order.Order
 import order.Status.DONE
@@ -17,7 +16,7 @@ internal class CappuccinoTest {
         VendingMachine.start()
         val drink = getCappuccino()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, CAPPUCCINO)
+        assertEquals(orderStatus.drink, "Cappuccino")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
     }
@@ -27,13 +26,13 @@ internal class CappuccinoTest {
         VendingMachine.start()
         val drink = getMaxCappuccino()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, CAPPUCCINO)
+        assertEquals(orderStatus.drink, "Cappuccino")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
     }
 
     private fun getCappuccino() = Order.Builder()
-        .drink(CAPPUCCINO)
+        .drink("Cappuccino")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -41,7 +40,7 @@ internal class CappuccinoTest {
         .build()
 
     private fun getMaxCappuccino() = Order.Builder()
-        .drink(CAPPUCCINO)
+        .drink("Cappuccino")
         .withMilk(NONE)
         .withStrength(MAX)
         .withSugar(NONE)

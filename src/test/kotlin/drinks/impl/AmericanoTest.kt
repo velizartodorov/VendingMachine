@@ -2,7 +2,6 @@ package drinks.impl
 
 import coin.Coin.TEN_CENTS
 import coin.Coin.TWENTY_CENTS
-import drinks.DrinkType.AMERICANO
 import order.Amount.NONE
 import order.Order
 import order.Status.DONE
@@ -15,7 +14,7 @@ internal class AmericanoTest {
     @Test
     fun testOrderAmericano() {
         val americano = getAmericano()
-        assertEquals(americano.drink, AMERICANO)
+        assertEquals(americano.drink, "Americano")
         assertEquals(americano.milk, NONE)
         assertEquals(americano.strength, MEDIUM)
         assertEquals(americano.sugar, NONE)
@@ -28,13 +27,13 @@ internal class AmericanoTest {
         VendingMachine.start()
         val americano = getAmericano()
         val orderStatus = VendingMachine.prepare(americano)
-        assertEquals(orderStatus.drink, AMERICANO)
+        assertEquals(orderStatus.drink, "Americano")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
     }
 
     private fun getAmericano() = Order.Builder()
-        .drink(AMERICANO)
+        .drink("Americano")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

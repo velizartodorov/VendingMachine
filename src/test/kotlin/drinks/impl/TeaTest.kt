@@ -1,7 +1,6 @@
 package drinks.impl
 
 import coin.Coin.*
-import drinks.DrinkType.TEA
 import order.Amount.NONE
 import order.Order
 import order.Status.DONE
@@ -14,7 +13,7 @@ internal class TeaTest {
     @Test
     fun testOrderTea() {
         val drink = getTea()
-        assertEquals(drink.drink, TEA)
+        assertEquals(drink.drink, "Tea")
         assertEquals(drink.milk, NONE)
         assertEquals(drink.strength, MEDIUM)
         assertEquals(drink.sugar, NONE)
@@ -26,13 +25,13 @@ internal class TeaTest {
         VendingMachine.start()
         val drink = getTea()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, TEA)
+        assertEquals(orderStatus.drink, "Tea")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(FIFTY_CENTS, TWENTY_CENTS, TEN_CENTS, FIVE_CENTS))
     }
 
     private fun getTea() = Order.Builder()
-        .drink(TEA)
+        .drink("Tea")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

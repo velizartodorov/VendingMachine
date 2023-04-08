@@ -3,12 +3,11 @@
 package drinks.impl
 
 import containers.ContainerFactory
-import drinks.DrinkType.LATTE
 import order.Amount.*
 import order.Order
 
 class Latte : Drink() {
-    override val name = LATTE
+    override val name = "Latte"
     override val price = 30
 
     override fun prepareDrink(order: Order) {

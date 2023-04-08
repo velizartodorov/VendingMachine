@@ -1,8 +1,6 @@
 package drinks.impl
 
 import coin.Coin
-import drinks.DrinkType
-import drinks.DrinkType.WATER
 import order.Amount
 import order.Order
 import order.OrderResponse
@@ -12,7 +10,7 @@ import order.Strength
 import order.Strength.*
 
 sealed class Drink {
-    abstract val name: DrinkType
+    abstract val name: String
     abstract val price: Int
     protected abstract fun prepareDrink(order: Order)
 
@@ -70,8 +68,8 @@ sealed class Drink {
         else -> throw IllegalArgumentException("Strength undetermined: $strength")
     }
 
-    fun getAmount(drink: DrinkType?): Amount = when (drink) {
-        WATER -> Amount.MAX
+    fun getAmount(drink: String?): Amount = when (drink) {
+        "Water" -> Amount.MAX
         else -> Amount.MEDIUM
     }
 

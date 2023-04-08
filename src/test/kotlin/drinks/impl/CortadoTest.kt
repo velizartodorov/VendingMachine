@@ -1,7 +1,6 @@
 package drinks.impl
 
 import coin.Coin.FIFTY_CENTS
-import drinks.DrinkType.CORTADO
 import order.Amount.NONE
 import order.Order
 import order.Status.DONE
@@ -16,7 +15,7 @@ internal class CortadoTest {
     @Test
     fun testOrderCortado() {
         val drink = getCortado()
-        assertEquals(drink.drink, CORTADO)
+        assertEquals(drink.drink, "Cortado")
         assertEquals(drink.milk, NONE)
         assertEquals(drink.strength, MEDIUM)
         assertEquals(drink.sugar, NONE)
@@ -28,13 +27,13 @@ internal class CortadoTest {
         VendingMachine.start()
         val drink = getCortado()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, CORTADO)
+        assertEquals(orderStatus.drink, "Cortado")
         assertEquals(orderStatus.status, DONE)
         assertTrue(orderStatus.change.isEmpty())
     }
 
     private fun getCortado() = Order.Builder()
-        .drink(CORTADO)
+        .drink("Cortado")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

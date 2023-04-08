@@ -2,7 +2,6 @@ package drinks.impl
 
 import coin.Coin.ONE_EURO
 import coin.Coin.TEN_CENTS
-import drinks.DrinkType.IRISH_COFFEE
 import order.Amount.NONE
 import order.Order
 import order.Status.DONE
@@ -15,7 +14,7 @@ internal class IrishCoffeeTest {
     @Test
     fun testOrderIrishCoffee() {
         val drink = getIrishCoffee()
-        assertEquals(drink.drink, IRISH_COFFEE)
+        assertEquals(drink.drink, "IrishCoffee")
         assertEquals(drink.milk, NONE)
         assertEquals(drink.strength, MEDIUM)
         assertEquals(drink.sugar, NONE)
@@ -27,13 +26,13 @@ internal class IrishCoffeeTest {
         VendingMachine.start()
         val drink = getIrishCoffee()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, IRISH_COFFEE)
+        assertEquals(orderStatus.drink, "IrishCoffee")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TEN_CENTS))
     }
 
     private fun getIrishCoffee() = Order.Builder()
-        .drink(IRISH_COFFEE)
+        .drink("IrishCoffee")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
