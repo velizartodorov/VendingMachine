@@ -1,7 +1,6 @@
 package drinks.impl
 
 import coin.Coin.*
-import drinks.DrinkType.FLAT_WHITE
 import order.Amount.NONE
 import order.Order
 import order.Status.DONE
@@ -14,7 +13,7 @@ internal class FlatWhiteTest {
     @Test
     fun testOrderFlatWhite() {
         val drink = getFlatWhite()
-        assertEquals(drink.drink, FLAT_WHITE)
+        assertEquals(drink.drink, "FlatWhite")
         assertEquals(drink.milk, NONE)
         assertEquals(drink.strength, MEDIUM)
         assertEquals(drink.sugar, NONE)
@@ -26,16 +25,15 @@ internal class FlatWhiteTest {
         VendingMachine.start()
         val drink = getFlatWhite()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, FLAT_WHITE)
+        assertEquals(orderStatus.drink, "FlatWhite")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
     }
 
-    private fun getFlatWhite() = Order.Builder()
-        .drink(FLAT_WHITE)
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(ONE_EURO)
-        .build()
+    private fun getFlatWhite() =
+        Order.Builder().drink("FlatWhite")
+            .withMilk(NONE)
+            .withStrength(MEDIUM)
+            .withSugar(NONE)
+            .withCoins(ONE_EURO).build()
 }

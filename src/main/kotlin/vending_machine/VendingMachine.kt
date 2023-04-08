@@ -1,6 +1,5 @@
 package vending_machine
 
-import drinks.DrinkType
 import drinks.impl.Drink
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Order
@@ -37,7 +36,7 @@ object VendingMachine {
         return getDrink(order.drink).prepare(order)
     }
 
-    private fun getDrink(drinkType: DrinkType?): Drink {
+    private fun getDrink(drinkType: String?): Drink {
         val drinks = Drink::class.sealedSubclasses
         for (drinkClass: KClass<out Drink> in drinks) {
             val drink: Drink = drinkClass.createInstance()

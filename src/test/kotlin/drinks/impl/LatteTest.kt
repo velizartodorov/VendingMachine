@@ -2,7 +2,6 @@ package drinks.impl
 
 import coin.Coin.FIFTY_CENTS
 import coin.Coin.TWENTY_CENTS
-import drinks.DrinkType.LATTE
 import order.Amount.NONE
 import order.Order
 import order.Status.DONE
@@ -16,7 +15,7 @@ internal class LatteTest {
     @Test
     fun testOrderLatte() {
         val drink = getLatte()
-        assertEquals(drink.drink, LATTE)
+        assertEquals(drink.drink, "Latte")
         assertEquals(drink.milk, NONE)
         assertEquals(drink.strength, MEDIUM)
         assertEquals(drink.sugar, NONE)
@@ -28,7 +27,7 @@ internal class LatteTest {
         VendingMachine.start()
         val drink = getLatte()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, LATTE)
+        assertEquals(orderStatus.drink, "Latte")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
     }
@@ -38,7 +37,7 @@ internal class LatteTest {
         VendingMachine.start()
         val drink = getSoftLatte()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, LATTE)
+        assertEquals(orderStatus.drink, "Latte")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
     }
@@ -48,13 +47,13 @@ internal class LatteTest {
         VendingMachine.start()
         val drink = getStrongLatte()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, LATTE)
+        assertEquals(orderStatus.drink, "Latte")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
     }
 
     private fun getLatte() = Order.Builder()
-        .drink(LATTE)
+        .drink("Latte")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -62,7 +61,7 @@ internal class LatteTest {
         .build()
 
     private fun getSoftLatte() = Order.Builder()
-        .drink(LATTE)
+        .drink("Latte")
         .withMilk(NONE)
         .withStrength(LOW)
         .withSugar(NONE)
@@ -70,7 +69,7 @@ internal class LatteTest {
         .build()
 
     private fun getStrongLatte() = Order.Builder()
-        .drink(LATTE)
+        .drink("Latte")
         .withMilk(NONE)
         .withStrength(HIGH)
         .withSugar(NONE)

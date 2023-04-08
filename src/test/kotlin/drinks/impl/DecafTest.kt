@@ -2,7 +2,6 @@ package drinks.impl
 
 import coin.Coin.ONE_EURO
 import coin.Coin.TWENTY_CENTS
-import drinks.DrinkType.DECAF
 import order.Amount.NONE
 import order.Order
 import order.Status.DONE
@@ -16,7 +15,7 @@ internal class DecafTest {
     @Test
     fun testOrderDecaf() {
         val drink = getDecaf()
-        assertEquals(drink.drink, DECAF)
+        assertEquals(drink.drink, "Decaf")
         assertEquals(drink.milk, NONE)
         assertEquals(drink.strength, MEDIUM)
         assertEquals(drink.sugar, NONE)
@@ -28,13 +27,13 @@ internal class DecafTest {
         VendingMachine.start()
         val drink = getDecaf()
         val orderStatus = VendingMachine.prepare(drink)
-        assertEquals(orderStatus.drink, DECAF)
+        assertEquals(orderStatus.drink, "Decaf")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
     }
 
     private fun getDecaf() = Order.Builder()
-        .drink(DECAF)
+        .drink("Decaf")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
