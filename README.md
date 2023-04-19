@@ -1,4 +1,4 @@
-# Vending Machine
+**# Vending Machine
 
 <img src="assets/vending_machine.png" width="250">
 
@@ -56,3 +56,15 @@ new implementations.
 For now, there are a few containers - water, beans, tea, milk, and sugar. When a certain container
 is chosen, the amount in the container decreases. If the container is empty, an exception is thrown
 to notify the user.
+
+## Contribution strategy 🌿
+
+The work is being done directly on the `master` branch. It's a hobby project, so nothing
+sophisticated is planned (for now). 😉 In the Git messages you can find the following emojis,
+meaning:
+
+* 🔨 - refactoring
+* ✨ - feature
+* 🐛 - bug fixed
+* 📚 - update `README.MD`
+* ✅ - update tests
