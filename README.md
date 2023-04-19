@@ -1,4 +1,4 @@
-**# Vending Machine
+# Vending Machine
 
 <img src="assets/vending_machine.png" width="250">
 
@@ -63,8 +63,11 @@ The work is being done directly on the `master` branch. It's a hobby project, so
 sophisticated is planned (for now). 😉 In the Git messages you can find the following emojis,
 meaning:
 
-* 🔨 - refactoring
-* ✨ - feature
-* 🐛 - bug fixed
-* 📚 - update `README.MD`
-* ✅ - update tests
+| Emoji | Action                  |
+|-------|-------------------------|
+| 🔨    | refactoring             |
+| ✨     | feature                 |
+| 🐛    | bug fixed               |
+| 📚    | update `README.MD`      |
+| ✅     | update tests            |
+| 🚀    | update building scripts |
