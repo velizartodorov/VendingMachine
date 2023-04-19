@@ -35,5 +35,6 @@ internal class FlatWhiteTest {
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)
-            .withCoins(ONE_EURO).build()
+            .withCoins(ONE_EURO)
+            .build()
 }
