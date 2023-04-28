@@ -59,7 +59,7 @@ to notify the user.
 
 ## Contribution strategy 🌿
 
-The work is being done directly on the `master` branch. It's a hobby project, so nothing
+The work is being done directly on the `main` branch. It's a hobby project, so nothing
 sophisticated is planned (for now). 😉 In the Git messages you can find the following emojis,
 meaning:
 
