@@ -68,6 +68,6 @@ meaning:
 | 🔨    | refactoring             |
 | ✨     | feature                 |
 | 🐛    | bug fixed               |
-| 📚    | update `README.MD`      |
+| 📚    | update `README.md`      |
 | ✅     | update tests            |
 | 🚀    | update building scripts |
