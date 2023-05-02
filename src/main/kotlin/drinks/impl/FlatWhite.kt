@@ -2,7 +2,7 @@
 
 package drinks.impl
 
-import containers.ContainerFactory
+import containers.Container.Companion.getContainer
 import order.Amount.*
 import order.Order
 
@@ -12,9 +12,9 @@ class FlatWhite : Drink() {
 
     override fun prepareDrink(order: Order) {
         println("Flat White preparing ...")
-        ContainerFactory.getContainer("beans").extractAmount(getAmount(order.strength))
-        ContainerFactory.getContainer("milk").extractAmount(order.milk)
-        ContainerFactory.getContainer("sugar").extractAmount(order.sugar)
-        ContainerFactory.getContainer("water").extractAmount(getAmount(order.drink))
+        getContainer("beans").extractAmount(getAmount(order.strength))
+        getContainer("milk").extractAmount(order.milk)
+        getContainer("sugar").extractAmount(order.sugar)
+        getContainer("water").extractAmount(getAmount(order.drink))
     }
 }

@@ -2,7 +2,7 @@
 
 package drinks.impl
 
-import containers.ContainerFactory.getContainer
+import containers.Container.Companion.getContainer
 import order.Amount.*
 import order.Order
 

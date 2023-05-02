@@ -2,7 +2,7 @@
 
 package drinks.impl
 
-import containers.ContainerFactory
+import containers.Container.Companion.getContainer
 import order.Amount.MEDIUM
 import order.Order
 
@@ -12,6 +12,6 @@ class Water : Drink() {
 
     override fun prepareDrink(order: Order) {
         println("Water prepared ...")
-        ContainerFactory.getContainer("water").extractAmount(MEDIUM)
+        getContainer("water").extractAmount(MEDIUM)
     }
 }

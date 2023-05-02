@@ -1,6 +1,7 @@
 package drinks.impl
 
 import coin.Coin
+import jdk.jshell.spi.ExecutionControl
 import order.Amount
 import order.Order
 import order.OrderResponse
@@ -8,6 +9,8 @@ import order.Status.DONE
 import order.Status.IN_PROGRESS
 import order.Strength
 import order.Strength.*
+import kotlin.reflect.KClass
+import kotlin.reflect.full.createInstance
 
 sealed class Drink {
     abstract val name: String
@@ -75,4 +78,14 @@ sealed class Drink {
         else -> Amount.MEDIUM
     }
 
+    companion object {
+        fun getDrink(drinkType: String?): Drink {
+            val drinks = Drink::class.sealedSubclasses
+            for (drinkClass: KClass<out Drink> in drinks) {
+                val drink: Drink = drinkClass.createInstance()
+                if (drink.name == drinkType) return drink
+            }
+            throw ExecutionControl.NotImplementedException("Drink doesn't exist: $drinkType")
+        }
+    }
 }
