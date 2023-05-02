@@ -1,16 +1,16 @@
-package vending_machine
+package vending_machine.intefaces
 
 import drinks.impl.*
 
-object Interface {
+object DrinkInterface {
 
-    fun getDrink(number: Int?): String {
-        val drink = getDrinkByNumber(number)
+    fun get(number: Int?): String {
+        val drink = getDrinkBy(number)
         println("Drink selected: $drink")
         return drink
     }
 
-    private fun getDrinkByNumber(number: Int?): String {
+    private fun getDrinkBy(number: Int?): String {
         return when (number) {
             1 -> Americano().name
             2 -> CafeAuLait().name
@@ -30,7 +30,7 @@ object Interface {
         }
     }
 
-    fun printDrinks() {
+    fun print() {
         println(
             """
     Americano: 1
