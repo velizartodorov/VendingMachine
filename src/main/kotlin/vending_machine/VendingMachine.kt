@@ -1,9 +1,7 @@
 package vending_machine
 
-import coin.Coin
 import coin.Coin.TWENTY_CENTS
 import drinks.impl.Drink
-import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Order
 import order.OrderResponse
 import vending_machine.Power.OFF
@@ -12,8 +10,6 @@ import vending_machine.intefaces.DrinkInterface
 import vending_machine.intefaces.MilkInterface
 import vending_machine.intefaces.StrengthInterface
 import vending_machine.intefaces.SugarInterface
-import kotlin.reflect.KClass
-import kotlin.reflect.full.createInstance
 
 object VendingMachine {
     private var power: Power = OFF
@@ -56,22 +52,14 @@ object VendingMachine {
         prepare(order)
     }
 
+    fun prepare(order: Order): OrderResponse {
+        return Drink.getDrink(order.drink).prepare(order)
+    }
+
     fun stop() {
         println("Stopping vending machine ...")
         println("Vending machine is OFF.")
         power = OFF
     }
 
-    fun prepare(order: Order): OrderResponse {
-        return getDrink(order.drink).prepare(order)
-    }
-
-    private fun getDrink(drinkType: String?): Drink {
-        val drinks = Drink::class.sealedSubclasses
-        for (drinkClass: KClass<out Drink> in drinks) {
-            val drink: Drink = drinkClass.createInstance()
-            if (drink.name == drinkType) return drink
-        }
-        throw NotImplementedException("Drink doesn't exist: $drinkType")
-    }
 }
