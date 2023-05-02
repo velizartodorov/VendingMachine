@@ -4,6 +4,30 @@ import drinks.impl.*
 
 object DrinkInterface {
 
+    fun print() {
+        println(
+            """
+    Americano: 1
+    Cafe Au Lait: 2
+    Cappuccino: 3
+    Cortado: 4
+    Decaf: 5
+    Espresso: 6
+    Flat White: 7
+    Iced coffee: 8
+    Irish coffee: 9
+    Latte: 10
+    Macchiato: 11
+    Mocha: 12
+    Tea: 13
+    Water: 14
+    
+    ===================================
+    PICK A DRINK (1 - 14):
+    """.trimIndent()
+        )
+    }
+
     fun get(number: Int?): String {
         val drink = getDrinkBy(number)
         println("Drink selected: $drink")
@@ -28,29 +52,5 @@ object DrinkInterface {
             14 -> Water().name
             else -> throw IllegalArgumentException("Number unsupported: $number")
         }
-    }
-
-    fun print() {
-        println(
-            """
-    Americano: 1
-    Cafe Au Lait: 2
-    Cappuccino: 3
-    Cortado: 4
-    Decaf: 5
-    Espresso: 6
-    Flat White: 7
-    Iced coffee: 8
-    Irish coffee: 9
-    Latte: 10
-    Macchiato: 11
-    Mocha: 12
-    Tea: 13
-    Water: 14
-    
-    ===================================
-    PICK A DRINK (1 - 14):
-    """.trimIndent()
-        )
     }
 }

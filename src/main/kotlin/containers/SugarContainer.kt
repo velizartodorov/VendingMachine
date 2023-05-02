@@ -1,6 +1,6 @@
 package containers
 
-import order.Amount
+import drinks.impl.Amount
 
 @Suppress("unused")
 class SugarContainer : Container() {

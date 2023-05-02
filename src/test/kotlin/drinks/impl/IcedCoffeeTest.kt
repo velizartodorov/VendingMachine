@@ -1,7 +1,7 @@
 package drinks.impl
 
 import coin.Coin.ONE_EURO
-import order.Amount.NONE
+import drinks.impl.Amount.NONE
 import order.Order
 import order.Status.DONE
 import order.Strength.MEDIUM

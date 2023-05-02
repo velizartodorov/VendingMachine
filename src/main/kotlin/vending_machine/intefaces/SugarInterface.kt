@@ -1,9 +1,25 @@
 package vending_machine.intefaces
 
-import order.Amount
-import order.Amount.*
+import drinks.impl.Amount
+import drinks.impl.Amount.*
 
 object SugarInterface {
+
+    fun print() {
+        println(
+            """
+    Sugar amount NONE: 0
+    Sugar amount LOW: 1
+    Sugar amount MEDIUM: 2
+    Sugar amount HIGH: 3
+    Sugar amount HIGH: 4
+    Sugar amount MAX: 5
+    
+    ===================================
+    PICK A SUGAR AMOUNT (0 - 5):
+    """.trimIndent()
+        )
+    }
 
     fun get(number: Int?): Amount {
         val amount = getAmountBy(number)
@@ -20,21 +36,5 @@ object SugarInterface {
             4 -> MAX
             else -> throw IllegalArgumentException("Sugar amount unsupported: $number")
         }
-    }
-
-    fun print() {
-        println(
-            """
-    Sugar amount NONE: 0
-    Sugar amount LOW: 1
-    Sugar amount MEDIUM: 2
-    Sugar amount HIGH: 3
-    Sugar amount HIGH: 4
-    Sugar amount MAX: 5
-    
-    ===================================
-    PICK A SUGAR AMOUNT (0 - 5):
-    """.trimIndent()
-        )
     }
 }

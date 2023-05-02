@@ -1,9 +1,25 @@
 package vending_machine.intefaces
 
-import order.Amount
-import order.Amount.*
+import drinks.impl.Amount
+import drinks.impl.Amount.*
 
 object MilkInterface {
+
+   fun print() {
+        println(
+            """
+    Milk amount NONE: 0
+    Milk amount LOW: 1
+    Milk amount MEDIUM: 2
+    Milk amount HIGH: 3
+    Milk amount HIGH: 4
+    Milk amount MAX: 5
+    
+    ===================================
+    PICK A MILK AMOUNT (0 - 5):
+    """.trimIndent()
+        )
+    }
 
     fun get(number: Int?): Amount {
         val amount = getAmountBy(number)
@@ -20,21 +36,5 @@ object MilkInterface {
             4 -> MAX
             else -> throw IllegalArgumentException("Milk amount unsupported: $number")
         }
-    }
-
-    fun print() {
-        println(
-            """
-    Milk amount NONE: 0
-    Milk amount LOW: 1
-    Milk amount MEDIUM: 2
-    Milk amount HIGH: 3
-    Milk amount HIGH: 4
-    Milk amount MAX: 5
-    
-    ===================================
-    PICK A MILK AMOUNT (0 - 5):
-    """.trimIndent()
-        )
     }
 }
