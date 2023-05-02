@@ -22,8 +22,10 @@ sealed class Drink {
         val orderResponse = OrderResponse(getChange(change), status, drink)
         println("$name ordered successfully! Preparing ...")
         prepareDrink(order)
-        if (orderResponse.status == DONE) {
+        if (change > 0) {
             println("Take your change: ${orderResponse.change}")
+        }
+        if (orderResponse.status == DONE) {
             println("$name prepared successfully! Take it!")
         } else {
             throw IllegalArgumentException(getErrorMessage(order))
