@@ -1,15 +1,11 @@
 package vending_machine
 
-import coin.Coin.TWENTY_CENTS
 import drinks.impl.Drink
 import order.Order
 import order.OrderResponse
 import vending_machine.Power.OFF
 import vending_machine.Power.ON
-import vending_machine.intefaces.DrinkInterface
-import vending_machine.intefaces.MilkInterface
-import vending_machine.intefaces.StrengthInterface
-import vending_machine.intefaces.SugarInterface
+import vending_machine.intefaces.*
 
 object VendingMachine {
     private var power: Power = OFF
@@ -41,12 +37,17 @@ object VendingMachine {
         SugarInterface.print()
         val sugar = SugarInterface.get(readLine()!!.toInt())
 
+        CoinsInterface.print()
+        val coins = CoinsInterface.get(readLine()!!
+            .split(" ")
+            .map(String::toInt))
+
         val order = Order.Builder()
             .drink(drinkName)
             .withMilk(milk)
             .withStrength(strength)
             .withSugar(sugar)
-            .withCoins(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS)
+            .withCoins(*coins)
             .build()
 
         prepare(order)
