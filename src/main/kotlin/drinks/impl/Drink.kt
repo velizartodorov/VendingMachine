@@ -2,7 +2,6 @@ package drinks.impl
 
 import coin.Coin
 import jdk.jshell.spi.ExecutionControl
-import order.Amount
 import order.Order
 import order.OrderResponse
 import order.Status.DONE

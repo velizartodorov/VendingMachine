@@ -2,7 +2,7 @@
 
 package containers
 
-import order.Amount
+import drinks.impl.Amount
 
 class BeansContainer : Container() {
     override val name = "beans"

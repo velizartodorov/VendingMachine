@@ -5,6 +5,20 @@ import order.Strength.*
 
 object StrengthInterface {
 
+    fun print() {
+        println(
+            """
+    Strength LOW: 1
+    Strength MEDIUM: 2
+    Strength HIGH: 3
+    Strength MAX: 4
+    
+    ===================================
+    PICK A STRENGTH (1 - 4):
+    """.trimIndent()
+        )
+    }
+
     fun get(number: Int?): Strength {
         val strength = getStrengthBy(number)
         println("Strength selected: $strength")
@@ -19,19 +33,5 @@ object StrengthInterface {
             4 -> MAX
             else -> throw IllegalArgumentException("Strength unsupported: $number")
         }
-    }
-
-    fun print() {
-        println(
-            """
-    Strength LOW: 1
-    Strength MEDIUM: 2
-    Strength HIGH: 3
-    Strength MAX: 4
-    
-    ===================================
-    PICK A STRENGTH (1 - 4):
-    """.trimIndent()
-        )
     }
 }
