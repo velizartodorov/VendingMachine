@@ -13,13 +13,9 @@ object CoinsInterface : UserInterface {
         val value = readLine()!!
             .split(" ")
             .map(String::toInt)
-        val coins = getAmountBy(value)
+        val coins = Coin.get(value)
         println("Coins inserted: $coins")
         order.coins = coins.toList()
         return order
-    }
-
-    private fun getAmountBy(coins: List<Int>): Array<Coin> {
-        return Coin.get(coins)
     }
 }
