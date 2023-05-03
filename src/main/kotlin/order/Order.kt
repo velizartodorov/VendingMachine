@@ -5,11 +5,11 @@ import com.google.gson.Gson
 import drinks.impl.Amount
 
 data class Order(
-    val drink: String?,
-    val milk: Amount?,
-    val sugar: Amount?,
-    val strength: Strength?,
-    val coins: List<Coin>?,
+    var drink: String?,
+    var milk: Amount?,
+    var sugar: Amount?,
+    var strength: Strength?,
+    var coins: List<Coin>?,
 ) {
     class Builder {
         private var drink: String? = null

@@ -1,11 +1,12 @@
 package vending_machine.intefaces
 
+import order.Order
 import order.Strength
 import order.Strength.*
 
-object StrengthInterface {
+object StrengthInterface : UserInterface {
 
-    fun print() {
+    override fun print() {
         println(
             """
     Strength LOW: 1
@@ -19,10 +20,12 @@ object StrengthInterface {
         )
     }
 
-    fun get(number: Int?): Strength {
-        val strength = getStrengthBy(number)
+    override fun process(order: Order): Order {
+        val value = readLine()!!.toInt()
+        val strength = getStrengthBy(value)
         println("Strength selected: $strength")
-        return strength
+        order.strength = strength;
+        return order
     }
 
     private fun getStrengthBy(number: Int?): Strength {
