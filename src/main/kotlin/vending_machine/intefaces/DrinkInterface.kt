@@ -1,10 +1,11 @@
 package vending_machine.intefaces
 
 import drinks.impl.*
+import order.Order
 
-object DrinkInterface {
+object DrinkInterface : UserInterface {
 
-    fun print() {
+    override fun print() {
         println(
             """
     Americano: 1
@@ -28,10 +29,12 @@ object DrinkInterface {
         )
     }
 
-    fun get(number: Int?): String {
-        val drink = getDrinkBy(number)
+    override fun process(order: Order): Order {
+        val value = readLine()!!.toInt()
+        val drink = getDrinkBy(value)
         println("Drink selected: $drink")
-        return drink
+        order.drink = drink
+        return order
     }
 
     private fun getDrinkBy(number: Int?): String {
@@ -53,4 +56,5 @@ object DrinkInterface {
             else -> throw IllegalArgumentException("Number unsupported: $number")
         }
     }
+
 }

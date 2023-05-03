@@ -2,10 +2,11 @@ package vending_machine.intefaces
 
 import drinks.impl.Amount
 import drinks.impl.Amount.*
+import order.Order
 
-object SugarInterface {
+object SugarInterface : UserInterface {
 
-    fun print() {
+    override fun print() {
         println(
             """
     Sugar amount NONE: 0
@@ -21,10 +22,12 @@ object SugarInterface {
         )
     }
 
-    fun get(number: Int?): Amount {
-        val amount = getAmountBy(number)
-        println("Sugar amount selected: $amount")
-        return amount
+    override fun process(order: Order): Order {
+        val value = readLine()!!.toInt()
+        val sugar = getAmountBy(value)
+        println("Sugar amount selected: $sugar")
+        order.sugar = sugar
+        return order
     }
 
     private fun getAmountBy(number: Int?): Amount {

@@ -5,7 +5,7 @@ import order.Order
 import order.OrderResponse
 import vending_machine.Power.OFF
 import vending_machine.Power.ON
-import vending_machine.intefaces.*
+import vending_machine.intefaces.UserInterface
 
 object VendingMachine {
     private var power: Power = OFF
@@ -25,31 +25,11 @@ object VendingMachine {
     }
 
     fun run() {
-        DrinkInterface.print()
-        val drinkName = DrinkInterface.get(readLine()!!.toInt())
-
-        StrengthInterface.print()
-        val strength = StrengthInterface.get(readLine()!!.toInt())
-
-        MilkInterface.print()
-        val milk = MilkInterface.get(readLine()!!.toInt())
-
-        SugarInterface.print()
-        val sugar = SugarInterface.get(readLine()!!.toInt())
-
-        CoinsInterface.print()
-        val coins = CoinsInterface.get(readLine()!!
-            .split(" ")
-            .map(String::toInt))
-
-        val order = Order.Builder()
-            .drink(drinkName)
-            .withMilk(milk)
-            .withStrength(strength)
-            .withSugar(sugar)
-            .withCoins(*coins)
-            .build()
-
+        val order = Order.Builder().build()
+        UserInterface.getAll().forEach { userInterface ->
+            userInterface.print()
+            userInterface.process(order)
+        }
         prepare(order)
     }
 

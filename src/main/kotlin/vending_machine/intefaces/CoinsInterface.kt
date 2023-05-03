@@ -1,17 +1,22 @@
 package vending_machine.intefaces
 
 import coin.Coin
+import order.Order
 
-object CoinsInterface {
+object CoinsInterface : UserInterface {
 
-    fun print() {
+    override fun print() {
         println("Enter coins: ")
     }
 
-    fun get(coins: List<Int>): Array<Coin> {
-        val amount = getAmountBy(coins)
+    override fun process(order: Order): Order {
+        val value = readLine()!!
+            .split(" ")
+            .map(String::toInt)
+        val coins = getAmountBy(value)
         println("Coins inserted: $coins")
-        return amount
+        order.coins = coins.toList()
+        return order
     }
 
     private fun getAmountBy(coins: List<Int>): Array<Coin> {
