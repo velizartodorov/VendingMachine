@@ -1,7 +1,7 @@
 package drinks.impl
 
 import coin.Coin
-import jdk.jshell.spi.ExecutionControl
+import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Amount
 import order.Order
 import order.OrderResponse
@@ -85,27 +85,21 @@ sealed class Drink {
                 val drink: Drink = drinkClass.createInstance()
                 if (drink.name == drinkType) return drink
             }
-            throw ExecutionControl.NotImplementedException("Drink doesn't exist: $drinkType")
+            throw NotImplementedException("Drink doesn't exist: $drinkType")
         }
 
         fun get(number: Int?): String {
-            return when (number) {
-                1 -> Americano().name
-                2 -> CafeAuLait().name
-                3 -> Cappuccino().name
-                4 -> Cortado().name
-                5 -> Decaf().name
-                6 -> Espresso().name
-                7 -> FlatWhite().name
-                8 -> IcedCoffee().name
-                9 -> IrishCoffee().name
-                10 -> Latte().name
-                11 -> Macchiato().name
-                12 -> Mocha().name
-                13 -> Tea().name
-                14 -> Water().name
-                else -> throw IllegalArgumentException("Number unsupported: $number")
+            var counter = 1
+            val drinks = Drink::class.sealedSubclasses
+            for (drinkClass: KClass<out Drink> in drinks) {
+                val drink: Drink = drinkClass.createInstance()
+                if (counter == number) {
+                    return drink.name
+                } else {
+                    counter++
+                }
             }
+            throw IllegalArgumentException("Number unsupported: $number")
         }
     }
 }
