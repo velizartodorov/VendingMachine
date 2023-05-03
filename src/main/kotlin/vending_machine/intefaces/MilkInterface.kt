@@ -1,7 +1,6 @@
 package vending_machine.intefaces
 
-import drinks.impl.Amount
-import drinks.impl.Amount.*
+import order.Amount
 import order.Order
 
 object MilkInterface : UserInterface {
@@ -24,20 +23,10 @@ object MilkInterface : UserInterface {
 
     override fun process(order: Order): Order {
         val value = readLine()!!.toInt()
-        val milk = getAmountBy(value)
+        val milk = Amount.get(value)
         println("Milk amount selected: $milk")
         order.milk = milk
         return order
     }
 
-    private fun getAmountBy(number: Int?): Amount {
-        return when (number) {
-            0 -> NONE
-            1 -> LOW
-            2 -> MEDIUM
-            3 -> HIGH
-            4 -> MAX
-            else -> throw IllegalArgumentException("Milk amount unsupported: $number")
-        }
-    }
 }

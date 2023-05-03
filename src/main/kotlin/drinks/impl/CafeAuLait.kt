@@ -3,7 +3,7 @@
 package drinks.impl
 
 import containers.Container
-import drinks.impl.Amount.*
+import order.Amount.*
 import order.Order
 
 class CafeAuLait : Drink() {

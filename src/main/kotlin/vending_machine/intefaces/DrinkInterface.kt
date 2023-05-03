@@ -31,13 +31,13 @@ object DrinkInterface : UserInterface {
 
     override fun process(order: Order): Order {
         val value = readLine()!!.toInt()
-        val drink = getDrinkBy(value)
+        val drink = get(value)
         println("Drink selected: $drink")
         order.drink = drink
         return order
     }
 
-    private fun getDrinkBy(number: Int?): String {
+    fun get(number: Int?): String {
         return when (number) {
             1 -> Americano().name
             2 -> CafeAuLait().name

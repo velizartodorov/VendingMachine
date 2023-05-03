@@ -2,7 +2,6 @@ package order
 
 import coin.Coin
 import com.google.gson.Gson
-import drinks.impl.Amount
 
 data class Order(
     var drink: String?,

@@ -2,7 +2,6 @@ package vending_machine.intefaces
 
 import order.Order
 import order.Strength
-import order.Strength.*
 
 object StrengthInterface : UserInterface {
 
@@ -22,19 +21,9 @@ object StrengthInterface : UserInterface {
 
     override fun process(order: Order): Order {
         val value = readLine()!!.toInt()
-        val strength = getStrengthBy(value)
+        val strength = Strength.get(value)
         println("Strength selected: $strength")
-        order.strength = strength;
+        order.strength = strength
         return order
-    }
-
-    private fun getStrengthBy(number: Int?): Strength {
-        return when (number) {
-            1 -> LOW
-            2 -> MEDIUM
-            3 -> HIGH
-            4 -> MAX
-            else -> throw IllegalArgumentException("Strength unsupported: $number")
-        }
     }
 }
