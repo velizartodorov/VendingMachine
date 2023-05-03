@@ -10,13 +10,9 @@ import vending_machine.intefaces.UserInterface
 object VendingMachine {
     private var power: Power = OFF
 
-    fun isOn(): Boolean {
-        return power == ON
-    }
+    fun isOn(): Boolean = power == ON
 
-    fun isOff(): Boolean {
-        return power == OFF
-    }
+    fun isOff(): Boolean = power == OFF
 
     fun start() {
         println("Starting vending machine ...")
@@ -33,14 +29,11 @@ object VendingMachine {
         prepare(order)
     }
 
-    fun prepare(order: Order): OrderResponse {
-        return Drink.getDrink(order.drink).prepare(order)
-    }
+    fun prepare(order: Order): OrderResponse = Drink.getDrink(order.drink).prepare(order)
 
     fun stop() {
         println("Stopping vending machine ...")
         println("Vending machine is OFF.")
         power = OFF
     }
-
 }
