@@ -2,7 +2,7 @@ package vending_machine
 
 import coin.Coin.FIFTY_CENTS
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
-import drinks.impl.Amount.NONE
+import order.Amount.NONE
 import order.Order
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertFalse

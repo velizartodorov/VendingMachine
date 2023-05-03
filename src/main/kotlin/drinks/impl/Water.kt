@@ -3,7 +3,7 @@
 package drinks.impl
 
 import containers.Container.Companion.getContainer
-import drinks.impl.Amount.MEDIUM
+import order.Amount.MEDIUM
 import order.Order
 
 class Water : Drink() {

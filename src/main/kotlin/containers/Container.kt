@@ -1,8 +1,8 @@
 package containers
 
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
-import drinks.impl.Amount
-import drinks.impl.Amount.*
+import order.Amount
+import order.Amount.*
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
 

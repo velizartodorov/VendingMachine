@@ -13,7 +13,7 @@ enum class Coin(val value: Int) {
     companion object {
         val descending = values().reversed()
 
-        fun getCoins(numbers: List<Int>): Array<Coin> {
+        fun get(numbers: List<Int>): Array<Coin> {
             return numbers.map { coin ->
                 when (coin) {
                     1 -> ONE_CENT

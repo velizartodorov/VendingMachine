@@ -20,6 +20,6 @@ object CoinsInterface : UserInterface {
     }
 
     private fun getAmountBy(coins: List<Int>): Array<Coin> {
-        return Coin.getCoins(coins)
+        return Coin.get(coins)
     }
 }
