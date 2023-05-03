@@ -87,5 +87,25 @@ sealed class Drink {
             }
             throw ExecutionControl.NotImplementedException("Drink doesn't exist: $drinkType")
         }
+
+        fun get(number: Int?): String {
+            return when (number) {
+                1 -> Americano().name
+                2 -> CafeAuLait().name
+                3 -> Cappuccino().name
+                4 -> Cortado().name
+                5 -> Decaf().name
+                6 -> Espresso().name
+                7 -> FlatWhite().name
+                8 -> IcedCoffee().name
+                9 -> IrishCoffee().name
+                10 -> Latte().name
+                11 -> Macchiato().name
+                12 -> Mocha().name
+                13 -> Tea().name
+                14 -> Water().name
+                else -> throw IllegalArgumentException("Number unsupported: $number")
+            }
+        }
     }
 }
