@@ -9,14 +9,13 @@ interface UserInterface {
 
     companion object {
         fun getAll(): Stream<UserInterface> {
-            val messages = listOf(
+            return listOf(
                 DrinkInterface,
                 StrengthInterface,
                 MilkInterface,
                 SugarInterface,
                 CoinsInterface
-            )
-            return messages.stream()
+            ).stream()
         }
     }
 }
