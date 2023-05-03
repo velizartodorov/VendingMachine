@@ -14,18 +14,8 @@ enum class Coin(val value: Int) {
         val descending = values().reversed()
 
         fun get(numbers: List<Int>): Array<Coin> {
-            return numbers.map { coin ->
-                when (coin) {
-                    1 -> ONE_CENT
-                    2 -> TWO_CENTS
-                    5 -> FIVE_CENTS
-                    10 -> TEN_CENTS
-                    20 -> TWENTY_CENTS
-                    50 -> FIFTY_CENTS
-                    100 -> ONE_EURO
-                    200 -> TWO_EUROS
-                    else -> throw IllegalArgumentException("Invalid coin: $coin")
-                }
+            return numbers.mapNotNull { coin ->
+                values().find { it.value == coin }
             }.toTypedArray()
         }
     }
