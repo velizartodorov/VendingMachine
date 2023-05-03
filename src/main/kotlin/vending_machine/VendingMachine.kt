@@ -22,9 +22,9 @@ object VendingMachine {
 
     fun run() {
         val order = Order.Builder().build()
-        UserInterface.getAll().forEach { userInterface ->
-            userInterface.print()
-            userInterface.process(order)
+        UserInterface.getAll().forEach {
+            it.print()
+            it.process(order)
         }
         prepare(order)
     }
