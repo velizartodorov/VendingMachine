@@ -1,5 +1,7 @@
 # Vending Machine
 
+![Kotlin Version](https://img.shields.io/badge/Kotlin-1.8.20-green.svg)
+
 <img src="assets/vending_machine.png" width="250" alt="">
 
 Building a vending machine in Kotlin because ... why not? 🙂
