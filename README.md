@@ -1,6 +1,6 @@
 # Vending Machine
 
-<img src="assets/vending_machine.png" width="250">
+<img src="assets/vending_machine.png" width="250" alt="">
 
 Building a vending machine in Kotlin because ... why not? 🙂
 
@@ -16,7 +16,7 @@ When a new commit is pushed, a [GitHub Actions](https://github.com/features/acti
 triggered. This is acquired by the [build.yml](.github/workflows/build.yml)
 and [tests.yml](.github/workflows/tests.yml) files. Example:
 
-<img src="assets/github_actions.png" width="450">
+<img src="assets/github_actions.png" width="450" alt="">
 
 ## Implementation 🔧
 
@@ -66,8 +66,8 @@ meaning:
 | Emoji | Action                  |
 |:-----:|-------------------------|
 |  🔨   | refactoring             |
-|  ✨   | feature                 |
+|   ✨   | feature                 |
 |  🐛   | bug fixed               |
 |  📚   | update `README.md`      |
-|  ✅   | update tests            |
+|   ✅   | update tests            |
 |  🚀   | update building scripts |
