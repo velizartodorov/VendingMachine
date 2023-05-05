@@ -53,8 +53,9 @@ sealed class Container {
 
         private fun checkAmount(container: Container): Container {
             if (container.amount > 0) return container
-            else throw Exception("Insufficient amount in container $container. " +
-                    "Amount: ${container.amount}")
+            else throw Exception(
+                "Insufficient amount in container $container. " + "Amount: ${container.amount}"
+            )
         }
     }
 }
