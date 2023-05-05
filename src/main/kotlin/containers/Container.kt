@@ -19,6 +19,7 @@ sealed class Container {
             MEDIUM -> reduceAmountForMedium()
             HIGH -> reduceAmountForHigh()
             MAX -> reduceAmountForMax()
+            null -> throw IllegalArgumentException("Amount not specified!")
         }
     }
 
