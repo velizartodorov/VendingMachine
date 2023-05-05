@@ -64,10 +64,10 @@ sophisticated is planned (for now). 😉 In the Git messages you can find the fo
 meaning:
 
 | Emoji | Action                  |
-|-------|-------------------------|
-| 🔨    | refactoring             |
-| ✨     | feature                 |
-| 🐛    | bug fixed               |
-| 📚    | update `README.md`      |
-| ✅     | update tests            |
-| 🚀    | update building scripts |
+|:-----:|-------------------------|
+|  🔨   | refactoring             |
+|  ✨   | feature                 |
+|  🐛   | bug fixed               |
+|  📚   | update `README.md`      |
+|  ✅   | update tests            |
+|  🚀   | update building scripts |
