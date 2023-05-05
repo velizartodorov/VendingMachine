@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.8.20"
     application
+    jacoco
 }
 
 group = "me.pc"
@@ -25,6 +26,12 @@ tasks.test {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
+}
+
+tasks.jacocoTestReport {
+    reports {
+        csv.isEnabled = true
+    }
 }
 
 application {
