@@ -22,7 +22,7 @@ object SugarInterface : UserInterface {
     }
 
     override fun process(order: Order): Order {
-        val value = readLine()!!.toInt()
+        val value = readln().toInt()
         val sugar = Amount.get(value)
         println("Sugar amount selected: $sugar")
         order.sugar = sugar

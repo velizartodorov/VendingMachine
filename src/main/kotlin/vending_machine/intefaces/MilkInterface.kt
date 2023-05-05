@@ -22,7 +22,7 @@ object MilkInterface : UserInterface {
     }
 
     override fun process(order: Order): Order {
-        val value = readLine()!!.toInt()
+        val value = readln().toInt()
         val milk = Amount.get(value)
         println("Milk amount selected: $milk")
         order.milk = milk

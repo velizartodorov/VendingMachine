@@ -30,7 +30,7 @@ object DrinkInterface : UserInterface {
     }
 
     override fun process(order: Order): Order {
-        val value = readLine()!!.toInt()
+        val value = readln().toInt()
         val drink = Drink.get(value)
         println("Drink selected: $drink")
         order.drink = drink

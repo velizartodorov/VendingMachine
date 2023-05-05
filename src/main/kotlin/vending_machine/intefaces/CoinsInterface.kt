@@ -10,7 +10,7 @@ object CoinsInterface : UserInterface {
     }
 
     override fun process(order: Order): Order {
-        val value = readLine()!!
+        val value = readln()
             .split(" ")
             .map(String::toInt)
         val coins = Coin.get(value)
