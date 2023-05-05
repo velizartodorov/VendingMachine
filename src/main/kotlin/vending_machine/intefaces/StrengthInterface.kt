@@ -20,7 +20,7 @@ object StrengthInterface : UserInterface {
     }
 
     override fun process(order: Order): Order {
-        val value = readLine()!!.toInt()
+        val value = readln().toInt()
         val strength = Strength.get(value)
         println("Strength selected: $strength")
         order.strength = strength
