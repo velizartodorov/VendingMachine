@@ -22,21 +22,8 @@ The vending machine works with a list of coins and can also return change. 🧙�
 
 For now, this basic implementation supports the following types of drinks:
 
-* Americano
-* Café Au Lait
-* Cappuccino
-* Cortado
-* Decaf
-* Drink
-* Espresso
-* Flat White
-* Iced Coffee
-* Irish Coffee
-* Latte
-* Macchiato
-* Mocha
-* Tea
-* Water
+* Americano, Café Au Lait, Cappuccino, Cortado, Decaf, Espresso,
+  Flat White, Iced Coffee, Irish Coffee, Latte, Macchiato, Mocha, Tea, Water
 
 ### Architecture ⚙️
 
