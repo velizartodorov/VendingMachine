@@ -14,14 +14,6 @@ Building a vending machine in Kotlin because ... why not? 🙂
    Kotlin.
 2. Go to [Main.kt](src/main/kotlin/Main.kt) and run the `fun main()` function.
 
-## Building & testing ✅
-
-When a new commit is pushed, a [GitHub Actions](https://github.com/features/actions) pipeline is
-triggered. This is acquired by the [build.yml](.github/workflows/build.yml)
-and [tests.yml](.github/workflows/tests.yml) files. Example:
-
-<img src="assets/github_actions.png" width="450" alt="">
-
 ## Implementation 🔧
 
 ### Functionality ✨
@@ -75,3 +67,11 @@ meaning:
 |  📚   | update `README.md`      |
 |   ✅   | update tests            |
 |  🚀   | update building scripts |
+
+## CI/CD 🚀
+
+When a new commit is pushed, a [GitHub Actions](https://github.com/features/actions) pipeline is
+triggered. This is acquired by the [build.yml](.github/workflows/build.yml)
+and [tests.yml](.github/workflows/tests.yml) files. Example:
+
+<img src="assets/github_actions.png" width="450" alt="">
