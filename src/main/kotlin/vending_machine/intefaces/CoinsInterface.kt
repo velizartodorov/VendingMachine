@@ -2,6 +2,7 @@ package vending_machine.intefaces
 
 import coin.Coin
 import order.Order
+import java.util.*
 
 object CoinsInterface : UserInterface {
 
@@ -14,7 +15,7 @@ object CoinsInterface : UserInterface {
             .split(" ")
             .map(String::toInt)
         val coins = Coin.get(value)
-        println("Coins inserted: $coins")
+        println("Coins inserted: ${coins.contentToString()}")
         order.coins = coins.toList()
         return order
     }
