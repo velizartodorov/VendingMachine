@@ -16,6 +16,7 @@ object VendingMachine {
 
     fun start() {
         println("Starting vending machine ...")
+        UserInterface.printLabel()
         println("Vending machine is ON.")
         power = ON
     }

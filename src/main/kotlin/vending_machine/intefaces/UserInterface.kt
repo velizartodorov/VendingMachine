@@ -14,5 +14,15 @@ interface UserInterface {
             SugarInterface,
             CoinsInterface
         )
+
+        fun printLabel() {
+            println(
+                """
+===============================
+V E N D I N G     M A C H I N E
+===============================
+"""
+            )
+        }
     }
 }
