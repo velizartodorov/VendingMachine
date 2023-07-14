@@ -12,6 +12,6 @@ class Water : Drink() {
 
     override fun prepareDrink(order: Order) {
         println("Water prepared ...")
-        getContainer("water").extractAmount(MEDIUM)
+        getContainer("water").extractAmount(order.water)
     }
 }
