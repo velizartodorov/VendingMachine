@@ -39,6 +39,7 @@ internal class VendingMachineTest {
 
     private fun getNonExistingDrink() = Order.Builder()
         .withMilk(NONE)
+        .withWater(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
         .withCoins(FIFTY_CENTS)
