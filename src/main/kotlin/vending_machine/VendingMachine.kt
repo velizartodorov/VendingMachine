@@ -12,7 +12,6 @@ object VendingMachine {
         when (state) {
             is State.Idle, is State.Stopped -> {
                 state = State.Running
-                UserInterface.printLabel()
                 println("Started the vending machine")
             }
             is State.Running -> {
@@ -42,8 +41,9 @@ object VendingMachine {
         }
     }
 
-    fun run() {
-        UserInterface.prepare()
+    fun selectDrink() {
+        UserInterface.printLabel()
+        UserInterface.selectDrink()
     }
 
     fun prepare(order: Order): OrderResponse {

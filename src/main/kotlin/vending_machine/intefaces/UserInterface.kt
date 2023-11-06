@@ -27,7 +27,7 @@ V E N D I N G     M A C H I N E
             )
         }
 
-        fun prepare(): OrderResponse {
+        fun selectDrink(): OrderResponse {
             println("The vending machine is already running")
             val order = Order.Builder().build()
             getAll().forEach { ui ->
