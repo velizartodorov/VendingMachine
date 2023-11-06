@@ -19,7 +19,7 @@ object VendingMachine {
                 println("Vending machine is running")
             }
             is State.Paused -> {
-                println("Cannot start from a paused state")
+                throw IllegalStateException("Cannot start from a paused state")
             }
         }
     }
@@ -31,13 +31,13 @@ object VendingMachine {
                 println("Paused the vending machine")
             }
             is State.Idle -> {
-                println("Cannot pause when the state machine is idle")
+                throw IllegalStateException("Cannot pause when the state machine is idle")
             }
             is State.Paused -> {
                 println("The vending machine is already paused")
             }
             is State.Stopped -> {
-                println("Cannot pause when the state machine is stopped")
+                throw IllegalStateException("Cannot pause when the state machine is stopped")
             }
         }
     }
@@ -57,10 +57,10 @@ object VendingMachine {
                 println("Stopped the vending machine")
             }
             is State.Idle -> {
-                println("Cannot stop when the vending machine is idle")
+                throw IllegalStateException("Cannot stop when the vending machine is idle")
             }
             is State.Stopped -> {
-                println("The vending machine is already stopped")
+                throw IllegalStateException("The vending machine is already stopped")
             }
         }
     }
