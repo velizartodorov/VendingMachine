@@ -31,13 +31,13 @@ object VendingMachine {
                 println("Paused the vending machine")
             }
             is State.Idle -> {
-                throw IllegalStateException("Cannot pause when the state machine is idle")
+                throw IllegalStateException("Cannot pause when the vending machine is idle")
             }
             is State.Paused -> {
                 println("The vending machine is already paused")
             }
             is State.Stopped -> {
-                throw IllegalStateException("Cannot pause when the state machine is stopped")
+                throw IllegalStateException("Cannot pause when the vending machine is stopped")
             }
         }
     }
