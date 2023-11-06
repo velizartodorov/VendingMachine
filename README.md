@@ -22,10 +22,31 @@ The vending machine works with a list of coins and can also return change. 🧙�
 
 For now, this basic implementation supports the following types of drinks:
 
-* Americano, Café Au Lait, Cappuccino, Cortado, Decaf, Espresso,
-  Flat White, Iced Coffee, Irish Coffee, Latte, Macchiato, Mocha, Tea, Water
+* Americano, Café Au Lait, Cappuccino, Cortado, Decaf, Espresso, Flat White, Iced Coffee, Irish
+  Coffee, Latte, Macchiato, Mocha, Tea, Water
 
 ### Architecture ⚙️
+
+#### State pattern
+
+The vending machine uses State Pattern and has several states - `Idle`, `Running`, `Paused`
+and `Stopped` and the transition goes as follows:
+
+```text
++------------+     start()      +------------+
+|    Idle    | ---------------> |   Running  |
++------------+                  +------------+
+                                   |
+                                   |
+                                   |
+                                   | pause()
+                                   |
+                                   |
+                                   v
++------------+                  +------------+
+|   Stopped  | <--------------- |   Paused   |
++------------+      stop()      +------------+
+```
 
 #### Choice of drink 🍶 and container 📥📤
 
@@ -42,17 +63,16 @@ to notify the user.
 
 ## Contribution strategy 🌿
 
-The work is being done directly on the `main` branch. It's a hobby project, so nothing
-sophisticated is planned (for now). 😉 In the Git messages you can find the following emojis,
-meaning:
+The work is being done directly on the `main` branch. It's a hobby project, so nothing sophisticated
+is planned (for now). 😉 In the Git messages you can find the following emojis, meaning:
 
 | Emoji | Action                  |
 |:-----:|-------------------------|
 |  🔨   | refactoring             |
-|   ✨   | feature                 |
+|  ✨   | feature                 |
 |  🐛   | bug fixed               |
 |  📚   | update `README.md`      |
-|   ✅   | update tests            |
+|  ✅   | update tests            |
 |  🚀   | update building scripts |
 
 ## CI/CD 🚀
