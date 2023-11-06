@@ -5,34 +5,44 @@ import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Amount.NONE
 import order.Order
 import order.Strength.MEDIUM
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 internal class VendingMachineTest {
+
+    @BeforeEach
+    fun startMachine() {
+        VendingMachine.start()
+    }
+
+    @AfterEach
+    fun stopMachine() {
+        VendingMachine.stop()
+    }
+
     @Test
     fun testVendingMachineIsOn() {
         VendingMachine.start()
-        assertTrue(VendingMachine.isOn())
-        assertFalse(VendingMachine.isOff())
+        assertEquals(State.Running, VendingMachine.state)
     }
 
     @Test
     fun testVendingMachineIsOff() {
         VendingMachine.stop()
-        assertTrue(VendingMachine.isOff())
-        assertFalse(VendingMachine.isOn())
+        assertEquals(State.Stopped, VendingMachine.state)
     }
 
     @Test
-    fun testVendingMachineTestRun() {
-        VendingMachine.start()
+    fun testVendingMachinePause() {
+        VendingMachine.pause()
+        assertEquals(State.Paused, VendingMachine.state)
     }
 
     @Test
     fun testVendingMachineWithNonExistingDrink() {
-        VendingMachine.start()
         val nonExisting = getNonExistingDrink()
         assertThrows<NotImplementedException> { VendingMachine.prepare(nonExisting) }
     }

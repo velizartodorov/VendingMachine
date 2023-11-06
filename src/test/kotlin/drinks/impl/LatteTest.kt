@@ -30,6 +30,7 @@ internal class LatteTest {
         assertEquals(orderStatus.drink, "Latte")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
+        VendingMachine.stop()
     }
 
     @Test

@@ -30,6 +30,7 @@ internal class DecafTest {
         assertEquals(orderStatus.drink, "Decaf")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
+        VendingMachine.stop()
     }
 
     private fun getDecaf() = Order.Builder()

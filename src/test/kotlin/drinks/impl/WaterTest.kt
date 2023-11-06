@@ -24,6 +24,7 @@ internal class WaterTest {
         assertEquals(orderStatus.drink, "Water")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(FIFTY_CENTS, TWENTY_CENTS, TEN_CENTS, FIVE_CENTS))
+        VendingMachine.stop()
     }
 
     private fun getWater() = Order.Builder()

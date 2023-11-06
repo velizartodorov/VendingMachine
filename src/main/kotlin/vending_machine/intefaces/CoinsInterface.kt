@@ -2,7 +2,6 @@ package vending_machine.intefaces
 
 import coin.Coin
 import order.Order
-import java.util.*
 
 object CoinsInterface : UserInterface {
 

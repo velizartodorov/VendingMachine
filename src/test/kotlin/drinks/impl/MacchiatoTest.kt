@@ -28,6 +28,7 @@ internal class MacchiatoTest {
         assertEquals(orderStatus.drink, "Macchiato")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
+        VendingMachine.stop()
     }
 
     private fun getMacchiato() = Order.Builder()

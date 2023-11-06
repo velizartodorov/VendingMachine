@@ -29,6 +29,7 @@ internal class MochaTest {
         assertEquals(orderStatus.drink, "Mocha")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TWENTY_CENTS))
+        VendingMachine.stop()
     }
 
     private fun getMocha() = Order.Builder()

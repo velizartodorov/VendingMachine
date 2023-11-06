@@ -29,6 +29,7 @@ internal class IcedCoffeeTest {
         assertEquals(orderStatus.drink, "IcedCoffee")
         assertEquals(orderStatus.status, DONE)
         assertTrue(orderStatus.change.isEmpty())
+        VendingMachine.stop()
     }
 
     private fun getIcedCoffee() = Order.Builder()

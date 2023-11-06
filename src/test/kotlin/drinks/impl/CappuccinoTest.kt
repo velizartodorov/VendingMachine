@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
 internal class CappuccinoTest {
+
     @Test
     fun testCappuccino() {
         VendingMachine.start()

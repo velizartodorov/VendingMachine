@@ -18,8 +18,10 @@ internal class AmericanoTest {
         assertEquals(americano.milk, NONE)
         assertEquals(americano.strength, MEDIUM)
         assertEquals(americano.sugar, NONE)
-        assertEquals(americano.coins,
-            listOf(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS))
+        assertEquals(
+            americano.coins,
+            listOf(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS)
+        )
     }
 
     @Test
@@ -30,6 +32,7 @@ internal class AmericanoTest {
         assertEquals(orderStatus.drink, "Americano")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
+        VendingMachine.stop()
     }
 
     private fun getAmericano() = Order.Builder()

@@ -29,6 +29,7 @@ internal class CafeAuLaitTest {
         assertEquals(orderStatus.drink, "CafeAuLait")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(ONE_EURO, TWENTY_CENTS, TWENTY_CENTS))
+        VendingMachine.stop()
     }
 
     private fun getCafeAuLait() = Order.Builder()

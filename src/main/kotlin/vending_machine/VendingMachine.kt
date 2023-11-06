@@ -3,38 +3,65 @@ package vending_machine
 import drinks.impl.Drink
 import order.Order
 import order.OrderResponse
-import vending_machine.Power.OFF
-import vending_machine.Power.ON
 import vending_machine.intefaces.UserInterface
 
 object VendingMachine {
-    private var power: Power = OFF
-
-    fun isOn(): Boolean = power == ON
-
-    fun isOff(): Boolean = power == OFF
+    var state: State = State.Idle
 
     fun start() {
-        println("Starting vending machine ...")
-        UserInterface.printLabel()
-        println("Vending machine is ON.")
-        power = ON
+        when (state) {
+            is State.Idle, is State.Stopped -> {
+                state = State.Running
+                UserInterface.printLabel()
+                println("Started the vending machine")
+            }
+            is State.Running -> {
+                println("Vending machine is running")
+            }
+            is State.Paused -> {
+                println("Cannot start from a paused state")
+            }
+        }
+    }
+
+    fun pause() {
+        when (state) {
+            is State.Running -> {
+                state = State.Paused
+                println("Paused the vending machine")
+            }
+            is State.Idle -> {
+                println("Cannot pause when the state machine is idle")
+            }
+            is State.Paused -> {
+                println("The vending machine is already paused")
+            }
+            is State.Stopped -> {
+                println("Cannot pause when the state machine is stopped")
+            }
+        }
     }
 
     fun run() {
-        val order = Order.Builder().build()
-        UserInterface.getAll().forEach {
-            it.print()
-            it.process(order)
-        }
-        prepare(order)
+        UserInterface.prepare()
     }
 
-    fun prepare(order: Order): OrderResponse = Drink.getDrink(order.drink).prepare(order)
+    fun prepare(order: Order): OrderResponse {
+        return Drink.getDrink(order.drink).prepare(order)
+    }
 
     fun stop() {
-        println("Stopping vending machine ...")
-        println("Vending machine is OFF.")
-        power = OFF
+        when (state) {
+            is State.Running, is State.Paused -> {
+                state = State.Stopped
+                println("Stopped the vending machine")
+            }
+            is State.Idle -> {
+                println("Cannot stop when the vending machine is idle")
+            }
+            is State.Stopped -> {
+                println("The vending machine is already stopped")
+            }
+        }
     }
 }

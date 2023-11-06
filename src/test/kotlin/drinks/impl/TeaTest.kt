@@ -28,6 +28,7 @@ internal class TeaTest {
         assertEquals(orderStatus.drink, "Tea")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(FIFTY_CENTS, TWENTY_CENTS, TEN_CENTS, FIVE_CENTS))
+        VendingMachine.stop()
     }
 
     private fun getTea() = Order.Builder()

@@ -30,6 +30,7 @@ internal class CortadoTest {
         assertEquals(orderStatus.drink, "Cortado")
         assertEquals(orderStatus.status, DONE)
         assertTrue(orderStatus.change.isEmpty())
+        VendingMachine.stop()
     }
 
     private fun getCortado() = Order.Builder()

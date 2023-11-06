@@ -29,6 +29,7 @@ internal class IrishCoffeeTest {
         assertEquals(orderStatus.drink, "IrishCoffee")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TEN_CENTS))
+        VendingMachine.stop()
     }
 
     private fun getIrishCoffee() = Order.Builder()

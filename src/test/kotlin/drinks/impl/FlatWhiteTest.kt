@@ -28,6 +28,7 @@ internal class FlatWhiteTest {
         assertEquals(orderStatus.drink, "FlatWhite")
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
+        VendingMachine.stop()
     }
 
     private fun getFlatWhite() =
