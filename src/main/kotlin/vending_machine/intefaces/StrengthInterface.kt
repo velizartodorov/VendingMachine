@@ -25,7 +25,7 @@ object StrengthInterface : UserInterface {
 
     override fun process(order: Order): Order {
         val inputStrength = readln().toInt()
-        if (inputStrength in 1..4) {
+        if (inputStrength in Strength.range()) {
             val selectedStrength = Strength.get(inputStrength)
             println("Strength selected: $selectedStrength")
             order.strength = selectedStrength
@@ -36,4 +36,5 @@ object StrengthInterface : UserInterface {
         }
         return order
     }
+
 }

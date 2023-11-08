@@ -10,5 +10,7 @@ enum class Strength {
             }
             throw IllegalArgumentException("Strength unsupported: $number")
         }
+
+        fun range() = 1..values().size + 1
     }
 }
