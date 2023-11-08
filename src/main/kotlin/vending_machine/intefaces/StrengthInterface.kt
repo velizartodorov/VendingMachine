@@ -25,12 +25,12 @@ object StrengthInterface : UserInterface {
 
     override fun process(order: Order.Builder): Order.Builder {
         val inputStrength = readln().toInt()
-        if (inputStrength in Strength.range()) {
+        try {
             val selectedStrength = Strength.get(inputStrength)
             println("Strength selected: $selectedStrength")
             order.withStrength(selectedStrength)
-        } else {
-            println("Strength unsupported: $inputStrength")
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
             this.print()
             this.process(order)
         }

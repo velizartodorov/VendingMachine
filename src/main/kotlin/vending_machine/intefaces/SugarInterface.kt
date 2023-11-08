@@ -25,12 +25,12 @@ Pick amount (1-5):
 
     override fun process(order: Order.Builder): Order.Builder {
         val inputAmount = readln().toInt()
-        if (inputAmount in Amount.range()) {
+        try {
             val sugar = Amount.get(inputAmount)
             println("Sugar amount selected: $sugar")
             order.withSugar(sugar)
-        } else {
-            println("Amount unsupported: $inputAmount")
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
             this.print()
             this.process(order)
         }
