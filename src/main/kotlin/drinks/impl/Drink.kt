@@ -101,5 +101,7 @@ sealed class Drink {
             }
             throw IllegalArgumentException("Number unsupported: $number")
         }
+
+        fun range() = 1..Drink::class.sealedSubclasses.size
     }
 }

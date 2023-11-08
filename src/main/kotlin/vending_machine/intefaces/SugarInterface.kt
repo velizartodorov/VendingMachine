@@ -8,24 +8,32 @@ object SugarInterface : UserInterface {
     override fun print() {
         println(
             """
-    Sugar amount NONE: 0
-    Sugar amount LOW: 1
-    Sugar amount MEDIUM: 2
-    Sugar amount HIGH: 3
-    Sugar amount HIGH: 4
-    Sugar amount MAX: 5
-    
-    ===================================
-    PICK A SUGAR AMOUNT (0 - 5):
+==========================================================
+        ██████╗██╗   ██╗ ██████╗  █████╗ ██████╗ 
+        ██╔════╝██║   ██║██╔════╝ ██╔══██╗██╔══██╗
+        ███████╗██║   ██║██║  ███╗███████║██████╔╝
+        ╚════██║██║   ██║██║   ██║██╔══██║██╔══██╗
+        ███████║╚██████╔╝╚██████╔╝██║  ██║██║  ██║
+        ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+==========================================================
+    NONE: 1     LOW: 2   MEDIUM: 3   HIGH: 4    MAX: 5
+==========================================================
+Pick amount (1-5):
     """.trimIndent()
         )
     }
 
     override fun process(order: Order): Order {
-        val value = readln().toInt()
-        val sugar = Amount.get(value)
-        println("Sugar amount selected: $sugar")
-        order.sugar = sugar
+        val inputAmount = readln().toInt()
+        if (inputAmount in Amount.range()) {
+            val sugar = Amount.get(inputAmount)
+            println("Sugar amount selected: $sugar")
+            order.sugar = sugar
+        } else {
+            println("Amount unsupported: $inputAmount")
+            this.print()
+            this.process(order)
+        }
         return order
     }
 }

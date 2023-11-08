@@ -48,7 +48,7 @@ interface UserInterface {
             )
         }
 
-        private fun getAll() = sequenceOf(
+        private fun getInterfaces() = sequenceOf(
             DrinkInterface,
             StrengthInterface,
             MilkInterface,
@@ -59,7 +59,7 @@ interface UserInterface {
         fun selectDrink(): OrderResponse {
             println("The vending machine is already running")
             val order = Order.Builder().build()
-            getAll().forEach { ui ->
+            getInterfaces().forEach { ui ->
                 ui.print()
                 ui.process(order)
             }
