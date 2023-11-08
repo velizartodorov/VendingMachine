@@ -23,12 +23,12 @@ object StrengthInterface : UserInterface {
         )
     }
 
-    override fun process(order: Order): Order {
+    override fun process(order: Order.Builder): Order.Builder {
         val inputStrength = readln().toInt()
         if (inputStrength in Strength.range()) {
             val selectedStrength = Strength.get(inputStrength)
             println("Strength selected: $selectedStrength")
-            order.strength = selectedStrength
+            order.withStrength(selectedStrength)
         } else {
             println("Strength unsupported: $inputStrength")
             this.print()

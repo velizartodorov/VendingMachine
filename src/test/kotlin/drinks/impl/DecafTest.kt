@@ -34,7 +34,7 @@ internal class DecafTest {
     }
 
     private fun getDecaf() = Order.Builder()
-        .drink("Decaf")
+        .withDrink("Decaf")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

@@ -20,7 +20,7 @@ data class Order(
         private var strength: Strength? = null
         private var coins: List<Coin>? = null
 
-        fun drink(drink: String) = apply { this.drink = drink }
+        fun withDrink(drink: String) = apply { this.drink = drink }
         fun withMilk(milk: Amount) = apply { this.milk = milk }
         fun withWater(water: Amount) = apply { this.water = water }
         fun withSugar(sugar: Amount) = apply { this.sugar = sugar }

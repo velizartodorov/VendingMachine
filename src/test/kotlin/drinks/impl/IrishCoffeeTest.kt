@@ -33,7 +33,7 @@ internal class IrishCoffeeTest {
     }
 
     private fun getIrishCoffee() = Order.Builder()
-        .drink("IrishCoffee")
+        .withDrink("IrishCoffee")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

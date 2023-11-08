@@ -36,7 +36,7 @@ internal class AmericanoTest {
     }
 
     private fun getAmericano() = Order.Builder()
-        .drink("Americano")
+        .withDrink("Americano")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

@@ -33,7 +33,7 @@ internal class CappuccinoTest {
     }
 
     private fun getCappuccino() = Order.Builder()
-        .drink("Cappuccino")
+        .withDrink("Cappuccino")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -41,7 +41,7 @@ internal class CappuccinoTest {
         .build()
 
     private fun getMaxCappuccino() = Order.Builder()
-        .drink("Cappuccino")
+        .withDrink("Cappuccino")
         .withMilk(NONE)
         .withStrength(MAX)
         .withSugar(NONE)

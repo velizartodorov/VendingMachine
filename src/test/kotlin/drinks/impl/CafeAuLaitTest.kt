@@ -33,7 +33,7 @@ internal class CafeAuLaitTest {
     }
 
     private fun getCafeAuLait() = Order.Builder()
-        .drink("CafeAuLait")
+        .withDrink("CafeAuLait")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

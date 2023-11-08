@@ -32,7 +32,7 @@ internal class MacchiatoTest {
     }
 
     private fun getMacchiato() = Order.Builder()
-        .drink("Macchiato")
+        .withDrink("Macchiato")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

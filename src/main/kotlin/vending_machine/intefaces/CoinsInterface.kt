@@ -20,13 +20,13 @@ object CoinsInterface : UserInterface {
         )
     }
 
-    override fun process(order: Order): Order {
+    override fun process(order: Order.Builder): Order.Builder {
         val value = readln()
             .split(" ")
             .map(String::toInt)
         val coins = Coin.get(value)
         println("Coins inserted: ${coins.contentToString()}")
-        order.coins = coins.toList()
+        order.withCoins(*coins)
         return order
     }
 

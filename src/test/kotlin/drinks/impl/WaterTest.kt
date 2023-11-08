@@ -28,7 +28,7 @@ internal class WaterTest {
     }
 
     private fun getWater() = Order.Builder()
-        .drink("Water")
+        .withDrink("Water")
         .withMilk(NONE)
         .withCoins(ONE_EURO)
         .build()

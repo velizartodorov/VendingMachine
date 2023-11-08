@@ -33,7 +33,7 @@ internal class MochaTest {
     }
 
     private fun getMocha() = Order.Builder()
-        .drink("Mocha")
+        .withDrink("Mocha")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

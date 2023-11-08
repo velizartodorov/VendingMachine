@@ -32,7 +32,7 @@ internal class TeaTest {
     }
 
     private fun getTea() = Order.Builder()
-        .drink("Tea")
+        .withDrink("Tea")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)

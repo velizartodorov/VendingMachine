@@ -54,7 +54,7 @@ internal class LatteTest {
     }
 
     private fun getLatte() = Order.Builder()
-        .drink("Latte")
+        .withDrink("Latte")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
@@ -62,7 +62,7 @@ internal class LatteTest {
         .build()
 
     private fun getSoftLatte() = Order.Builder()
-        .drink("Latte")
+        .withDrink("Latte")
         .withMilk(NONE)
         .withStrength(LOW)
         .withSugar(NONE)
@@ -70,7 +70,7 @@ internal class LatteTest {
         .build()
 
     private fun getStrongLatte() = Order.Builder()
-        .drink("Latte")
+        .withDrink("Latte")
         .withMilk(NONE)
         .withStrength(HIGH)
         .withSugar(NONE)

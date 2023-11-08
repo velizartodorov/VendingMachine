@@ -32,7 +32,7 @@ internal class FlatWhiteTest {
     }
 
     private fun getFlatWhite() =
-        Order.Builder().drink("FlatWhite")
+        Order.Builder().withDrink("FlatWhite")
             .withMilk(NONE)
             .withStrength(MEDIUM)
             .withSugar(NONE)

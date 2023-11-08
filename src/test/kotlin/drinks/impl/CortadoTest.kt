@@ -34,7 +34,7 @@ internal class CortadoTest {
     }
 
     private fun getCortado() = Order.Builder()
-        .drink("Cortado")
+        .withDrink("Cortado")
         .withMilk(NONE)
         .withStrength(MEDIUM)
         .withSugar(NONE)
