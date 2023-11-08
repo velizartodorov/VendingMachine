@@ -29,12 +29,12 @@ Tea: 13        Water: 14
 
     override fun process(order: Order.Builder): Order.Builder {
         val inputDrink = readln().toInt()
-        if (inputDrink in Drink.range()) {
+        try {
             val drink = Drink.get(inputDrink)
             println("Drink selected: $drink")
             order.withDrink(drink)
-        } else {
-            println("Drink unsupported: $inputDrink")
+        } catch (e: IllegalArgumentException) {
+            println(e.message)
             this.print()
             this.process(order)
         }

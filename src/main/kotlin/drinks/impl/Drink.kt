@@ -89,19 +89,10 @@ sealed class Drink {
         }
 
         fun get(number: Int?): String {
-            var counter = 1
-            val drinks = Drink::class.sealedSubclasses
-            for (drinkClass: KClass<out Drink> in drinks) {
-                val drink: Drink = drinkClass.createInstance()
-                if (counter == number) {
-                    return drink.name
-                } else {
-                    counter++
-                }
-            }
-            throw IllegalArgumentException("Number unsupported: $number")
+            val drinks = Drink::class.sealedSubclasses.map { it.createInstance() }
+            return number?.minus(1)?.let { drinks.getOrNull(it)?.name }
+                ?: throw IllegalArgumentException("Number unsupported: $number")
         }
 
-        fun range() = 1..Drink::class.sealedSubclasses.size
     }
 }
