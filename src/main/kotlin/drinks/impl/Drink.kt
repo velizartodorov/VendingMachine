@@ -36,10 +36,6 @@ sealed class Drink {
         return orderResponse
     }
 
-    private fun getAmount(coins: List<Coin>?): Int {
-        return coins?.sumOf { it.value } ?: 0
-    }
-
     private fun getChange(change: Int): List<Coin> {
         val coins = mutableListOf<Coin>()
         var remainingChange = change
@@ -92,6 +88,10 @@ sealed class Drink {
             val drinks = Drink::class.sealedSubclasses.map { it.createInstance() }
             return number?.minus(1)?.let { drinks.getOrNull(it)?.name }
                 ?: throw IllegalArgumentException("Number unsupported: $number")
+        }
+
+        fun getAmount(coins: List<Coin>?): Int {
+            return coins?.sumOf { it.value } ?: 0
         }
 
     }

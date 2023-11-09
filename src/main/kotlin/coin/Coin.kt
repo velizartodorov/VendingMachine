@@ -13,10 +13,11 @@ enum class Coin(val value: Int) {
     companion object {
         val descending = values().reversed()
 
-        fun get(numbers: List<Int>): Array<Coin> {
+        fun getArray(numbers: List<Int>): Array<Coin> {
             return numbers.mapNotNull { coin ->
                 values().find { it.value == coin }
             }.toTypedArray()
         }
+
     }
 }
