@@ -5,7 +5,7 @@ import order.Order
 
 object DrinkInterface : UserInterface {
 
-    override fun print() {
+    override fun print(order: Order.Builder) {
         println(
             """
 ====================================================================
@@ -34,9 +34,7 @@ Tea: 13        Water: 14
             println("Drink selected: $drink")
             order.withDrink(drink)
         } catch (e: IllegalArgumentException) {
-            println(e.message)
-            this.print()
-            this.process(order)
+            reprocess(e, order)
         }
         return order
     }

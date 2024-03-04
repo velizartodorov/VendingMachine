@@ -5,7 +5,7 @@ import order.Order
 
 object SugarInterface : UserInterface {
 
-    override fun print() {
+    override fun print(order: Order.Builder) {
         println(
             """
 ==========================================================
@@ -30,9 +30,7 @@ Pick amount (1-5):
             println("Sugar amount selected: $sugar")
             order.withSugar(sugar)
         } catch (e: IllegalArgumentException) {
-            println(e.message)
-            this.print()
-            this.process(order)
+            reprocess(e, order)
         }
         return order
     }

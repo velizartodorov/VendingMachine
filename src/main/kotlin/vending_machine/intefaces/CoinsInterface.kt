@@ -6,7 +6,7 @@ import order.Order
 
 object CoinsInterface : UserInterface {
 
-    override fun print() {
+    override fun print(order: Order.Builder) {
         println(
             """
 ====================================================================================
@@ -17,9 +17,20 @@ object CoinsInterface : UserInterface {
 ███████╗██║ ╚████║   ██║   ███████╗██║  ██║    ╚██████╗╚██████╔╝██║██║ ╚████║███████║
 ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝
 ====================================================================================
+Price: ${Drink.getDrink(order.drink).price} cents
     """.trimIndent()
         )
     }
+
+    private fun insufficientAmount(
+        order: Order.Builder,
+        price: Int,
+        amount: Int
+    ) = """
+        Amount insufficient for ${order.drink}! 
+        Needed amount: $price 
+        Current amount: $amount
+        """
 
     override fun process(order: Order.Builder): Order.Builder {
         val value = readln()
@@ -32,14 +43,8 @@ object CoinsInterface : UserInterface {
             println("Coins inserted: ${coins.contentToString()}")
             order.withCoins(*coins)
         } else {
-            println(
-                """
-                Amount insufficient for ${order.drink}! 
-                        Needed amount: $price 
-                        Current amount: $amount
-                        """
-            )
-            print()
+            println(insufficientAmount(order, price, amount))
+            print(order)
             process(order)
         }
         return order

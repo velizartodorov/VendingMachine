@@ -5,8 +5,14 @@ import order.Order
 import order.OrderResponse
 
 interface UserInterface {
-    fun print()
+    fun print(order: Order.Builder)
     fun process(order: Order.Builder): Order.Builder
+
+    fun reprocess(e: IllegalArgumentException, order: Order.Builder) {
+        println(e.message)
+        this.print(order)
+        this.process(order)
+    }
 
     companion object {
 
@@ -72,7 +78,7 @@ interface UserInterface {
             println("The vending machine is already running")
             val orderBuilder = Order.Builder()
             getInterfaces().forEach { ui ->
-                ui.print()
+                ui.print(orderBuilder)
                 ui.process(orderBuilder)
             }
             val order = orderBuilder.build()

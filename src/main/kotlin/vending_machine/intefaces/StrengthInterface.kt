@@ -5,7 +5,7 @@ import order.Strength
 
 object StrengthInterface : UserInterface {
 
-    override fun print() {
+    override fun print(order: Order.Builder) {
         println(
             """
 =====================================================================
@@ -30,9 +30,7 @@ object StrengthInterface : UserInterface {
             println("Strength selected: $selectedStrength")
             order.withStrength(selectedStrength)
         } catch (e: IllegalArgumentException) {
-            println(e.message)
-            this.print()
-            this.process(order)
+            reprocess(e, order)
         }
         return order
     }
