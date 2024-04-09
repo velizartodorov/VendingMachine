@@ -69,10 +69,10 @@ is planned (for now). 😉 In the Git messages you can find the following emojis
 | Emoji | Action                  |
 |:-----:|-------------------------|
 |  🔨   | refactoring             |
-|  ✨   | feature                 |
+|   ✨   | feature                 |
 |  🐛   | bug fixed               |
 |  📚   | update `README.md`      |
-|  ✅   | update tests            |
+|   ✅   | update tests            |
 |  🚀   | update building scripts |
 
 ## CI/CD 🚀
