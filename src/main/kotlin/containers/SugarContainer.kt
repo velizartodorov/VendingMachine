@@ -1,5 +1,3 @@
-package containers
-
 import order.Amount
 
 @Suppress("unused")

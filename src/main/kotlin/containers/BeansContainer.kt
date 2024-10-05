@@ -1,7 +1,5 @@
 @file:Suppress("unused")
 
-package containers
-
 import order.Amount
 
 class BeansContainer : Container() {

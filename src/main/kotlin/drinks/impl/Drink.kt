@@ -10,7 +10,6 @@ import order.Status.IN_PROGRESS
 import order.Strength
 import order.Strength.*
 import kotlin.reflect.KClass
-import kotlin.reflect.full.createInstance
 
 sealed class Drink {
     abstract val name: String
@@ -75,17 +74,13 @@ sealed class Drink {
     }
 
     companion object {
-        fun getDrink(drinkType: String?): Drink {
-            val drinks = Drink::class.sealedSubclasses
-            for (drinkClass: KClass<out Drink> in drinks) {
-                val drink: Drink = drinkClass.createInstance()
-                if (drink.name == drinkType) return drink
-            }
-            throw NotImplementedException("Drink doesn't exist: $drinkType")
-        }
 
         fun get(number: Int?): String {
-            val drinks = Drink::class.sealedSubclasses.map { it.createInstance() }
+            val drinks = Drink::class.sealedSubclasses.map { drinkClass ->
+                val constructor = drinkClass.constructors.find { it.parameters.isEmpty() }
+                    ?: throw IllegalArgumentException("No suitable constructor found")
+                constructor.call()
+            }
             return number?.minus(1)?.let { drinks.getOrNull(it)?.name }
                 ?: throw IllegalArgumentException("Number unsupported: $number")
         }
@@ -94,5 +89,16 @@ sealed class Drink {
             return coins?.sumOf { it.value } ?: 0
         }
 
+        fun getDrink(drinkType: String?): Drink {
+            val drinks = Drink::class.sealedSubclasses
+            for (drinkClass: KClass<out Drink> in drinks) {
+                val constructor = drinkClass.constructors.find { it.parameters.isEmpty() }
+                    ?: throw IllegalArgumentException("No suitable constructor found")
+                val drink = constructor.call()
+                if (drink.name == drinkType) return drink
+            }
+            throw NotImplementedException("Drink doesn't exist: $drinkType")
+        }
     }
+
 }

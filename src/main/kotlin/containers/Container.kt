@@ -1,12 +1,10 @@
-package containers
-
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import order.Amount
 import order.Amount.*
 import kotlin.reflect.KClass
-import kotlin.reflect.full.createInstance
 
 sealed class Container {
+
     abstract val name: String
     abstract var amount: Double
 
@@ -43,7 +41,9 @@ sealed class Container {
         fun getContainer(containerName: String): Container {
             val containers = Container::class.sealedSubclasses
             for (containerClass: KClass<out Container> in containers) {
-                val container = containerClass.createInstance()
+                val constructor = containerClass.constructors.find { it.parameters.isEmpty() }
+                    ?: throw IllegalArgumentException("No suitable constructor found")
+                val container = constructor.call()
                 if (container.name == containerName) {
                     return checkAmount(container)
                 }
@@ -58,4 +58,5 @@ sealed class Container {
             )
         }
     }
+
 }

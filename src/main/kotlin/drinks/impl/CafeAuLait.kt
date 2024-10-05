@@ -2,7 +2,7 @@
 
 package drinks.impl
 
-import containers.Container
+import Container
 import order.Order
 
 class CafeAuLait : Drink() {

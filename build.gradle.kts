@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.8.20"
+    kotlin("jvm") version "2.0.20"
     application
     jacoco
 }
@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.0-M1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.0")
     testImplementation(kotlin("test"))
     implementation(kotlin("reflect"))
 }
