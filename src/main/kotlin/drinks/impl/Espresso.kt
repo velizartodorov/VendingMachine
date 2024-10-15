@@ -5,7 +5,7 @@ package drinks.impl
 import Container.Companion.getContainer
 import order.Order
 
-class Espresso : Drink() {
+class Espresso : Drink {
     override val name = "Espresso"
     override val price = 25
 

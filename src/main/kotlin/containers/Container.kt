@@ -3,12 +3,12 @@ import order.Amount
 import order.Amount.*
 import kotlin.reflect.KClass
 
-sealed class Container {
+sealed interface Container {
 
-    abstract val name: String
-    abstract var amount: Double
+    val name: String
+    var amount: Double
 
-    abstract fun extractAmount(amount: Amount?)
+    fun extractAmount(amount: Amount?)
 
     fun reduceAmount(amount: Amount?) {
         when (amount) {

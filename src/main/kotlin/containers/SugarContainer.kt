@@ -1,7 +1,7 @@
 import order.Amount
 
 @Suppress("unused")
-class SugarContainer : Container() {
+class SugarContainer : Container {
     override val name = "sugar"
     override var amount = 500.0
 

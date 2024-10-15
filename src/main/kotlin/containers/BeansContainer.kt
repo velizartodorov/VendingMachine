@@ -2,7 +2,7 @@
 
 import order.Amount
 
-class BeansContainer : Container() {
+class BeansContainer : Container {
     override val name = "beans"
     override var amount = 500.0
 

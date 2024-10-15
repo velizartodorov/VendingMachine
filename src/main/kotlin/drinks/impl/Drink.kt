@@ -11,10 +11,10 @@ import order.Strength
 import order.Strength.*
 import kotlin.reflect.KClass
 
-sealed class Drink {
-    abstract val name: String
-    abstract val price: Int
-    protected abstract fun prepareDrink(order: Order)
+sealed interface Drink {
+    val name: String
+    val price: Int
+    fun prepareDrink(order: Order)
 
     fun prepare(order: Order): OrderResponse {
         val drink = order.drink ?: throw IllegalArgumentException("Drink not specified")
@@ -51,14 +51,6 @@ sealed class Drink {
         "Amount insufficient for $name! " +
                 "Needed amount: $price " +
                 "Current amount: ${getAmount(order.coins)}"
-
-    override fun equals(other: Any?): Boolean {
-        return other?.javaClass != this.javaClass
-    }
-
-    override fun hashCode(): Int {
-        return javaClass.hashCode()
-    }
 
     fun getAmount(strength: Strength?): Amount = when (strength) {
         LOW -> Amount.LOW
