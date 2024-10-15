@@ -52,8 +52,9 @@ and `Stopped` and the transition goes as follows:
 
 The choice of a drink and container is based on
 the [Factory Pattern](https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)). All the
-drinks and containers implement the abstract sealed classes `Drink` and `Container` respectively,
-and inherit them. With the help of [sealed classes](https://kotlinlang.org/docs/sealed-classes.html)
+drinks and containers implement the sealed interfaces `Drink` and `Container` respectively, and
+implement them. With the help
+of [sealed interfaces](https://kotlinlang.org/docs/sealed-classes.html#declare-a-sealed-class-or-interface)
 in Kotlin, we can avoid the use of pattern matching/`switch`/`if...else` statements and can autoload
 new implementations.
 
