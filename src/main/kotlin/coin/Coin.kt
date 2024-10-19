@@ -11,12 +11,38 @@ enum class Coin(val value: Int) {
     TWO_EUROS(200);
 
     companion object {
-        val descending = values().reversed()
+        private val descending = values().reversed()
 
-        fun getArray(numbers: List<Int>): Array<Coin> {
+        fun format(numbers: List<Int>): Array<Coin> {
             return numbers.mapNotNull { coin ->
                 values().find { it.value == coin }
             }.toTypedArray()
+        }
+
+        fun format(coins: Array<Coin>) = format(get(coins.toList()))
+
+        fun format(coins: List<Coin>) = format(get(coins))
+
+        fun get(coins: List<Coin>?): Int {
+            return coins?.sumOf { it.value } ?: 0
+        }
+
+        fun format(cents: Int): String {
+            val euros = cents / 100
+            val remainingCents = cents % 100
+            return String.format("%d.%02d €", euros, remainingCents)
+        }
+
+        fun get(input: Int): List<Coin> {
+            val coins = mutableListOf<Coin>()
+            var amount = input
+            for (coin in descending) {
+                while (amount >= coin.value) {
+                    coins.add(coin)
+                    amount -= coin.value
+                }
+            }
+            return coins
         }
 
     }

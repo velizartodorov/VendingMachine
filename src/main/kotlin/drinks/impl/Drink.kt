@@ -18,14 +18,15 @@ sealed interface Drink {
 
     fun prepare(order: Order): OrderResponse {
         val drink = order.drink ?: throw IllegalArgumentException("Drink not specified")
-        val amount = getAmount(order.coins)
+        val amount = Coin.get(order.coins)
         val change = amount - price
         val status = if (amount >= price) DONE else IN_PROGRESS
-        val orderResponse = OrderResponse(getChange(change), status, drink)
+        val orderResponse = OrderResponse(Coin.get(change), status, drink)
         println("$name ordered successfully! Preparing ...")
         prepareDrink(order)
         if (change > 0) {
-            println("Take your change: ${orderResponse.change}")
+            val formatChange = Coin.format(orderResponse.change)
+            println("Take your change: $formatChange")
         }
         if (orderResponse.status == DONE) {
             println("$name prepared successfully! Take it!")
@@ -35,22 +36,10 @@ sealed interface Drink {
         return orderResponse
     }
 
-    private fun getChange(change: Int): List<Coin> {
-        val coins = mutableListOf<Coin>()
-        var remainingChange = change
-        for (coin in Coin.descending) {
-            while (remainingChange >= coin.value) {
-                coins.add(coin)
-                remainingChange -= coin.value
-            }
-        }
-        return coins
-    }
-
     private fun getErrorMessage(order: Order) =
         "Amount insufficient for $name! " +
                 "Needed amount: $price " +
-                "Current amount: ${getAmount(order.coins)}"
+                "Current amount: ${Coin.get(order.coins)}"
 
     fun getAmount(strength: Strength?): Amount = when (strength) {
         LOW -> Amount.LOW
@@ -75,10 +64,6 @@ sealed interface Drink {
             }
             return number?.minus(1)?.let { drinks.getOrNull(it)?.name }
                 ?: throw IllegalArgumentException("Number unsupported: $number")
-        }
-
-        fun getAmount(coins: List<Coin>?): Int {
-            return coins?.sumOf { it.value } ?: 0
         }
 
         fun getDrink(drinkType: String?): Drink {

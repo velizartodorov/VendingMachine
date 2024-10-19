@@ -17,8 +17,7 @@ object CoinsInterface : UserInterface {
             ███████╗██║ ╚████║   ██║   ███████╗██║  ██║    ╚██████╗╚██████╔╝██║██║ ╚████║███████║
             ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝     ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝
             ====================================================================================
-            Price: ${Drink.getDrink(order.drink).price} cents
-    """.trimIndent()
+            """.trimIndent()
         )
     }
 
@@ -33,12 +32,13 @@ object CoinsInterface : UserInterface {
         """
 
     override fun process(order: Order): Order {
-        val value: List<Int> = inputCoins()
-        val coins = Coin.getArray(value)
+        val value: List<Int> = input(order)
+        val coins = Coin.format(value)
         val price = Drink.getDrink(order.drink).price
-        val amount = Drink.getAmount(coins.toList())
+        val amount = Coin.get(coins.toList())
+        val formatPrice = Coin.format(coins)
         if (amount >= price) {
-            println("Coins inserted: ${coins.contentToString()}")
+            println("Amount inserted: $formatPrice")
             order.coins(*coins)
         } else {
             println(insufficientAmount(order, price, amount))
@@ -48,10 +48,12 @@ object CoinsInterface : UserInterface {
         return order
     }
 
-    private fun inputCoins(): List<Int> {
+    private fun input(order: Order): List<Int> {
+        val drink = Drink.getDrink(order.drink)
+        println("Price: ${Coin.format(drink.price)}")
         val value: List<Int>
         while (true) {
-            println("Please enter the coins (only numbers allowed):")
+            print("Please enter the coins (only numbers allowed): ")
             val input = readln()
             if (input.all { it.isDigit() || it.isWhitespace() }) {
                 value = input.split(" ")
