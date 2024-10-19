@@ -32,20 +32,14 @@ For now, this basic implementation supports the following types of drinks:
 The vending machine uses State Pattern and has several states - `Idle`, `Running`, `Paused`
 and `Stopped` and the transition goes as follows:
 
-```text
-+------------+     start()      +------------+
-|    Idle    | ---------------> |   Running  |
-+------------+                  +------------+
-                                   |
-                                   |
-                                   |
-                                   | pause()
-                                   |
-                                   |
-                                   v
-+------------+                  +------------+
-|   Stopped  | <--------------- |   Paused   |
-+------------+      stop()      +------------+
+```mermaid
+stateDiagram-v2
+    Idle --> Running : start()
+    Running --> Paused : pause()
+    Paused --> Running : start()
+    Paused --> Stopped : stop()
+    Running --> Stopped : stop()
+    Stopped --> Running : start()
 ```
 
 #### Choice of drink 🍶 and container 📥📤
