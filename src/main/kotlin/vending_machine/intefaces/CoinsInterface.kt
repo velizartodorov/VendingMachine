@@ -33,9 +33,7 @@ object CoinsInterface : UserInterface {
         """
 
     override fun process(order: Order): Order {
-        val value = readln()
-            .split(" ")
-            .map(String::toInt)
+        val value: List<Int> = inputCoins()
         val coins = Coin.getArray(value)
         val price = Drink.getDrink(order.drink).price
         val amount = Drink.getAmount(coins.toList())
@@ -48,6 +46,23 @@ object CoinsInterface : UserInterface {
             process(order)
         }
         return order
+    }
+
+    private fun inputCoins(): List<Int> {
+        val value: List<Int>
+        while (true) {
+            println("Please enter the coins (only numbers allowed):")
+            val input = readln()
+            if (input.all { it.isDigit() || it.isWhitespace() }) {
+                value = input.split(" ")
+                    .filter { it.isNotBlank() }
+                    .map(String::toInt)
+                break
+            } else {
+                println("Invalid input. Please enter only numbers separated by spaces.")
+            }
+        }
+        return value
     }
 
 }

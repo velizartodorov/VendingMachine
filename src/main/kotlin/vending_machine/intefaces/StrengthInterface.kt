@@ -18,21 +18,34 @@ object StrengthInterface : UserInterface {
             =====================================================================
                    LOW: 1   MEDIUM: 2   HIGH: 3    MAX: 4
             =====================================================================
-                Pick strength (1-4):
-    """.trimIndent()
+             """.trimIndent()
         )
     }
 
     override fun process(order: Order): Order {
-        val inputStrength = readln().toInt()
         try {
-            val selectedStrength = Strength.get(inputStrength)
+            val selectedStrength = Strength.get(input())
             println("Strength selected: $selectedStrength")
             order.strength(selectedStrength)
         } catch (e: IllegalArgumentException) {
             reprocess(e, order)
         }
         return order
+    }
+
+    private fun input(): Int {
+        val strength: Int
+        while (true) {
+            print("Pick strength (1-4): ")
+            val input = readln()
+            if (input.toIntOrNull()?.let { it in 1..4 } == true) {
+                strength = input.toInt()
+                break
+            } else {
+                println("Invalid input. Please enter a number between 1 and 4.")
+            }
+        }
+        return strength
     }
 
 }

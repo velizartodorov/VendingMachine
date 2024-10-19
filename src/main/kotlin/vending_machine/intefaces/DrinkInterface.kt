@@ -22,13 +22,13 @@ object DrinkInterface : UserInterface {
             Latte: 10      Macchiato: 11       Mocha: 12
             Tea: 13        Water: 14
             ===================================================================
-                PICK A DRINK (1 - 14):
     """.trimIndent()
         )
     }
 
     override fun process(order: Order): Order {
-        val inputDrink = readln().toInt()
+        val inputDrink: Int = input()
+
         try {
             val drink = Drink.get(inputDrink)
             println("Drink selected: $drink")
@@ -37,6 +37,21 @@ object DrinkInterface : UserInterface {
             reprocess(e, order)
         }
         return order
+    }
+
+    private fun input(): Int {
+        val inputDrink: Int
+        while (true) {
+            print("Please enter a drink number (1 - 14): ")
+            val input = readln()
+            if (input.toIntOrNull()?.let { it in 1..14 } == true) {
+                inputDrink = input.toInt()
+                break
+            } else {
+                println("Invalid input. Please enter a number between 1 and 14.")
+            }
+        }
+        return inputDrink
     }
 
 }
