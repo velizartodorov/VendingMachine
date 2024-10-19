@@ -1,7 +1,6 @@
-@file:Suppress("unused")
-
 import order.Amount
 
+@Suppress("unused")
 class BeansContainer : Container {
     override val name = "beans"
     override var amount = 500.0

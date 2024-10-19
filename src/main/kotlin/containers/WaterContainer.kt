@@ -7,6 +7,6 @@ class WaterContainer : Container {
 
     override fun extractAmount(amount: Amount?) {
         reduceAmount(amount)
-        println("Water extracted. Sugar amount remaining: ${this.amount} ml")
+        println("Water extracted. Water amount remaining: ${this.amount} ml")
     }
 }
