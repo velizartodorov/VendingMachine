@@ -5,10 +5,10 @@ import order.Order
 import order.OrderResponse
 
 interface UserInterface {
-    fun print(order: Order.Builder)
-    fun process(order: Order.Builder): Order.Builder
+    fun print(order: Order)
+    fun process(order: Order): Order
 
-    fun reprocess(e: IllegalArgumentException, order: Order.Builder) {
+    fun reprocess(e: IllegalArgumentException, order: Order) {
         println(e.message)
         this.print(order)
         this.process(order)
@@ -76,12 +76,18 @@ interface UserInterface {
 
         fun selectDrink(): OrderResponse {
             println("The vending machine is already running")
-            val orderBuilder = Order.Builder()
+            val order = Order(
+                drink = null,
+                milk = null,
+                water = null,
+                sugar = null,
+                strength = null,
+                coins = emptyList()
+            )
             getInterfaces().forEach { ui ->
-                ui.print(orderBuilder)
-                ui.process(orderBuilder)
+                ui.print(order)
+                ui.process(order)
             }
-            val order = orderBuilder.build()
             return Drink.getDrink(order.drink).prepare(order)
         }
 

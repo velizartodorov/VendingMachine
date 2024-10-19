@@ -5,7 +5,7 @@ import order.Order
 
 object MilkInterface : UserInterface {
 
-    override fun print(order: Order.Builder) {
+    override fun print(order: Order) {
         println(
             """
             ==========================================================
@@ -23,12 +23,12 @@ object MilkInterface : UserInterface {
         )
     }
 
-    override fun process(order: Order.Builder): Order.Builder {
+    override fun process(order: Order): Order {
         val inputAmount = readln().toInt()
         try {
             val milk = Amount.get(inputAmount)
             println("Milk amount selected: $milk")
-            order.withMilk(milk)
+            order.milk(milk)
         } catch (e: IllegalArgumentException) {
             reprocess(e, order)
         }

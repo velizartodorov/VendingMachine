@@ -103,11 +103,14 @@ internal class VendingMachineTest {
         VendingMachine.stop()
     }
 
-    private fun getNonExistingDrink() = Order.Builder()
-        .withMilk(NONE)
-        .withWater(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
+    private fun getNonExistingDrink(): Order {
+        return Order(
+            drink = null,
+            milk = NONE,
+            water = NONE,
+            sugar = NONE,
+            strength = MEDIUM,
+            coins = listOf(FIFTY_CENTS)
+        )
+    }
 }

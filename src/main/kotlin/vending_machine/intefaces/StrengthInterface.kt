@@ -5,7 +5,7 @@ import order.Strength
 
 object StrengthInterface : UserInterface {
 
-    override fun print(order: Order.Builder) {
+    override fun print(order: Order) {
         println(
             """
             =====================================================================
@@ -23,12 +23,12 @@ object StrengthInterface : UserInterface {
         )
     }
 
-    override fun process(order: Order.Builder): Order.Builder {
+    override fun process(order: Order): Order {
         val inputStrength = readln().toInt()
         try {
             val selectedStrength = Strength.get(inputStrength)
             println("Strength selected: $selectedStrength")
-            order.withStrength(selectedStrength)
+            order.strength(selectedStrength)
         } catch (e: IllegalArgumentException) {
             reprocess(e, order)
         }

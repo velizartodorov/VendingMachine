@@ -5,7 +5,7 @@ import order.Order
 
 object DrinkInterface : UserInterface {
 
-    override fun print(order: Order.Builder) {
+    override fun print(order: Order) {
         println(
             """
             ====================================================================
@@ -27,12 +27,12 @@ object DrinkInterface : UserInterface {
         )
     }
 
-    override fun process(order: Order.Builder): Order.Builder {
+    override fun process(order: Order): Order {
         val inputDrink = readln().toInt()
         try {
             val drink = Drink.get(inputDrink)
             println("Drink selected: $drink")
-            order.withDrink(drink)
+            order.drink(drink)
         } catch (e: IllegalArgumentException) {
             reprocess(e, order)
         }

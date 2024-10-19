@@ -7,12 +7,15 @@ import order.Strength.MEDIUM
 
 open class MacchiatoTestHelper {
 
-    fun getMacchiato() = Order.Builder()
-        .withDrink("Macchiato")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(ONE_EURO)
-        .build()
+    fun getMacchiato(): Order {
+        return Order(
+            drink = "Macchiato",
+            milk = NONE,
+            strength = MEDIUM,
+            sugar = NONE,
+            coins = listOf(ONE_EURO)
+        )
+    }
+
 
 }

@@ -5,7 +5,7 @@ import order.Order
 
 object SugarInterface : UserInterface {
 
-    override fun print(order: Order.Builder) {
+    override fun print(order: Order) {
         println(
             """
             ==========================================================
@@ -23,12 +23,12 @@ object SugarInterface : UserInterface {
         )
     }
 
-    override fun process(order: Order.Builder): Order.Builder {
+    override fun process(order: Order): Order {
         val inputAmount = readln().toInt()
         try {
             val sugar = Amount.get(inputAmount)
             println("Sugar amount selected: $sugar")
-            order.withSugar(sugar)
+            order.sugar(sugar)
         } catch (e: IllegalArgumentException) {
             reprocess(e, order)
         }

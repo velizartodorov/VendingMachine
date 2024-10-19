@@ -6,7 +6,7 @@ import order.Order
 
 object CoinsInterface : UserInterface {
 
-    override fun print(order: Order.Builder) {
+    override fun print(order: Order) {
         println(
             """
             ====================================================================================
@@ -23,7 +23,7 @@ object CoinsInterface : UserInterface {
     }
 
     private fun insufficientAmount(
-        order: Order.Builder,
+        order: Order,
         price: Int,
         amount: Int
     ) = """
@@ -32,7 +32,7 @@ object CoinsInterface : UserInterface {
         Current amount: $amount
         """
 
-    override fun process(order: Order.Builder): Order.Builder {
+    override fun process(order: Order): Order {
         val value = readln()
             .split(" ")
             .map(String::toInt)
@@ -41,7 +41,7 @@ object CoinsInterface : UserInterface {
         val amount = Drink.getAmount(coins.toList())
         if (amount >= price) {
             println("Coins inserted: ${coins.contentToString()}")
-            order.withCoins(*coins)
+            order.coins(*coins)
         } else {
             println(insufficientAmount(order, price, amount))
             print(order)

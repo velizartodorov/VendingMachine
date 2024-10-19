@@ -7,11 +7,11 @@ import order.Strength.MEDIUM
 
 open class IrishCoffeeTestHelper {
 
-    fun getIrishCoffee() = Order.Builder()
-        .withDrink("IrishCoffee")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(ONE_EURO)
-        .build()
+    val irishCoffee = Order(
+        drink = "IrishCoffee",
+        milk = NONE,
+        strength = MEDIUM,
+        sugar = NONE,
+        coins = listOf(ONE_EURO)
+    )
 }

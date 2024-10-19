@@ -7,28 +7,34 @@ import order.Strength.*
 
 open class LatteTestHelper {
 
-    fun getLatte() = Order.Builder()
-        .withDrink("Latte")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
+    fun getLatte(): Order {
+        return Order(
+            drink = "Latte",
+            milk = NONE,
+            strength = MEDIUM,
+            sugar = NONE,
+            coins = listOf(FIFTY_CENTS)
+        )
+    }
 
-    fun getSoftLatte() = Order.Builder()
-        .withDrink("Latte")
-        .withMilk(NONE)
-        .withStrength(LOW)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
+    fun getSoftLatte(): Order {
+        return Order(
+            drink = "Latte",
+            milk = NONE,
+            strength = LOW,
+            sugar = NONE,
+            coins = listOf(FIFTY_CENTS)
+        )
+    }
 
-    fun getStrongLatte() = Order.Builder()
-        .withDrink("Latte")
-        .withMilk(NONE)
-        .withStrength(HIGH)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
+    fun getStrongLatte(): Order {
+        return Order(
+            drink = "Latte",
+            milk = NONE,
+            strength = HIGH,
+            sugar = NONE,
+            coins = listOf(FIFTY_CENTS)
+        )
+    }
 
 }
