@@ -3,14 +3,14 @@ package drinks.impl
 import coin.Coin.ONE_EURO
 import coin.Coin.TWENTY_CENTS
 import order.Amount.NONE
-import order.Order
 import order.Status.DONE
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class MochaTest {
+internal class MochaTest : MochaTestHelper() {
+
     @Test
     fun testOrderMocha() {
         val drink = getMocha()
@@ -32,11 +32,4 @@ internal class MochaTest {
         VendingMachine.stop()
     }
 
-    private fun getMocha() = Order.Builder()
-        .withDrink("Mocha")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(ONE_EURO)
-        .build()
 }

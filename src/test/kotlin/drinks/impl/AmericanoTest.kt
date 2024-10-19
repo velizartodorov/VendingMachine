@@ -3,14 +3,13 @@ package drinks.impl
 import coin.Coin.TEN_CENTS
 import coin.Coin.TWENTY_CENTS
 import order.Amount.NONE
-import order.Order
 import order.Status.DONE
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class AmericanoTest {
+class AmericanoTest : AmericanoTestHelper() {
     @Test
     fun testOrderAmericano() {
         val americano = getAmericano()
@@ -35,11 +34,4 @@ internal class AmericanoTest {
         VendingMachine.stop()
     }
 
-    private fun getAmericano() = Order.Builder()
-        .withDrink("Americano")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS, TWENTY_CENTS)
-        .build()
 }

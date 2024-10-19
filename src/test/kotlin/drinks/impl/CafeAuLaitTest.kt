@@ -2,14 +2,13 @@ package drinks.impl
 
 import coin.Coin.*
 import order.Amount.NONE
-import order.Order
 import order.Status.DONE
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class CafeAuLaitTest {
+internal class CafeAuLaitTest : CafeAuLaitTestHelper() {
 
     @Test
     fun testOrderCafeAuLait() {
@@ -32,11 +31,4 @@ internal class CafeAuLaitTest {
         VendingMachine.stop()
     }
 
-    private fun getCafeAuLait() = Order.Builder()
-        .withDrink("CafeAuLait")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(TWO_EUROS, FIFTY_CENTS)
-        .build()
 }

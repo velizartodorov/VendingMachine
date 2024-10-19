@@ -1,14 +1,13 @@
 package drinks.impl
 
 import coin.Coin.*
-import order.Amount.NONE
-import order.Order
 import order.Status.DONE
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class WaterTest {
+internal class WaterTest : WaterTestHelper() {
+
     @Test
     fun testOrderWater() {
         val drink = getWater()
@@ -27,9 +26,4 @@ internal class WaterTest {
         VendingMachine.stop()
     }
 
-    private fun getWater() = Order.Builder()
-        .withDrink("Water")
-        .withMilk(NONE)
-        .withCoins(ONE_EURO)
-        .build()
 }

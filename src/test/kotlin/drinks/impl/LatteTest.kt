@@ -3,14 +3,13 @@ package drinks.impl
 import coin.Coin.FIFTY_CENTS
 import coin.Coin.TWENTY_CENTS
 import order.Amount.NONE
-import order.Order
 import order.Status.DONE
-import order.Strength.*
+import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class LatteTest {
+internal class LatteTest : LatteTestHelper() {
 
     @Test
     fun testOrderLatte() {
@@ -52,29 +51,5 @@ internal class LatteTest {
         assertEquals(orderStatus.status, DONE)
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
     }
-
-    private fun getLatte() = Order.Builder()
-        .withDrink("Latte")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
-
-    private fun getSoftLatte() = Order.Builder()
-        .withDrink("Latte")
-        .withMilk(NONE)
-        .withStrength(LOW)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
-
-    private fun getStrongLatte() = Order.Builder()
-        .withDrink("Latte")
-        .withMilk(NONE)
-        .withStrength(HIGH)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
 
 }

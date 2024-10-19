@@ -2,14 +2,14 @@ package drinks.impl
 
 import coin.Coin.*
 import order.Amount.NONE
-import order.Order
 import order.Status.DONE
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class MacchiatoTest {
+internal class MacchiatoTest : MacchiatoTestHelper() {
+
     @Test
     fun testOrderMacchiato() {
         val drink = getMacchiato()
@@ -31,11 +31,4 @@ internal class MacchiatoTest {
         VendingMachine.stop()
     }
 
-    private fun getMacchiato() = Order.Builder()
-        .withDrink("Macchiato")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(ONE_EURO)
-        .build()
 }

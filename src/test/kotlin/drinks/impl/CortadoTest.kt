@@ -2,7 +2,6 @@ package drinks.impl
 
 import coin.Coin.FIFTY_CENTS
 import order.Amount.NONE
-import order.Order
 import order.Status.DONE
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -10,7 +9,7 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class CortadoTest {
+internal class CortadoTest : CortadoTestHelper() {
 
     @Test
     fun testOrderCortado() {
@@ -33,11 +32,4 @@ internal class CortadoTest {
         VendingMachine.stop()
     }
 
-    private fun getCortado() = Order.Builder()
-        .withDrink("Cortado")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
 }

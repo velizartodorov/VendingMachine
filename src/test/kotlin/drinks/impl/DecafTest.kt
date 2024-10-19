@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class DecafTest {
+internal class DecafTest : DecafTestHelper() {
 
     @Test
     fun testOrderDecaf() {
@@ -32,13 +32,5 @@ internal class DecafTest {
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS))
         VendingMachine.stop()
     }
-
-    private fun getDecaf() = Order.Builder()
-        .withDrink("Decaf")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(ONE_EURO)
-        .build()
 
 }

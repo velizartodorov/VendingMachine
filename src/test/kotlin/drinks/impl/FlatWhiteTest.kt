@@ -2,14 +2,14 @@ package drinks.impl
 
 import coin.Coin.*
 import order.Amount.NONE
-import order.Order
 import order.Status.DONE
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class FlatWhiteTest {
+internal class FlatWhiteTest : FlatWhiteTestHelper() {
+
     @Test
     fun testOrderFlatWhite() {
         val drink = getFlatWhite()
@@ -31,11 +31,4 @@ internal class FlatWhiteTest {
         VendingMachine.stop()
     }
 
-    private fun getFlatWhite() =
-        Order.Builder().withDrink("FlatWhite")
-            .withMilk(NONE)
-            .withStrength(MEDIUM)
-            .withSugar(NONE)
-            .withCoins(ONE_EURO)
-            .build()
 }

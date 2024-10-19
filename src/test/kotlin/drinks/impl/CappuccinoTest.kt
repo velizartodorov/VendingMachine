@@ -1,16 +1,13 @@
 package drinks.impl
 
-import coin.Coin.*
-import order.Amount.NONE
-import order.Order
+import coin.Coin.TEN_CENTS
+import coin.Coin.TWENTY_CENTS
 import order.Status.DONE
-import order.Strength.MAX
-import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import vending_machine.VendingMachine
 
-internal class CappuccinoTest {
+internal class CappuccinoTest : CappuccinoTestHelper() {
 
     @Test
     fun testCappuccino() {
@@ -32,19 +29,4 @@ internal class CappuccinoTest {
         assertEquals(orderStatus.change, listOf(TWENTY_CENTS, TEN_CENTS))
     }
 
-    private fun getCappuccino() = Order.Builder()
-        .withDrink("Cappuccino")
-        .withMilk(NONE)
-        .withStrength(MEDIUM)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
-
-    private fun getMaxCappuccino() = Order.Builder()
-        .withDrink("Cappuccino")
-        .withMilk(NONE)
-        .withStrength(MAX)
-        .withSugar(NONE)
-        .withCoins(FIFTY_CENTS)
-        .build()
 }
