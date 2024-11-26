@@ -1,3 +1,4 @@
+import org.gradle.jvm.toolchain.JavaLanguageVersion.of
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -23,7 +24,7 @@ dependencies {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(11))
+        languageVersion.set(of(11))
     }
 }
 
