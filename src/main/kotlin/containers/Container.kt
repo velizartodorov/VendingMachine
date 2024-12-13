@@ -26,15 +26,15 @@ sealed interface Container {
     }
 
     private fun reduceAmountForMedium() {
-        this.amount = this.amount - 2
+        this.amount -= 2
     }
 
     private fun reduceAmountForHigh() {
-        this.amount = this.amount - 3
+        this.amount -= 3
     }
 
     private fun reduceAmountForMax() {
-        this.amount = this.amount - 4
+        this.amount -= 4
     }
 
     companion object {
