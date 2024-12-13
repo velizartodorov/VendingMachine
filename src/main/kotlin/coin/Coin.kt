@@ -11,11 +11,11 @@ enum class Coin(val value: Int) {
     TWO_EUROS(200);
 
     companion object {
-        private val descending = values().reversed()
+        private val descending = entries.reversed()
 
         fun format(numbers: List<Int>): Array<Coin> {
             return numbers.mapNotNull { coin ->
-                values().find { it.value == coin }
+                entries.find { it.value == coin }
             }.toTypedArray()
         }
 

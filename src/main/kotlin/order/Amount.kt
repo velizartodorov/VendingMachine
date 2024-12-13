@@ -5,7 +5,7 @@ enum class Amount {
 
     companion object {
         fun get(amount: Int?): Amount {
-            return amount?.minus(1)?.let { values().getOrNull(it) }
+            return amount?.minus(1)?.let { entries.getOrNull(it) }
                 ?: throw IllegalArgumentException("Amount unsupported: $amount")
         }
     }

@@ -37,9 +37,11 @@ sealed interface Drink {
     }
 
     private fun getErrorMessage(order: Order) =
-        "Amount insufficient for $name! " +
-                "Needed amount: $price " +
-                "Current amount: ${Coin.get(order.coins)}"
+        """
+        Amount insufficient for ${name}! 
+        Needed amount: ${Coin.format(price)} 
+        Current amount: ${Coin.format(order.coins)}
+        """
 
     fun getAmount(strength: Strength?): Amount = when (strength) {
         LOW -> Amount.LOW

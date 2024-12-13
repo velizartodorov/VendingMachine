@@ -27,8 +27,8 @@ object CoinsInterface : UserInterface {
         amount: Int
     ) = """
         Amount insufficient for ${order.drink}! 
-        Needed amount: $price 
-        Current amount: $amount
+        Needed amount: ${Coin.format(price)} 
+        Current amount: ${Coin.format(amount)}
         """
 
     override fun process(order: Order): Order {
