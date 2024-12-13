@@ -1,6 +1,6 @@
 # Vending Machine
 
-![Kotlin Version](https://img.shields.io/badge/Kotlin-2.0.21-green.svg)
+![Kotlin Version](https://img.shields.io/badge/Kotlin-2.1-green.svg)
 ![Build](https://github.com/velizartodorov/VendingMachine/actions/workflows/build.yml/badge.svg)
 ![Tests](https://github.com/velizartodorov/VendingMachine/actions/workflows/tests.yml/badge.svg)
 
