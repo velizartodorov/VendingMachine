@@ -3,7 +3,6 @@ package drinks.impl
 import coin.Coin.ONE_EURO
 import coin.Coin.TWENTY_CENTS
 import order.Amount.NONE
-import order.Order
 import order.Status.DONE
 import order.Strength.MEDIUM
 import org.junit.jupiter.api.Assertions.assertEquals
