@@ -2,8 +2,9 @@
 
 package drinks.impl
 
-import Container
+import container.Container.Companion.getContainer
 import order.Order
+
 
 class CafeAuLait : Drink {
     override val name = "CafeAuLait"
@@ -11,9 +12,9 @@ class CafeAuLait : Drink {
 
     override fun prepareDrink(order: Order) {
         println("Cafe Au Lait preparing ...")
-        Container.getContainer("beans").extractAmount(getAmount(order.strength))
-        Container.getContainer("milk").extractAmount(order.milk)
-        Container.getContainer("sugar").extractAmount(order.sugar)
-        Container.getContainer("water").extractAmount(getAmount(order.drink))
+        getContainer("beans").extractAmount(getAmount(order.strength))
+        getContainer("milk").extractAmount(order.milk)
+        getContainer("sugar").extractAmount(order.sugar)
+        getContainer("water").extractAmount(getAmount(order.drink))
     }
 }

@@ -1,12 +1,14 @@
+package container
+
 import order.Amount
 
 @Suppress("unused")
-class BeansContainer : Container {
-    override val name = "beans"
+class TeaContainer : Container {
+    override val name = "tea"
     override var amount = 500.0
 
     override fun extractAmount(amount: Amount?) {
         reduceAmount(amount)
-        println("Beans extracted. Beans amount remaining: ${this.amount} gr")
+        println("Tea extracted. Tea amount remaining: ${this.amount} gr")
     }
 }

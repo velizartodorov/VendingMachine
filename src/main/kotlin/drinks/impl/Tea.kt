@@ -2,7 +2,7 @@
 
 package drinks.impl
 
-import Container.Companion.getContainer
+import container.Container.Companion.getContainer
 import order.Order
 
 class Tea : Drink {
