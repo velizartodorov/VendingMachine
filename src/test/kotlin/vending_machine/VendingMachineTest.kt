@@ -1,16 +1,14 @@
 package vending_machine
 
-import coin.Coin.FIFTY_CENTS
 import jdk.jshell.spi.ExecutionControl.NotImplementedException
-import order.Amount.NONE
-import order.Order
-import order.Strength.MEDIUM
-import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestMethodOrder
+import org.junit.jupiter.api.assertThrows
 
 @TestMethodOrder(OrderAnnotation::class)
-internal class VendingMachineTest {
+internal class VendingMachineTest : VendingMachineTestHelper() {
 
     @Test
     @org.junit.jupiter.api.Order(1)
@@ -103,14 +101,4 @@ internal class VendingMachineTest {
         VendingMachine.stop()
     }
 
-    private fun getNonExistingDrink(): Order {
-        return Order(
-            drink = null,
-            milk = NONE,
-            water = NONE,
-            sugar = NONE,
-            strength = MEDIUM,
-            coins = listOf(FIFTY_CENTS)
-        )
-    }
 }
