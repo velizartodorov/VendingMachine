@@ -18,7 +18,7 @@ jobs:
             ${{ runner.os }}-gradle-cache
       - name: Cache Gradle Wrapper
         if: github.event_name == 'push' || github.event_name == 'pull_request'
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-wrapper${{ hashFiles('**/*.gradle') }}
