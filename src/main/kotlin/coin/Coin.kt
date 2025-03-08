@@ -19,8 +19,6 @@ enum class Coin(val value: Int) {
             }.toTypedArray()
         }
 
-        fun format(coins: Array<Coin>) = format(get(coins.toList()))
-
         fun format(coins: List<Coin>) = format(get(coins))
 
         fun get(coins: List<Coin>?): Int {

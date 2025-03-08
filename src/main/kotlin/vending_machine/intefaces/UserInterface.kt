@@ -1,8 +1,6 @@
 package vending_machine.intefaces
 
-import drinks.impl.Drink
 import order.Order
-import order.OrderResponse
 
 interface UserInterface {
     fun print(order: Order)
@@ -74,7 +72,7 @@ interface UserInterface {
             CoinsInterface
         )
 
-        fun selectDrink(): OrderResponse {
+        fun selectDrink() {
             println("The vending machine is already running")
             val order = Order(
                 drink = null,
@@ -88,7 +86,6 @@ interface UserInterface {
                 ui.print(order)
                 ui.process(order)
             }
-            return Drink.getDrink(order.drink).prepare(order)
         }
 
     }

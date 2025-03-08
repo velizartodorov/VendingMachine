@@ -21,28 +21,13 @@ object CoinsInterface : UserInterface {
         )
     }
 
-    private fun insufficientAmount(
-        order: Order,
-        price: Int,
-        amount: Int
-    ) = """
-        Amount insufficient for ${order.drink}! 
-        Needed amount: ${Coin.format(price)} 
-        Current amount: ${Coin.format(amount)}
-        """
-
     override fun process(order: Order): Order {
         val value: List<Int> = input(order)
-        val coins = Coin.format(value)
-        val price = Drink.getDrink(order.drink).price
-        val amount = Coin.get(coins.toList())
-        val formatPrice = Coin.format(coins)
-        if (amount >= price) {
-            println("Amount inserted: $formatPrice")
-            order.coins(*coins)
-        } else {
-            println(insufficientAmount(order, price, amount))
-            print(order)
+        order.coins(Coin.format(value))
+        try {
+            Drink.getDrink(order.drink).prepare(order)
+        } catch (e: Exception) {
+            println(e.message)
             process(order)
         }
         return order

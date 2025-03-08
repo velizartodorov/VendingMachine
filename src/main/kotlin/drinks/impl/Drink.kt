@@ -22,14 +22,16 @@ sealed interface Drink {
         val change = amount - price
         val status = if (amount >= price) DONE else IN_PROGRESS
         val orderResponse = OrderResponse(Coin.get(change), status, drink)
-        println("$name ordered successfully! Preparing ...")
-        prepareDrink(order)
-        if (change > 0) {
-            val formatChange = Coin.format(orderResponse.change)
-            println("Take your change: $formatChange")
-        }
-        if (orderResponse.status == DONE) {
-            println("$name prepared successfully! Take it!")
+        if (amount >= price) {
+            println("$name ordered successfully! Preparing ...")
+            prepareDrink(order)
+            if (orderResponse.status == DONE) {
+                println("$name prepared successfully! Take it!")
+            }
+            if (change > 0) {
+                val formatChange = Coin.format(orderResponse.change)
+                println("Take your change: $formatChange")
+            }
         } else {
             throw IllegalArgumentException(getErrorMessage(order))
         }

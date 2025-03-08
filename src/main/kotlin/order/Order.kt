@@ -21,7 +21,7 @@ data class Order(
         apply { this.milk = milk }
     }
 
-    fun coins(vararg coins: Coin) {
+    fun coins(coins: Array<Coin>) {
         apply { this.coins = coins.toList() }
     }
 
