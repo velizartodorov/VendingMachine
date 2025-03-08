@@ -13,7 +13,7 @@ internal class IrishCoffeeTest : IrishCoffeeTestHelper() {
 
     @Test
     fun testOrderIrishCoffee() {
-        val drink = irishCoffee
+        val drink = getIrishCoffee()
         assertEquals(drink.drink, "IrishCoffee")
         assertEquals(drink.milk, NONE)
         assertEquals(drink.strength, MEDIUM)
@@ -24,7 +24,7 @@ internal class IrishCoffeeTest : IrishCoffeeTestHelper() {
     @Test
     fun testVendingMachineWithIrisCoffee() {
         VendingMachine.start()
-        val drink = irishCoffee
+        val drink = getIrishCoffee()
         val orderStatus = VendingMachine.prepare(drink)
         assertEquals(orderStatus.drink, "IrishCoffee")
         assertEquals(orderStatus.status, DONE)
