@@ -1,6 +1,5 @@
 package vending_machine
 
-import jdk.jshell.spi.ExecutionControl.NotImplementedException
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation
 import org.junit.jupiter.api.Test
@@ -97,7 +96,7 @@ internal class VendingMachineTest : VendingMachineTestHelper() {
     fun testVendingMachineWithNonExistingDrink() {
         VendingMachine.start()
         val nonExisting = getNonExistingDrink()
-        assertThrows<NotImplementedException> { VendingMachine.prepare(nonExisting) }
+        assertThrows<IllegalArgumentException> { VendingMachine.prepare(nonExisting) }
         VendingMachine.stop()
     }
 
