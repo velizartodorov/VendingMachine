@@ -1,5 +1,5 @@
 import org.gradle.jvm.toolchain.JavaLanguageVersion.of
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_13
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -24,12 +24,12 @@ dependencies {
 
 java {
     toolchain {
-        languageVersion.set(of(13))
+        languageVersion.set(of(21))
     }
 }
 
 kotlin {
-    jvmToolchain(13)
+    jvmToolchain(21)
 }
 
 tasks.test {
@@ -38,7 +38,7 @@ tasks.test {
 
 tasks.withType<KotlinCompile> {
     compilerOptions {
-        jvmTarget.set(JVM_13)
+        jvmTarget.set(JvmTarget.JVM_21)
         freeCompilerArgs.add("-opt-in=kotlin.RequiresOptIn")
     }
 }
