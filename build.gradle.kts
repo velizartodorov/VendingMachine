@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.code.gson:gson:2.13.2")
+    implementation("com.google.code.gson:gson:2.14.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.2")
     testImplementation(kotlin("test"))
     implementation(kotlin("reflect"))
