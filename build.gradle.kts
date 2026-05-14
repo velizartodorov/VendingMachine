@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "2.3.0"
+    kotlin("jvm") version "2.3.21"
     application
     jacoco
 }
@@ -16,8 +16,8 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.code.gson:gson:2.13.2")
     testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.3")
+    implementation("com.google.code.gson:gson:2.14.0")
     testImplementation(kotlin("test"))
     implementation(kotlin("reflect"))
 }
